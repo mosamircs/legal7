@@ -65,7 +65,7 @@
     }
     if (isset($_POST["signdate"])){
         $formdata["signdate"] = $_POST["signdate"];
-        $update_date = "UPDATE `users` SET `date`='".$formdata["signdate"]."'WHERE `id`='".$formdata["userid"]."'";
+        $update_date = "UPDATE `users` SET `signdate`='".$formdata["signdate"]."'WHERE `id`='".$formdata["userid"]."'";
         $result_date = $connection->query($update_date); 
     }
    if (isset($_POST['company_type'])) {
