@@ -294,15 +294,15 @@
                                 <div class="row g-3 justify-content-between pt-3" dir="rtl" data-id="item_0">
                                 <div class="col-md-4">
                                   <label for="inputtext1" class="form-label mang" id="mangName">اسم المالك</label>
-                                  <input type="text" class="form-control lay3 mangOneInfo" id="name" name = "malek_name">
+                                  <input type="text" class="form-control lay3 mangOneInfo" id="name" name="malek_name" >
                                 </div>
                                 <div class="col-md-4">
                                   <label for="inputtext1" class="form-label mang">جنسيه المالك</label>
-                                    <input type="text" class="form-control lay3 mangOneInfo" id="nation" name = "malek_nationality">
+                                    <input type="text" class="form-control lay3 mangOneInfo" id="nation" name="malek_nationality">
                                 </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="formFileMultiple" class="form-label">اضافه البطاقه الشخصية</label>
-                                        <input class="form-control lay3 mangOneInfo" name = "malek_personal_id" type="file" id="id" accept="image/png, image/gif, image/jpeg">
+                                        <input class="form-control lay3 mangOneInfo" name="malek_personal_id" type="file" id="id" accept="image/png, image/gif, image/jpeg">
                                       </div>
                                     <div class="col-md-4 x-last align-self-center">
                                         <button class="btn btn-outline-danger" type="reset" id="partCompDel">حذف المالك</button>

@@ -719,7 +719,7 @@ let counter = 0;
                         newEl.setAttribute('dir','rtl');
                         newEl.innerHTML = `<div class="col-md-3">
                         <label for="inputtext1" class="form-label mangPart" id="mangName">${labelNameValue}</label>
-                        <input type="text" class="form-control lay3" id="name" name="shareholder_name[]">
+                        <input type="text" class="form-control lay3 mangInfo" id="name" name="shareholder_name[]">
                       </div>
                       <div class="col-md-3">
                         <label for="inputtext1" class="form-label mangPart">${labelNationValue}</label>
@@ -869,7 +869,7 @@ if(parentCard.getElementsByTagName('div').length == 0 ){
                   <img src="images/svgexport-6 (16) 1.svg" alt="" 
                   onclick="this.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode.parentNode)">
               </div>
-              <div class="mt-3 mb-3 " dir="rtl" style="display:${displayٍSelect};"> 
+               <div class="mt-3 mb-3 " dir="rtl" style="display:${displayٍSelect};"> 
                   <label class="visually-hidden" for="specificSizeSelect">Preference</label>
                   <select class="form-select" name = "manager_type[]" id="specificSizeSelect">
                       <option selected disabled>برجاء تحديد التصنيف</option>
@@ -892,7 +892,7 @@ if(parentCard.getElementsByTagName('div').length == 0 ){
                       </div>
                   </div>
                   <div class="col-6 align-self-center" style="padding-top: 33px;">
-                      <div class="id"><img src="${e.prev}" alt="" width="100%" name = "manager_personal_id[]" id="imagePrev_${i}" class="imgId"></div>
+                      <div class="id"><img src="${e.prev}" alt="" width="100%" name = "personal_id[]" id="imagePrev_${i}" class="imgId"></div>
                   </div>
               </div>
           </div>
@@ -908,13 +908,13 @@ if(parentCard.getElementsByTagName('div').length == 0 ){
                 <label class="form-check-label" for="flexCheckChecked2">
                 صلاحية توقيع العقود بالنيابه عن الشركة
                 </label>
-                <input class="form-check-input" type="checkbox" name = "perm2[]" value="1" >
+                <input class="form-check-input" type="checkbox" value="1" name = "perm2[]">
                 </div>
                 <div class="form-check">
                 <label class="form-check-label" for="flexCheckChecked3">
                 صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
                 </label>
-                <input class="form-check-input" type="checkbox" name = "perm3[]" value="1" >
+                <input class="form-check-input" type="checkbox" value="1" name = "perm3[]">
                 </div>
           </div>
           <div class="card-footer align-self-center" style="display:none;">
@@ -947,6 +947,7 @@ if(parentCard.getElementsByTagName('div').length == 0 ){
             <option value = "director_manager">عضو منتدب</option> 
         </select>
     </div>
+    </div>
     <div class="row">
         <div class="col-6">
             <div class=" g-3 justify-content-around" dir="rtl">
@@ -966,7 +967,7 @@ if(parentCard.getElementsByTagName('div').length == 0 ){
             <div class="form-group">
             <div class="form-line">
                 <div class="btn-file align-items-center">
-                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name="source" name = "manager_personal_id[]" value="" onchange="onFileSelected(event,${i})" data-id="input_${x}">
+                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg"  name = "personal_id[]" value="" onchange="onFileSelected(event,${i})" data-id="input_${x}">
                     <div class=" change-file-ico">
                        <img src="images/upload.svg" width="25%" class="disNone">
                        </div>
@@ -993,13 +994,13 @@ if(parentCard.getElementsByTagName('div').length == 0 ){
       <label class="form-check-label" for="flexCheckChecked2">
       صلاحية توقيع العقود بالنيابه عن الشركة
       </label>
-      <input class="form-check-input" type="checkbox" name = "perm2[]" value="1" >
+      <input class="form-check-input" type="checkbox" value="1" name = "perm2[]">
       </div>
       <div class="form-check">
       <label class="form-check-label" for="flexCheckChecked3">
       صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
       </label>
-      <input class="form-check-input" type="checkbox" name = "perm3[]" value="1" >
+      <input class="form-check-input" type="checkbox" value="1" name = "perm3[]">
       </div>
     </div>
     <div class="card-footer align-self-center" style="display:none;">
@@ -1049,7 +1050,7 @@ else{
             <div class="form-group">
             <div class="form-line">
                 <div class="btn-file align-items-center">
-                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name="manager_personal_id[]" value="" data-id="input_${y}" onchange="onFileSelected(event, ${i})">
+                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name = "personal_id[]" value="" data-id="input_${y}" onchange="onFileSelected(event, ${i})">
                     <div class=" change-file-ico">
                        <img src="images/upload.svg" width="25%">
                     </div>
@@ -1137,7 +1138,7 @@ else{
                       </div>
                   </div>
                   <div class="col-6 align-self-center" style="padding-top: 33px;">
-                      <div class="id"><img src="${e.prev}" alt="" width="100%" id="imagePrev_${i}" name="manager_personal_id[]" class="imgId"></div>
+                      <div class="id"><img src="${e.prev}" alt="" width="100%" name = "personal_id[]" id="imagePrev_${i}" class="imgId"></div>
                   </div>
               </div>
           </div>
@@ -1147,19 +1148,19 @@ else{
               <label class="form-check-label" for="flexCheckDefault1">
               صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
               </label>
-              <input class="form-check-input" type="checkbox" name = "perm1[]" value="1" >
+              <input class="form-check-input" type="checkbox" value="1" name = "perm1[]">
                 </div>
                 <div class="form-check">
                 <label class="form-check-label" for="flexCheckChecked2">
                 صلاحية توقيع العقود بالنيابه عن الشركة
                 </label>
-                <input class="form-check-input" type="checkbox" name = "perm2[]" value="1" >
+                <input class="form-check-input" type="checkbox" value="1" name = "perm2[]">
                 </div>
                 <div class="form-check">
                 <label class="form-check-label" for="flexCheckChecked3">
                 صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
                 </label>
-                <input class="form-check-input" type="checkbox" name = "perm3[]" value="1" >
+                <input class="form-check-input" type="checkbox" value="1" name = "perm3[]">
                 </div>
           </div>
           <div class="card-footer align-self-center" style="display:none;">
@@ -1211,7 +1212,7 @@ else{
             <div class="form-group">
             <div class="form-line">
                 <div class="btn-file align-items-center">
-                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name="manager_personal_id[]"  value="" onchange="onFileSelected(event,${i})" data-id="input_${x}">
+                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name = "personal_id[]" value="" onchange="onFileSelected(event,${i})" data-id="input_${x}">
                     <div class=" change-file-ico">
                        <img src="images/upload.svg" width="25%" class="disNone">
                        </div>
@@ -1233,20 +1234,20 @@ else{
     صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
     </label>
     <input class="form-check-input" type="checkbox"  name = "perm1[]"  value="1" >
-      </div>
-      <div class="form-check">
-      <label class="form-check-label" for="flexCheckChecked2">
-      صلاحية توقيع العقود بالنيابه عن الشركة
-      </label>
-      <input class="form-check-input" type="checkbox" name = "perm2[]"  value="1" >
-      </div>
-      <div class="form-check">
-      <label class="form-check-label" for="flexCheckChecked3">
-      صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
-      </label>
-      <input class="form-check-input" type="checkbox"  name = "perm3[]" value="1" >
-      </div>
     </div>
+    <div class="form-check">
+    <label class="form-check-label" for="flexCheckChecked2">
+    صلاحية توقيع العقود بالنيابه عن الشركة
+    </label>
+    <input class="form-check-input" type="checkbox" name = "perm2[]"  value="1" >
+    </div>
+    <div class="form-check">
+    <label class="form-check-label" for="flexCheckChecked3">
+    صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
+    </label>
+    <input class="form-check-input" type="checkbox"  name = "perm3[]" value="1" >
+    </div>
+  </div>
     <div class="card-footer align-self-center" style="display:none;">
     <div class="buttons">
         <button class="btn save" type="button">حفظ</button>
@@ -1294,7 +1295,7 @@ else{
             <div class="form-group">
             <div class="form-line">
                 <div class="btn-file align-items-center">
-                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name = "manager_personal_id[]" value="" data-id="input_${y}" onchange="onFileSelected(event, ${i})">
+                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name = "personal_id[]" value="" data-id="input_${y}" onchange="onFileSelected(event, ${i})">
                     <div class=" change-file-ico">
                        <img src="images/upload.svg" width="25%">
                     </div>
@@ -1315,20 +1316,20 @@ else{
     صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
     </label>
     <input class="form-check-input" type="checkbox"  name = "perm1[]" value="1">
-      </div>
-      <div class="form-check">
-      <label class="form-check-label" for="flexCheckChecked2">
-      صلاحية توقيع العقود بالنيابه عن الشركة
-      </label>
-      <input class="form-check-input" type="checkbox" name = "perm2[]" value="1" >
-      </div>
-      <div class="form-check">
-      <label class="form-check-label" for="flexCheckChecked3">
-      صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
-      </label>
-      <input class="form-check-input" type="checkbox" name = "perm3[]" value="1" >
-      </div>
     </div>
+    <div class="form-check">
+    <label class="form-check-label" for="flexCheckChecked2">
+    صلاحية توقيع العقود بالنيابه عن الشركة
+    </label>
+    <input class="form-check-input" type="checkbox" name = "perm2[]" value="1" >
+    </div>
+    <div class="form-check">
+    <label class="form-check-label" for="flexCheckChecked3">
+    صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
+    </label>
+    <input class="form-check-input" type="checkbox" name = "perm3[]" value="1" >
+    </div>
+  </div>
     <div class="card-footer align-self-center" style="display:none;">
     <div class="buttons">
         <button class="btn save" type="button">حفظ</button>
@@ -1488,4 +1489,36 @@ $(function() {
       });
   
     });
-    //////////////////file uploda area/////////////////////////////////////
+    //////////////////file uploda area
+
+
+
+
+
+
+
+
+
+
+
+
+// sherholder[0][name]
+
+// sherholder[0][personal_id]
+// sherholder[0][nation]
+
+// sherholder[1][name]
+// sherholder[1][personal_id]
+// sherholder[1][nation]
+// [
+//     0=.[
+//         name=>|mohamed,
+//          pesonalid=> filwobject
+//          nation=.egy
+//     ],
+//     1=.[
+//         name=>|mohamed,
+//          pesonalid=> filwobject
+//          nation=.egy
+//     ]
+// ]
