@@ -121,16 +121,21 @@
     if (isset($_FILES['personal_id'])) {
         $counter = 0;
         foreach ($_FILES['personal_id']['tmp_name'] as $key => $tmp_name) {
-            $shareholders["personal_id"][$counter] = time() . $_FILES['personal_id']['name'][$key];
-            echo $file_name;
+            $file_name = $key . $_FILES['personal_id']['name'][$key];
             $file_size = $_FILES['personal_id']['size'][$key];
             $file_tmp = $_FILES['personal_id']['tmp_name'][$key];
             $file_type = $_FILES['personal_id']['type'][$key];
-            move_uploaded_file($file_tmp, 'uploads/'  . $managers["personal_id"][$counter]);
+            move_uploaded_file($file_tmp, 'uploads/' . $file_name);
             $counter++;
         }
     }
-
+    if (isset($_FILES["personal_id"]["name"])) {
+        for ($i=0; $i <count($_FILES["personal_id"]["name"]) ; $i++) {   
+        $shareholders[$i]["personal_id"] = $_FILES["personal_id"]["name"][$i];
+        }
+    }
+    
+ 
 
     /////////////////////////////// Managers layer ///////////////////////////////
     if (isset($_POST["manager_name"])) {
@@ -164,16 +169,26 @@
             $permessions[$i]["perm3"] = $_POST["perm3"][$i];
         }
     }
-
-    if (isset($_FILES['manager_personal_id'])) {
+    if (isset($_POST["manager_personal_id"])){
+        for ($i=0; $i < count($_POST["manager_personal_id"]); $i++) { 
+            $managers[$i]["manager_personal_id"] = $_POST["manager_personal_id"][$i];
+        }
+    }
+        
+    if (isset($_FILES['upload_manager'])) {
         $counter = 0;
-        foreach ($_FILES['manager_personal_id']['tmp_name'] as $key => $tmp_name) {
-            $managers["manager_personal_id"][$counter] = time() . $_FILES['manager_personal_id']['name'][$key];
-            $file_size = $_FILES['manager_personal_id']['size'][$key];
-            $file_tmp = $_FILES['manager_personal_id']['tmp_name'][$key];
-            $file_type = $_FILES['manager_personal_id']['type'][$key];
-            move_uploaded_file($file_tmp, 'uploads/' .  $managers["manager_personal_id"][$counter]);
+        foreach ($_FILES['upload_manager']['tmp_name'] as $key => $tmp_name) {
+            $file_name = $key . $_FILES['upload_manager']['name'][$key];
+            $file_size = $_FILES['upload_manager']['size'][$key];
+            $file_tmp = $_FILES['upload_manager']['tmp_name'][$key];
+            $file_type = $_FILES['upload_manager']['type'][$key];
+            move_uploaded_file($file_tmp, 'uploads/' . $file_name);
             $counter++;
+        }
+    }
+    if (isset($_FILES["upload_manager"]["name"])) {
+        for ($i=0; $i <count($_FILES["upload_manager"]["name"]) ; $i++) {   
+        $managers[$i]["upload_manager"] = $_FILES["upload_manager"]["name"][$i];
         }
     }
 
@@ -186,22 +201,50 @@
 
     /////////////////////////////// insert shareholders to database ///////////////////////////////
     for ($i=0; $i < count($shareholders); $i++) {
-        $insert .= "INSERT INTO `shareholders`(`name`,`nationality` , `percenatage`, `personal_id`,`company_id`) VALUES ('".$shareholders[$i]["shareholder_name"] ."','".$shareholders[$i]["shareholder_nationality"]."','".$shareholders[$i]["shareholder_percentage"]."','".$shareholders[$i]["personal_id"]."','".$formdata["company_id"]."');";
-        // $result = $connection->query($insert_shareholder);
+        $insert_shareholder = "INSERT INTO `shareholders`(`name`,`nationality` , `percenatage`, `personal_id`,`company_id`) VALUES ('".$shareholders[$i]["shareholder_name"] ."','".$shareholders[$i]["shareholder_nationality"]."','".$shareholders[$i]["shareholder_percentage"]."','".$shareholders[$i]["personal_id"]."','".$formdata["company_id"]."');";
+        $result = $connection->query($insert_shareholder);
     }
     
     /////////////////////////////// insert managers to database ////////////////////////////////
+    if (isset($_POST["hidden_personal_id1"])) {
+        for ($i=0; $i < count($_POST["hidden_personal_id1"]); $i++) {
+            $managers[$i]["personal_id"] = $_POST["hidden_personal_id1"][$i];
+        }
+        for ($i=0; $i < count($managers); $i++) {
+            $insert_manager = "INSERT INTO `managers`(`name`,`nationality` , `personal_id`,`perm1`,`perm2`,`perm3`,`manager_type`,`company_id`) VALUES ('".$managers[$i]["manager_name"]."','".$managers[$i]["manager_nationality"]."','".$managers[$i]["personal_id"] ."','".$permessions[$i]["perm1"]."','".$permessions[$i]["perm2"]."','".$permessions[$i]["perm3"]."','".$managers[$i]["manager_type"] ."','".$formdata["company_id"]."')";
+            $result1 = $connection->query($insert_manager);
+        }
+    }
+    if (isset($_POST["hidden_personal_id2"])) {
+        for ($i=0; $i < count($_POST["hidden_personal_id2"]); $i++) {
+            $managers[$i]["personal_id"] = $_POST["hidden_personal_id2"][$i];
+        }
+        for ($i=0; $i < count($managers); $i++) {
+            $insert_manager = "INSERT INTO `managers`(`name`,`nationality` , `personal_id`,`perm1`,`perm2`,`perm3`,`manager_type`,`company_id`) VALUES ('".$managers[$i]["manager_name"]."','".$managers[$i]["manager_nationality"]."','".$managers[$i]["personal_id"] ."','".$permessions[$i]["perm1"]."','".$permessions[$i]["perm2"]."','".$permessions[$i]["perm3"]."','".$managers[$i]["manager_type"] ."','".$formdata["company_id"]."')";
+            $result1 = $connection->query($insert_manager);
+        }
+    }
+    if (isset($_POST["hidden_personal_id3"])) {
+        for ($i=0; $i < count($_POST["hidden_personal_id3"]); $i++) {
+            $managers[$i]["personal_id"] = $_POST["hidden_personal_id3"][$i];
+        }
+        for ($i=0; $i < count($managers); $i++) {
+            $insert_manager = "INSERT INTO `managers`(`name`,`nationality` , `personal_id`,`perm1`,`perm2`,`perm3`,`manager_type`,`company_id`) VALUES ('".$managers[$i]["manager_name"]."','".$managers[$i]["manager_nationality"]."','".$managers[$i]["personal_id"] ."','".$permessions[$i]["perm1"]."','".$permessions[$i]["perm2"]."','".$permessions[$i]["perm3"]."','".$managers[$i]["manager_type"] ."','".$formdata["company_id"]."')";
+            $result1 = $connection->query($insert_manager);
+        }
+    }
+    if(isset($managers[0]["upload_manager"]))
     for ($i=0; $i < count($managers); $i++) {
-        $insert .= "INSERT INTO `managers`(`name`,`nationality` , `personal_id`,`perm1`,`perm2`,`perm3`,`manager_type`,`company_id`) VALUES ('".$managers[$i]["manager_name"]."','".$managers[$i]["manager_nationality"]."','".$managers[$i]["manager_personal_id"]."','".$permessions[$i]["perm1"]."','".$permessions[$i]["perm2"]."','".$permessions[$i]["perm3"]."','".$managers[$i]["manager_type"] ."','".$formdata["company_id"]."')";
-        // $result1 = $connection->query($insert_manager);
+        $insert_manager = "INSERT INTO `managers`(`name`,`nationality` , `personal_id`,`perm1`,`perm2`,`perm3`,`manager_type`,`company_id`) VALUES ('".$managers[$i]["manager_name"]."','".$managers[$i]["manager_nationality"]."','".$managers[$i]["upload_manager"]."','".$permessions[$i]["perm1"]."','".$permessions[$i]["perm2"]."','".$permessions[$i]["perm3"]."','".$managers[$i]["manager_type"] ."','".$formdata["company_id"]."')";
+        $result1 = $connection->query($insert_manager);
     }
 
     ///////////////////////////////////////// insert malek in database ////////////////////////////
     if (isset($_POST["malek_name"]) && isset($_POST["malek_nationality"]) && isset($_POST["malek_personal_id"])) {
-        $insert .= "INSERT INTO `managers`(`name`,`nationality` , `personal_id`,`company_id`) VALUES ('".$_POST["malek_name"]."','".$_POST["malek_nationality"]."','".$_POST["malek_personal_id"]."','".$formdata["company_id"]."')";
-        // $result = $connection->query($insert_malek);
+        $insert_malek = "INSERT INTO `managers`(`name`,`nationality` , `personal_id`,`company_id`) VALUES ('".$_POST["malek_name"]."','".$_POST["malek_nationality"]."','".$_POST["malek_personal_id"]."','".$formdata["company_id"]."')";
+        $result = $connection->query($insert_malek);
     }
     // ///////////////////////////////// insert multiquery to database  and close connection ///////////////////////////////
-    $result = $connection->multi_query($insert);
-    $database_instance->destructConnection();
+    // $result = $connection->multi_query($insert);
+    // $database_instance->destructConnection();
 ?>

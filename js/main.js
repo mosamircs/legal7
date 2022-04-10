@@ -26,7 +26,20 @@ const oneComp = document.getElementsByClassName('oneComp');
 
 const select = document.querySelector('#specificSizeSelect');
 const parentCountEl = document.getElementById('part-form');
-///////// show layers 
+///////// show layers
+//samir 
+    var imgSrc = document.getElementsByName("manager_personal_id1");
+    var hrc = document.getElementsByName("hidden_personal_id1");
+    hrc[0].value =   imgSrc[0].getAttribute("src");
+
+    var imgSrc = document.getElementsByName("manager_personal_id2");
+    var hrc = document.getElementsByName("hidden_personal_id2");
+    hrc[0].value =   imgSrc[0].getAttribute("src");
+
+    var imgSrc = document.getElementsByName("manager_personal_id3");
+    var hrc = document.getElementsByName("hidden_personal_id3");
+    hrc[0].value =   imgSrc[0].getAttribute("src");
+
 let currLayer = 0;
 showLayer(currLayer);
 
@@ -876,11 +889,11 @@ if(parentCard.getElementsByTagName('div').length == 0 ){
               </div>
               <div class="mt-3 mb-3 " dir="rtl" style="display:${displayٍSelect};"> 
                   <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
-                  <select class="form-select" name = "mangager_type" id="specificSizeSelect2" onchange="detectSelection()">
+                  <select class="form-select" name = "mangager_type" id="specificSizeSelect2">
                       <option selected readonly>برجاء تحديد التصنيف</option>
                       <option value = "ceo">رئيس مجلس الاداره</option>
                       <option value = "director_member">عضو مجلس اداره</option> 
-                      <option name = "director_manager">عضو منتدب</option> 
+                      <option value = "director_manager">عضو منتدب</option> 
                   </select>
               </div>
               <div class="row">
@@ -897,7 +910,9 @@ if(parentCard.getElementsByTagName('div').length == 0 ){
                       </div>
                   </div>
                   <div class="col-6 align-self-center" style="padding-top: 33px;">
-                      <div class="id"><img src="${e.prev}" alt="" width="100%" id="imagePrev_${i}" name = "manager_personal_id[]" class="imgId"></div>
+                      <div class="id"><img src="${e.prev}" alt="" width="100%" id="imagePrev_${i}" name = "manager_personal_id1" class="imgId">
+                      <input type="hidden" name="hidden_personal_id1" />
+                      </div>
                   </div>
               </div>
           </div>
@@ -945,11 +960,11 @@ if(parentCard.getElementsByTagName('div').length == 0 ){
     </div>
     <div class="mt-3 mb-3" dir="rtl"  style="display:${displayٍSelect};"> 
         <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
-        <select class="form-select" name = "mangager_type" id="specificSizeSelect2">
-            <option selected readonly>برجاء تحديد التصنيف</option>
+        <select class="form-select" name = "manager_type[]" id="specificSizeSelect2">
+            <option selected disabled>برجاء تحديد التصنيف</option>
             <option value = "ceo">رئيس مجلس الاداره</option>
             <option value = "director_member">عضو مجلس اداره</option> 
-            <option name = "director_manager">عضو منتدب</option> 
+            <option value = "director_manager">عضو منتدب</option> 
         </select>
     </div>
     <div class="row">
@@ -971,7 +986,7 @@ if(parentCard.getElementsByTagName('div').length == 0 ){
             <div class="form-group">
             <div class="form-line">
                 <div class="btn-file align-items-center">
-                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name="manager_personal_id[]" name = "personal_id[]" value="" onchange="onFileSelected(event,${i})" data-id="input_${x}">
+                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg"   name = "upload_manager[]"  value="" onchange="onFileSelected(event,${i})" data-id="input_${x}">
                     <div class=" change-file-ico">
                        <img src="images/upload.svg" width="25%" class="disNone">
                        </div>
@@ -1032,7 +1047,7 @@ else{
             <option selected readonly>برجاء تحديد التصنيف</option>
             <option value = "ceo">رئيس مجلس الاداره</option>
             <option value = "director_member">عضو مجلس اداره</option> 
-            <option name = "director_manager">عضو منتدب</option> 
+            <option value = "director_manager">عضو منتدب</option> 
         </select>
     </div>
     <div class="row">
@@ -1049,12 +1064,12 @@ else{
             </div>
         </div>
         <div class="col-6 align-self-center" style="padding-top: 33px;">
-        <div class="id dispBlo" style="display: none;"><img src="" class="imageUpload imgId" id="img_prev_${i}"></div>
+        <div class="id dispBlo" style="display: none;"><img src="" class="imageUpload imgId"  id="img_prev_${i}"></div>
             <div class="id d-flex justify-content-center align-items-center">
             <div class="form-group">
             <div class="form-line">
                 <div class="btn-file align-items-center">
-                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name="manager_personal_id[]" value="" data-id="input_${y}" onchange="onFileSelected(event, ${i})">
+                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg"  name = "upload_manager[]"  value="" data-id="input_${y}" onchange="onFileSelected(event, ${i})">
                     <div class=" change-file-ico">
                        <img src="images/upload.svg" width="25%">
                     </div>
@@ -1125,7 +1140,7 @@ else{
                       <option selected readonly>برجاء تحديد التصنيف</option>
                       <option value = "ceo">رئيس مجلس الاداره</option>
                       <option value = "director_member">عضو مجلس اداره</option> 
-                      <option name = "director_manager">عضو منتدب</option> 
+                      <option value = "director_manager">عضو منتدب</option> 
                   </select>
               </div>
               <div class="row">
@@ -1142,7 +1157,9 @@ else{
                       </div>
                   </div>
                   <div class="col-6 align-self-center" style="padding-top: 33px;">
-                      <div class="id"><img src="${e.prev}" alt="" width="100%" name = "manager_personal_id[]" id="imagePrev_${i}" class="imgId"></div>
+                      <div class="id"><img src="${e.prev}" alt="" width="100%" name = "manager_personal_id2" id="imagePrev_${i}" class="imgId">
+                      <input type="hidden" name="hidden_personal_id2" />
+                      </div>
                   </div>
               </div>
           </div>
@@ -1194,7 +1211,7 @@ else{
             <option selected readonly>برجاء تحديد التصنيف</option>
             <option value = "ceo">رئيس مجلس الاداره</option>
             <option value = "director_member">عضو مجلس اداره</option> 
-            <option name = "director_manager">عضو منتدب</option> 
+            <option value = "director_manager">عضو منتدب</option> 
         </select>
     </div>
     <div class="row">
@@ -1211,12 +1228,14 @@ else{
             </div>
         </div>
         <div class="col-6 align-self-center" style="padding-top: 33px;">
-        <div class="id dispBlo" style="display: none;"><img src="" class="imageUpload imgId" id="img_prev_${i}"></div>
+        <div class="id dispBlo" style="display: none;"><img src="" class="imageUpload imgId" id="img_prev_${i}" name="manager_personal_id3">
+        <input type="hidden" name="hidden_personal_id3" />
+        </div>
         <div class="id d-flex justify-content-center align-items-center">
             <div class="form-group">
             <div class="form-line">
                 <div class="btn-file align-items-center">
-                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name="manager_personal_id[]" value="" onchange="onFileSelected(event,${i})" data-id="input_${x}">
+                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg"  value="" onchange="onFileSelected(event,${i})" data-id="input_${x}">
                     <div class=" change-file-ico">
                        <img src="images/upload.svg" width="25%" class="disNone">
                        </div>
@@ -1277,7 +1296,7 @@ else{
             <option selected readonly>برجاء تحديد التصنيف</option>
             <option value = "ceo">رئيس مجلس الاداره</option>
             <option value = "director_member">عضو مجلس اداره</option> 
-            <option name = "director_manager">عضو منتدب</option> 
+            <option value = "director_manager">عضو منتدب</option> 
         </select>
     </div>
     <div class="row">
@@ -1299,7 +1318,7 @@ else{
             <div class="form-group">
             <div class="form-line">
                 <div class="btn-file align-items-center">
-                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name="manager_personal_id[]" value="" data-id="input_${y}" onchange="onFileSelected(event, ${i})">
+                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name = "upload_manager[]" value="" data-id="input_${y}" onchange="onFileSelected(event, ${i})">
                     <div class=" change-file-ico">
                        <img src="images/upload.svg" width="25%">
                     </div>
