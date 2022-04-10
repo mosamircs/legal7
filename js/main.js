@@ -14,7 +14,7 @@ const layer = document.getElementsByClassName('layer');
 const progress = document.getElementById('progress');
 const circles = document.querySelectorAll('.circle');
 
-const partCompDel = document.getElementById('partCompDel');
+const partCompDel = document.getElgetElementByIdementById('partCompDel');
 const allCompOption = document.getElementById('allCompOption');
 const partName = document.getElementById('partName');
 const mangPart = document.getElementsByClassName('mangPart');
@@ -892,7 +892,7 @@ if(parentCard.getElementsByTagName('div').length == 0 ){
                       </div>
                   </div>
                   <div class="col-6 align-self-center" style="padding-top: 33px;">
-                      <div class="id"><img src="${e.prev}" alt="" width="100%" name = "personal_id[]" id="imagePrev_${i}" class="imgId"></div>
+                      <div class="id"><img src="${e.prev}" alt="" width="100%" name = "manager_personal_id[]" id="imagePrev_${i}" class="imgId"></div>
                   </div>
               </div>
           </div>
@@ -967,7 +967,7 @@ if(parentCard.getElementsByTagName('div').length == 0 ){
             <div class="form-group">
             <div class="form-line">
                 <div class="btn-file align-items-center">
-                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg"  name = "personal_id[]" value="" onchange="onFileSelected(event,${i})" data-id="input_${x}">
+                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg"  name = "manager_personal_id[]" value="" onchange="onFileSelected(event,${i})" data-id="input_${x}">
                     <div class=" change-file-ico">
                        <img src="images/upload.svg" width="25%" class="disNone">
                        </div>
@@ -1050,7 +1050,7 @@ else{
             <div class="form-group">
             <div class="form-line">
                 <div class="btn-file align-items-center">
-                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name = "personal_id[]" value="" data-id="input_${y}" onchange="onFileSelected(event, ${i})">
+                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name = "manager_personal_id[]" value="" data-id="input_${y}" onchange="onFileSelected(event, ${i})">
                     <div class=" change-file-ico">
                        <img src="images/upload.svg" width="25%">
                     </div>
@@ -1138,7 +1138,7 @@ else{
                       </div>
                   </div>
                   <div class="col-6 align-self-center" style="padding-top: 33px;">
-                      <div class="id"><img src="${e.prev}" alt="" width="100%" name = "personal_id[]" id="imagePrev_${i}" class="imgId"></div>
+                      <div class="id"><img src="${e.prev}" alt="" width="100%" name = "manager_personal_id[]" id="imagePrev_${i}" class="imgId"></div>
                   </div>
               </div>
           </div>
@@ -1212,7 +1212,7 @@ else{
             <div class="form-group">
             <div class="form-line">
                 <div class="btn-file align-items-center">
-                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name = "personal_id[]" value="" onchange="onFileSelected(event,${i})" data-id="input_${x}">
+                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name = "manager_personal_id[]" value="" onchange="onFileSelected(event,${i})" data-id="input_${x}">
                     <div class=" change-file-ico">
                        <img src="images/upload.svg" width="25%" class="disNone">
                        </div>
@@ -1295,7 +1295,7 @@ else{
             <div class="form-group">
             <div class="form-line">
                 <div class="btn-file align-items-center">
-                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name = "personal_id[]" value="" data-id="input_${y}" onchange="onFileSelected(event, ${i})">
+                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name = "manager_personal_id[]" value="" data-id="input_${y}" onchange="onFileSelected(event, ${i})">
                     <div class=" change-file-ico">
                        <img src="images/upload.svg" width="25%">
                     </div>
