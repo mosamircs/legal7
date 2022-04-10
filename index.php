@@ -261,13 +261,13 @@
                                     <div class="row g-3 justify-content-start pt-3 pb-3">
                                         <div class="col-md-4">
                                           <label for="inputtext3" class="form-label">قيمه رأس المال</label>
-                                          <input type="text" class="form-control lay2" id="inputtext3"  name="capital_value"></input>
+                                          <input type="text" class="form-control lay2" id="inputtext3"  name="capital_value" onkeyup="arabicValue(inputtext3)"></input>
                                           <div id="soloComp"><span >راس المال يجب الا يقل عن 50 الف جنيها</span></div>
                                         </div>
                                         <div class="col-md-4">
                                             <!-- <label for="inputtext4" class="form-label" style="display: none;">قيمه السهم</label> -->
                                             <label for="inputtext4" class="form-label" id="valueCor">قيمه الحصه</label>
-                                            <input type="text" class="form-control lay2" id="inputtext4" name="capital_share"></input>
+                                            <input type="text" class="form-control lay2" id="inputtext4" name="capital_share" onkeyup="arabicValue(inputtext4)"></input>
                                         </div>
                                     </div>
                                 </div>
