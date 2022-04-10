@@ -14,7 +14,7 @@ const layer = document.getElementsByClassName('layer');
 const progress = document.getElementById('progress');
 const circles = document.querySelectorAll('.circle');
 
-const partCompDel = document.getElgetElementByIdementById('partCompDel');
+const partCompDel = document.getElementById('partCompDel');
 const allCompOption = document.getElementById('allCompOption');
 const partName = document.getElementById('partName');
 const mangPart = document.getElementsByClassName('mangPart');
@@ -26,7 +26,20 @@ const oneComp = document.getElementsByClassName('oneComp');
 
 const select = document.querySelector('#specificSizeSelect');
 const parentCountEl = document.getElementById('part-form');
-///////// show layers 
+///////// show layers
+//samir 
+    // var imgSrc = document.getElementsByName("manager_personal_id[]1");
+    // var hrc = document.getElementsByName("hidden_personal_id1");
+    // hrc[0].value =   imgSrc[0].getAttribute("src");
+
+    // var imgSrc = document.getElementsByName("manager_personal_id[]2");
+    // var hrc = document.getElementsByName("hidden_personal_id2");
+    // hrc[0].value =   imgSrc[0].getAttribute("src");
+
+    // var imgSrc = document.getElementsByName("manager_personal_id[]3");
+    // var hrc = document.getElementsByName("hidden_personal_id3");
+    // hrc[0].value =   imgSrc[0].getAttribute("src");
+
 let currLayer = 0;
 showLayer(currLayer);
 
@@ -50,49 +63,27 @@ function showLayer(curr){
     if(curr == 2 && checkbox3.checked){
         document.getElementById('soloComp').style.display = 'block';
         // console.log('jjf')
+
     }else{
         document.getElementById('soloComp').style.display = 'none';
     }
 
     if(curr == 3 && checkbox2.checked){
         allCompOption.innerHTML = 'اختر عدد المساهمين'         
-        // disOpt1();
-        document.querySelectorAll("#specificSizeSelect option").forEach(opt => {
-            if (opt.value == "1") {
-                opt.disabled = true;
-                console.log(opt);
-            }
-        });
-        document.querySelectorAll("#specificSizeSelect option").forEach(opt => {
-            if (opt.value == "2") {
-                opt.disabled = true;
-                console.log(opt);
-            }
-        });
                 
     } else{
         allCompOption.innerHTML = 'اختر عدد المديرين'
-        // EnableOpt1();
-        document.querySelectorAll("#specificSizeSelect option").forEach(opt => {
-            if (opt.value == "1") {
-                opt.disabled = false;
-            }
-        });
-        document.querySelectorAll("#specificSizeSelect option").forEach(opt => {
-            if (opt.value == "2") {
-                opt.disabled = false;
-            }
-        });
     }
-    if((curr == 3 && checkbox5.checked) || (curr == 3 && checkbox6.checked) || (curr == 3 && checkbox1.checked)){
-        disOpt1();
-    }else{
-        EnableOpt1();
-    }
+    // if((curr == 3 && checkbox5.checked) || (curr == 3 && checkbox6.checked) || (curr == 3 && checkbox1.checked)){
+    //     disOpt1();
+    // }else{
+    //     EnableOpt1();
+    // }
 //////////////////////edit--->2
 if((curr == 3 && checkbox3.checked) || (curr == 3 && checkbox4.checked)){
     // oneCompbuild();
     // buildOneOwner();
+    parentCountEl.innerHTML = '';
     document.getElementById('soloComp').style.display = 'block';
     document.getElementById('specificSizeSelect').style.display = 'none';
     [...oneComp].forEach(e =>{
@@ -157,7 +148,8 @@ const userPhone = document.getElementById('phone');
 const errorUserName = document.getElementById('error-userName');
 const errorUserEmail = document.getElementById('error-email');  
 const errorUserPhone = document.getElementById('error-phone');  
-const errorMangerAdd = document.getElementById('error-mangerAdd') ;
+const errorMangerAdd = document.getElementById('error-mangerAdd');
+const errormanger = document.getElementById('error-manger');
 
 let emailPattern = /^(\D)+(\w)*((\.(\w)+)?)+@(\D)+(\w)*((\.(\D)+(\w)*)+)?(\.)[a-z]{2,}$/;
 let phonePattern = /1?-?\.?\(?\d{3}[\-\)\.\s]?\d{3}[\-\.\s]?\d{4}/;
@@ -169,147 +161,159 @@ let inputTxt2 = document.getElementsByClassName('lay3');
 function validateForm() {
     let valid = true;
     let formValidArr = [];
-//     if(currLayer == 0)
-//     {
-//        //user name
-//        if(userName.value == ''){
-//        //user name
-//            errorUserName.innerHTML="يجب ادخال اسم المستخدم ";
-//            errorUserName.style.display="block";
-//            errorUserName.style.fontSize="14px";
-//            errorUserName.style.color="red";
-//            userName.style.border = "1px solid red";
-//         //    valid = false;   
-//         formValidArr.push(false);            
+    if(currLayer == 0)
+    {
+       //user name
+       if(userName.value == ''){
+       //user name
+           errorUserName.innerHTML="يجب ادخال اسم المستخدم ";
+           errorUserName.style.display="block";
+           errorUserName.style.fontSize="14px";
+           errorUserName.style.color="red";
+           userName.style.border = "1px solid red";
+        //    valid = false;   
+        formValidArr.push(false);            
 
-//        } else{
-//            // if(isNaN(userName.value)) {
-//                    errorUserName.innerHTML="";
-//                    userName.style.border = "1px solid green";
-//                 //    valid = true;
-//         formValidArr.push(true);            
+       } else{
+           // if(isNaN(userName.value)) {
+                   errorUserName.innerHTML="";
+                   userName.style.border = "1px solid green";
+                //    valid = true;
+        formValidArr.push(true);            
 
-//            }
-//        //user email
-//        if(userEmail.value == ''){
-//            errorUserEmail.innerHTML="يجب ادخال البريد الالكترونى";
-//            errorUserEmail.style.display="block";
-//            errorUserEmail.style.fontSize="14px";
-//            errorUserEmail.style.color="red";
-//            userEmail.style.border = "1px solid red";
-//         //    valid = false;
-//         formValidArr.push(false);            
-//         //    console.log('empty')            
-//        } else{
-//            if(emailPattern.test(userEmail.value)){
-//                //user email
-//                    errorUserEmail.innerHTML="";
-//                    userEmail.style.border = "1px solid green";
-//                 //    valid = true;
-//         //    console.log('valid') 
-//         formValidArr.push(true);            
-
-
-//            }else{
-//                     //user email
-//                     errorUserEmail.innerHTML="البريد الالكترونى غير صالح";
-//                     errorUserEmail.style.display="block";
-//                     errorUserEmail.style.fontSize="14px";
-//                     errorUserEmail.style.color="red";
-//                     userEmail.style.border = "1px solid red";
-//                     // valid = false;  
-//         //    console.log('invalidpattern')
-//         formValidArr.push(false);            
+           }
+       //user email
+       if(userEmail.value == ''){
+           errorUserEmail.innerHTML="يجب ادخال البريد الالكترونى";
+           errorUserEmail.style.display="block";
+           errorUserEmail.style.fontSize="14px";
+           errorUserEmail.style.color="red";
+           userEmail.style.border = "1px solid red";
+        //    valid = false;
+        formValidArr.push(false);            
+        //    console.log('empty')            
+       } else{
+           if(emailPattern.test(userEmail.value)){
+               //user email
+                   errorUserEmail.innerHTML="";
+                   userEmail.style.border = "1px solid green";
+                //    valid = true;
+        //    console.log('valid') 
+        formValidArr.push(true);            
 
 
-//              }
-//         }
+           }else{
+                    //user email
+                    errorUserEmail.innerHTML="البريد الالكترونى غير صالح";
+                    errorUserEmail.style.display="block";
+                    errorUserEmail.style.fontSize="14px";
+                    errorUserEmail.style.color="red";
+                    userEmail.style.border = "1px solid red";
+                    // valid = false;  
+        //    console.log('invalidpattern')
+        formValidArr.push(false);            
+
+
+             }
+        }
        
-//        //user phone
-//        if(userPhone.value == ''){
-//            errorUserPhone.innerHTML="يجب ادخال رقم الهاتف";
-//            errorUserPhone.style.display="block";
-//            errorUserPhone.style.fontSize="14px";
-//            errorUserPhone.style.color="red";
-//            userPhone.style.border = "1px solid red";
-//        // console.log('hjekh')
-//        //   valid = false;
-//          formValidArr.push(false);            
+       //user phone
+       if(userPhone.value == ''){
+           errorUserPhone.innerHTML="يجب ادخال رقم الهاتف";
+           errorUserPhone.style.display="block";
+           errorUserPhone.style.fontSize="14px";
+           errorUserPhone.style.color="red";
+           userPhone.style.border = "1px solid red";
+       // console.log('hjekh')
+       //   valid = false;
+         formValidArr.push(false);            
 
-//        } else{
-//            if(phonePattern.test(userPhone.value)){
-//                //user phone
-//                    errorUserPhone.innerHTML="";
-//                    userPhone.style.border = "1px solid green";
-//             //    valid = true;
-//         formValidArr.push(true);            
+       } else{
+           if(phonePattern.test(userPhone.value)){
+               //user phone
+                   errorUserPhone.innerHTML="";
+                   userPhone.style.border = "1px solid green";
+            //    valid = true;
+        formValidArr.push(true);            
 
-//            }else{
-//                    //user phone
-//                    errorUserPhone.innerHTML="رقم الهاتف يجب الا يقل عن 11 رقم ولا يحتوى على رموز";
-//                    errorUserPhone.style.display="block";
-//                    errorUserPhone.style.fontSize="14px";
-//                    errorUserPhone.style.color="red";
-//                    userPhone.style.border = "1px solid red";
-//                 //    valid = false;
-//                   formValidArr.push(false);            
+           }else{
+                   //user phone
+                   errorUserPhone.innerHTML="رقم الهاتف يجب الا يقل عن 11 رقم ولا يحتوى على رموز";
+                   errorUserPhone.style.display="block";
+                   errorUserPhone.style.fontSize="14px";
+                   errorUserPhone.style.color="red";
+                   userPhone.style.border = "1px solid red";
+                //    valid = false;
+                  formValidArr.push(false);            
 
-//                }
-//         }
-//         formValidArr.forEach((value)=>{
-//             if(value == false){
-//                 valid = false;
-//             }
-//         });
-//    }
-// if(currLayer == 1){
-//     // console.log('dfghjk')
-//     for(let i=0; i<inputVal.length; i++){
-//         if(inputVal[i]['type'] == ['radio']){
-//             if(inputVal[i]['checked'] != true){
-//                 if($('.form-check-input:checked').length == 0)
-//                 {
-//                     inputVal[i].style.border = '1px solid red';
-//                 // console.log(radioBtn[i])
-//                     valid = false;
-//                 }
-//             } else {
-//                 inputVal[i].style.border = '1px solid #000086';
-//                 valid = true;
-//             }
-//         }
-//     }
-// }
-// if(currLayer == 2){
-//     let passLay2 = [];
-//      for(let i=0; i<inputTxt.length; i++){
-//         //  console.log(inputTxt[i].value)
-//         if(inputTxt[i].value == ''){
-//             inputTxt[i].style.border = '1px solid red';
-//             // valid = false;
-//             passLay2.push(false);
-//         } else {
-//             inputTxt[i].style.border = '1px solid #000086';
-//             // valid = true;
-//             passLay2.push(true);
-//                 // console.log('dfdg')
-//         }
-//     }
-//     passLay2.forEach((value)=>{
-//         if(value == false){
-//             valid = false;
-//         }
-//         // } else{
-//         //     valid = true;
-//         // }
-//     })
-//     // console.log(pass);
-//  }
+               }
+        }
+        formValidArr.forEach((value)=>{
+            if(value == false){
+                valid = false;
+            }
+        });
+   }
+if(currLayer == 1){
+    // console.log('dfghjk')
+    for(let i=0; i<inputVal.length; i++){
+        if(inputVal[i]['type'] == ['radio']){
+            if(inputVal[i]['checked'] != true){
+                if($('.form-check-input:checked').length == 0)
+                {
+                    inputVal[i].style.border = '1px solid red';
+                // console.log(radioBtn[i])
+                    valid = false;
+                }
+            } else {
+                inputVal[i].style.border = '1px solid #000086';
+                valid = true;
+            }
+        }
+    }
+}
+if(currLayer == 2){
+    let passLay2 = [];
+     for(let i=0; i<inputTxt.length; i++){
+        //  console.log(inputTxt[i].value)
+        if(inputTxt[i].value == ''){
+            inputTxt[i].style.border = '1px solid red';
+            // valid = false;
+            passLay2.push(false);
+        } else {
+            inputTxt[i].style.border = '1px solid #000086';
+            // valid = true;
+            passLay2.push(true);
+                // console.log('dfdg')
+        }
+    }
+    passLay2.forEach((value)=>{
+        if(value == false){
+            valid = false;
+        }
+        // } else{
+        //     valid = true;
+        // }
+    })
+    // console.log(pass);
+ }
  if(currLayer == 3){
      
     if((checkbox2.checked) && (parentCountEl.getElementsByClassName('mangData').length < 3)){
-        console.log('wrong');
-
+        // console.log('wrong');
+           errormanger.innerHTML="عدد المساهمين يجب الا يقل عن 3";
+           errormanger.style.display="block";
+           errormanger.style.fontSize="14px";
+           errormanger.style.color="red";
+        //    errormanger.style.border = "1px solid red";
+    } 
+    else if(((checkbox1.checked) || (checkbox5.checked) || (checkbox6.checked)) && (parentCountEl.getElementsByClassName('mangData').length < 2)){
+           errormanger.innerHTML="عدد المساهمين يجب الا يقل عن 2";
+           errormanger.style.display="block";
+           errormanger.style.fontSize="14px";
+           errormanger.style.color="red";
+    } else{
+        errormanger.innerHTML="";
     }
    let passLay3 = [];
     for(let i=0; i < inputTxt2.length; i++){
@@ -341,9 +345,8 @@ if(currLayer == 4){
     // let passlay42 = [];
     const inputAdd = document.getElementById('autocompleteinput');
     
-    if((inputAdd.value == '') || (document.getElementById('card-newAdd').getElementsByTagName('div').length == 0)){
-    //    console.log($('#inputtextAdd'))
-    // console.log(document.getElementById('card-newAdd').getElementsByTagName('div').length)
+    if((document.getElementById('card-newAdd').getElementsByTagName('div').length == 0)){
+    
     inputAdd.style.border = '1px solid red';
     valid = false;
     errorMangerAdd.innerHTML = 'يجب اضافه مديرين'
@@ -353,7 +356,7 @@ if(currLayer == 4){
     } else{
         if(!validateCard()){
             valid = false;
-            console.log('invalid')
+            // console.log('invalid')
         } else{
             inputAdd.style.border = '1px solid #000086';
             errorMangerAdd.innerHTML = '';
@@ -611,21 +614,21 @@ function pushToArr(){
         // }
     // }
 }
-function disOpt1(){
-    document.querySelectorAll("#specificSizeSelect option").forEach(opt => {
-        if (opt.value == "1") {
-            opt.disabled = true;
-            // console.log('fhfh')
-        }
-      });
-}
-function EnableOpt1(){
-    document.querySelectorAll("#specificSizeSelect option").forEach(opt => {
-        if (opt.value == "1") {
-            opt.disabled = false;
-        }
-      });
-}
+// function disOpt1(){
+//     document.querySelectorAll("#specificSizeSelect option").forEach(opt => {
+//         if (opt.value == "1") {
+//             opt.disabled = true;
+//             // console.log('fhfh')
+//         }
+//       });
+// }
+// function EnableOpt1(){
+//     document.querySelectorAll("#specificSizeSelect option").forEach(opt => {
+//         if (opt.value == "1") {
+//             opt.disabled = false;
+//         }
+//       });
+// }
 ///////////////////////////////comp-info---section-2/////////////////////////////////
 const btnAdd = document.querySelector('#btn-add-sug');
         const parentForm = document.querySelector('#parent-el');
@@ -713,6 +716,7 @@ let counter = 0;
         select.addEventListener('change',(e)=>{
             e.preventDefault();
             // console.log('here');
+            // select.selectedIndex = 0;
             parentCountEl.innerHTML = '';
             if(checkbox2.checked){
                 labelNameValue = 'اسم المساهم';
@@ -741,9 +745,8 @@ let counter = 0;
                       </div>
                       <div class="col-md-3">
                         <label for="inputtext1" class="form-label mangPart">${labelrangeValue}</label>
-                          <input type="text" class="form-control lay3 inputtext6" name="shareholder_percentage[]" placeholder="%" id="counter_${counter}" onkeyup='integerInRange(this.value, 0, 100, "counter_${counter}")'/>
+                          <input type="text" class="form-control lay3 inputtext6" name="shareholder_percentage[]" placeholder="%" id="counter_${counter}" onkeyup='integerInRange(this.value, 0, 100, "counter_${counter}"); arabicValue(counter_${counter});'/>
                           <div class="error erroPercentage"></div>
-                          
                       </div>
                           <div class="col-md-6 mb-3">
                               <label for="formFileMultiple" class="form-label">اضافه البطاقه الشخصية</label>
@@ -765,6 +768,8 @@ let counter = 0;
                             counter++;
                         }
                     });
+
+        // $("#specificSizeSelect").val('').trigger('change');
 
 const inputType6 = document.getElementsByClassName("inputtext6");
 const erroPercentage = document.getElementsByClassName('erroPercentage')
@@ -846,12 +851,9 @@ function getFormData(){
         
 ////////////////////////mang-info---section-4/////////////////////////////
 
-function locatModal(){
-    // loaction.href ='';
-    location.href = "#myModal";
-}
 const btnAddMang = document.getElementById('btn-add-mang');
 const parentCard = document.getElementById('card-newAdd');
+const arrMangerRoleSelection = [];
 let x = 0 , i = 0 , z = 0 , y = 0;
 
 let displayٍSelect , lname , lnation , h6Name;
@@ -884,12 +886,12 @@ if(parentCard.getElementsByTagName('div').length == 0 ){
                   onclick="this.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode.parentNode)">
               </div>
               <div class="mt-3 mb-3 " dir="rtl" style="display:${displayٍSelect};"> 
-                  <label class="visually-hidden" for="specificSizeSelect">Preference</label>
-                  <select class="form-select" name = "mangager_type" id="specificSizeSelect">
+                  <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
+                  <select class="form-select" name = "manager_type[]" id="specificSizeSelect2">
                       <option selected readonly>برجاء تحديد التصنيف</option>
                       <option value = "ceo">رئيس مجلس الاداره</option>
                       <option value = "director_member">عضو مجلس اداره</option> 
-                      <option name = "director_manager">عضو منتدب</option> 
+                      <option value = "director_manager">عضو منتدب</option> 
                   </select>
               </div>
               <div class="row">
@@ -906,11 +908,8 @@ if(parentCard.getElementsByTagName('div').length == 0 ){
                       </div>
                   </div>
                   <div class="col-6 align-self-center" style="padding-top: 33px;">
-<<<<<<< HEAD
-                      <div class="id"><img src="${e.prev}" alt="" width="100%" name = "manager_personal_id[]" id="imagePrev_${i}" class="imgId"></div>
-=======
-                      <div class="id"><img src="${e.prev}" alt="" width="100%" id="imagePrev_${i}" name = "manager_personal_id[]" class="imgId"></div>
->>>>>>> a9815020d400ac56c7cda45779afd0cd134d224e
+                      <div class="id"><img src="${e.prev}" alt="" width="100%" id="imagePrev_${i}" name = "manager_personal_id[]1" class="imgId">
+                      </div>
                   </div>
               </div>
           </div>
@@ -957,12 +956,12 @@ if(parentCard.getElementsByTagName('div').length == 0 ){
         onclick="this.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode.parentNode)">
     </div>
     <div class="mt-3 mb-3" dir="rtl"  style="display:${displayٍSelect};"> 
-        <label class="visually-hidden" for="specificSizeSelect">Preference</label>
-        <select class="form-select" name = "mangager_type" id="specificSizeSelect">
-            <option selected readonly>برجاء تحديد التصنيف</option>
+        <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
+        <select class="form-select" name = "manager_type[]" id="specificSizeSelect2">
+            <option selected disabled>برجاء تحديد التصنيف</option>
             <option value = "ceo">رئيس مجلس الاداره</option>
             <option value = "director_member">عضو مجلس اداره</option> 
-            <option name = "director_manager">عضو منتدب</option> 
+            <option value = "director_manager">عضو منتدب</option> 
         </select>
     </div>
     <div class="row">
@@ -984,11 +983,7 @@ if(parentCard.getElementsByTagName('div').length == 0 ){
             <div class="form-group">
             <div class="form-line">
                 <div class="btn-file align-items-center">
-<<<<<<< HEAD
-                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg"  name = "manager_personal_id[]" value="" onchange="onFileSelected(event,${i})" data-id="input_${x}">
-=======
-                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name="manager_personal_id[]" name = "personal_id[]" value="" onchange="onFileSelected(event,${i})" data-id="input_${x}">
->>>>>>> a9815020d400ac56c7cda45779afd0cd134d224e
+                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg"   name = "upload_manager[]"  value="" onchange="onFileSelected(event,${i})" data-id="input_${x}">
                     <div class=" change-file-ico">
                        <img src="images/upload.svg" width="25%" class="disNone">
                        </div>
@@ -999,7 +994,6 @@ if(parentCard.getElementsByTagName('div').length == 0 ){
             </div>
             </div>
         </div>
-
         </div>
     </div>
     </div>
@@ -1044,12 +1038,12 @@ else{
         onclick="this.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode.parentNode)">
     </div>
     <div class="mt-3 mb-3" dir="rtl" style="display:${displayٍSelect};"> 
-        <label class="visually-hidden" for="specificSizeSelect">Preference</label>
-        <select class="form-select" name = "mangager_type" id="specificSizeSelect">
+        <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
+        <select class="form-select" name = "manager_type[]" id="specificSizeSelect2">
             <option selected readonly>برجاء تحديد التصنيف</option>
             <option value = "ceo">رئيس مجلس الاداره</option>
             <option value = "director_member">عضو مجلس اداره</option> 
-            <option name = "director_manager">عضو منتدب</option> 
+            <option value = "director_manager">عضو منتدب</option> 
         </select>
     </div>
     <div class="row">
@@ -1066,16 +1060,12 @@ else{
             </div>
         </div>
         <div class="col-6 align-self-center" style="padding-top: 33px;">
-        <div class="id dispBlo" style="display: none;"><img src="" class="imageUpload imgId" id="img_prev_${i}"></div>
+        <div class="id dispBlo" style="display: none;"><img src="" class="imageUpload imgId"  id="img_prev_${i}"></div>
             <div class="id d-flex justify-content-center align-items-center">
             <div class="form-group">
             <div class="form-line">
                 <div class="btn-file align-items-center">
-<<<<<<< HEAD
-                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name = "manager_personal_id[]" value="" data-id="input_${y}" onchange="onFileSelected(event, ${i})">
-=======
-                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name="manager_personal_id[]" value="" data-id="input_${y}" onchange="onFileSelected(event, ${i})">
->>>>>>> a9815020d400ac56c7cda45779afd0cd134d224e
+                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg"  name = "upload_manager[]"  value="" data-id="input_${y}" onchange="onFileSelected(event, ${i})">
                     <div class=" change-file-ico">
                        <img src="images/upload.svg" width="25%">
                     </div>
@@ -1123,10 +1113,10 @@ else{
     }
 } else{
     if(!validateCard()){
-    console.log('invalid')
+    // console.log('invalid')
     }
    else{
-    console.log('valid')
+    // console.log('valid')
     if(arrayNames.includes(autocompleteinput.value)){
         // console.log('in');
         arrayEle.forEach((e)=>{
@@ -1141,12 +1131,12 @@ else{
                   onclick="this.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode.parentNode)">
               </div>
               <div class="mt-3 mb-3" dir="rtl" style="display:${displayٍSelect};"> 
-                  <label class="visually-hidden" for="specificSizeSelect">Preference</label>
-                  <select class="form-select" name = "mangager_type" id="specificSizeSelect">
+                  <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
+                  <select class="form-select" name = "manager_type[]" id="specificSizeSelect2">
                       <option selected readonly>برجاء تحديد التصنيف</option>
                       <option value = "ceo">رئيس مجلس الاداره</option>
                       <option value = "director_member">عضو مجلس اداره</option> 
-                      <option name = "director_manager">عضو منتدب</option> 
+                      <option value = "director_manager">عضو منتدب</option> 
                   </select>
               </div>
               <div class="row">
@@ -1163,7 +1153,8 @@ else{
                       </div>
                   </div>
                   <div class="col-6 align-self-center" style="padding-top: 33px;">
-                      <div class="id"><img src="${e.prev}" alt="" width="100%" name = "manager_personal_id[]" id="imagePrev_${i}" class="imgId"></div>
+                      <div class="id"><img src="${e.prev}" alt="" width="100%" name = "manager_personal_id[]" id="imagePrev_${i}" class="imgId">
+                      </div>
                   </div>
               </div>
           </div>
@@ -1210,12 +1201,12 @@ else{
         onclick="this.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode.parentNode)">
     </div>
     <div class="mt-3 mb-3 " dir="rtl" style="display:${displayٍSelect};"> 
-        <label class="visually-hidden" for="specificSizeSelect">Preference</label>
-        <select class="form-select" name = "mangager_type" id="specificSizeSelect">
+        <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
+        <select class="form-select" name = "manager_type[]" id="specificSizeSelect2">
             <option selected readonly>برجاء تحديد التصنيف</option>
             <option value = "ceo">رئيس مجلس الاداره</option>
             <option value = "director_member">عضو مجلس اداره</option> 
-            <option name = "director_manager">عضو منتدب</option> 
+            <option value = "director_manager">عضو منتدب</option> 
         </select>
     </div>
     <div class="row">
@@ -1232,16 +1223,13 @@ else{
             </div>
         </div>
         <div class="col-6 align-self-center" style="padding-top: 33px;">
-        <div class="id dispBlo" style="display: none;"><img src="" class="imageUpload imgId" id="img_prev_${i}"></div>
+        <div class="id dispBlo" style="display: none;"><img src="" class="imageUpload imgId" id="img_prev_${i}" name="manager_personal_id[]3">
+        </div>
         <div class="id d-flex justify-content-center align-items-center">
             <div class="form-group">
             <div class="form-line">
                 <div class="btn-file align-items-center">
-<<<<<<< HEAD
-                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name = "manager_personal_id[]" value="" onchange="onFileSelected(event,${i})" data-id="input_${x}">
-=======
-                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name="manager_personal_id[]" value="" onchange="onFileSelected(event,${i})" data-id="input_${x}">
->>>>>>> a9815020d400ac56c7cda45779afd0cd134d224e
+                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg"  value="" onchange="onFileSelected(event,${i})" data-id="input_${x}">
                     <div class=" change-file-ico">
                        <img src="images/upload.svg" width="25%" class="disNone">
                        </div>
@@ -1252,7 +1240,6 @@ else{
             </div>
             </div>
         </div>
-
         </div>
     </div>
     </div>
@@ -1297,12 +1284,12 @@ else{
         onclick="this.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode.parentNode)">
     </div>
     <div class="mt-3 mb-3" dir="rtl" style="display:${displayٍSelect};"> 
-        <label class="visually-hidden" for="specificSizeSelect">Preference</label>
-        <select class="form-select" name = "mangager_type" id="specificSizeSelect">
+        <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
+        <select class="form-select" name = "manager_type[]" id="specificSizeSelect2">
             <option selected readonly>برجاء تحديد التصنيف</option>
             <option value = "ceo">رئيس مجلس الاداره</option>
             <option value = "director_member">عضو مجلس اداره</option> 
-            <option name = "director_manager">عضو منتدب</option> 
+            <option value = "director_manager">عضو منتدب</option> 
         </select>
     </div>
     <div class="row">
@@ -1324,11 +1311,7 @@ else{
             <div class="form-group">
             <div class="form-line">
                 <div class="btn-file align-items-center">
-<<<<<<< HEAD
-                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name = "manager_personal_id[]" value="" data-id="input_${y}" onchange="onFileSelected(event, ${i})">
-=======
-                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name="manager_personal_id[]" value="" data-id="input_${y}" onchange="onFileSelected(event, ${i})">
->>>>>>> a9815020d400ac56c7cda45779afd0cd134d224e
+                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name = "upload_manager[]" value="" data-id="input_${y}" onchange="onFileSelected(event, ${i})">
                     <div class=" change-file-ico">
                        <img src="images/upload.svg" width="25%">
                     </div>
@@ -1380,6 +1363,16 @@ else{
     
    x++ ; i++; z++; y++;
 });
+
+function detectSelection(){
+    // document.querySelectorAll("#specificSizeSelect2 option").forEach(opt => {
+    //             arrMangerRoleSelection.push(opt);
+    //             console.log(arrMangerRoleSelection)
+    //           });
+let selectValue = document.getElementById('specificSizeSelect2').value;
+arrMangerRoleSelection.push(selectValue);
+console.log(arrMangerRoleSelection);
+}
 ////////////////////////////////////
 function onFileSelected(event,i) {
     let disNone = $('.id.d-flex');
@@ -1523,35 +1516,11 @@ $(function() {
   
     });
     //////////////////file uploda area
+function arabicValue(txt) {
+    yas = txt.value;
+    yas = Number(yas.replace(/[٠١٢٣٤٥٦٧٨٩]/g, function (d) {
+                    return d.charCodeAt(0) - 1632;                
+                    }).replace(/[۰۱۲۳۴۵۶۷۸۹]/g, function (d) { return d.charCodeAt(0) - 1776; })
+                );
+}
 
-
-
-
-
-
-
-
-
-
-
-
-// sherholder[0][name]
-
-// sherholder[0][personal_id]
-// sherholder[0][nation]
-
-// sherholder[1][name]
-// sherholder[1][personal_id]
-// sherholder[1][nation]
-// [
-//     0=.[
-//         name=>|mohamed,
-//          pesonalid=> filwobject
-//          nation=.egy
-//     ],
-//     1=.[
-//         name=>|mohamed,
-//          pesonalid=> filwobject
-//          nation=.egy
-//     ]
-// ]
