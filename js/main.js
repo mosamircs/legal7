@@ -63,49 +63,27 @@ function showLayer(curr){
     if(curr == 2 && checkbox3.checked){
         document.getElementById('soloComp').style.display = 'block';
         // console.log('jjf')
+
     }else{
         document.getElementById('soloComp').style.display = 'none';
     }
 
     if(curr == 3 && checkbox2.checked){
         allCompOption.innerHTML = 'اختر عدد المساهمين'         
-        // disOpt1();
-        document.querySelectorAll("#specificSizeSelect option").forEach(opt => {
-            if (opt.value == "1") {
-                opt.disabled = true;
-                console.log(opt);
-            }
-        });
-        document.querySelectorAll("#specificSizeSelect option").forEach(opt => {
-            if (opt.value == "2") {
-                opt.disabled = true;
-                console.log(opt);
-            }
-        });
                 
     } else{
         allCompOption.innerHTML = 'اختر عدد المديرين'
-        // EnableOpt1();
-        document.querySelectorAll("#specificSizeSelect option").forEach(opt => {
-            if (opt.value == "1") {
-                opt.disabled = false;
-            }
-        });
-        document.querySelectorAll("#specificSizeSelect option").forEach(opt => {
-            if (opt.value == "2") {
-                opt.disabled = false;
-            }
-        });
     }
-    if((curr == 3 && checkbox5.checked) || (curr == 3 && checkbox6.checked) || (curr == 3 && checkbox1.checked)){
-        disOpt1();
-    }else{
-        EnableOpt1();
-    }
+    // if((curr == 3 && checkbox5.checked) || (curr == 3 && checkbox6.checked) || (curr == 3 && checkbox1.checked)){
+    //     disOpt1();
+    // }else{
+    //     EnableOpt1();
+    // }
 //////////////////////edit--->2
 if((curr == 3 && checkbox3.checked) || (curr == 3 && checkbox4.checked)){
     // oneCompbuild();
     // buildOneOwner();
+    parentCountEl.innerHTML = '';
     document.getElementById('soloComp').style.display = 'block';
     document.getElementById('specificSizeSelect').style.display = 'none';
     [...oneComp].forEach(e =>{
@@ -328,10 +306,8 @@ function validateForm() {
            errormanger.style.fontSize="14px";
            errormanger.style.color="red";
         //    errormanger.style.border = "1px solid red";
-    } else{
-        errormanger.innerHTML="";
-    }
-    if(((checkbox1.checked) || (checkbox5.checked) || (checkbox6.checked)) && (parentCountEl.getElementsByClassName('mangData').length < 2)){
+    } 
+    else if(((checkbox1.checked) || (checkbox5.checked) || (checkbox6.checked)) && (parentCountEl.getElementsByClassName('mangData').length < 2)){
            errormanger.innerHTML="عدد المساهمين يجب الا يقل عن 2";
            errormanger.style.display="block";
            errormanger.style.fontSize="14px";
@@ -639,21 +615,21 @@ function pushToArr(){
         // }
     // }
 }
-function disOpt1(){
-    document.querySelectorAll("#specificSizeSelect option").forEach(opt => {
-        if (opt.value == "1") {
-            opt.disabled = true;
-            // console.log('fhfh')
-        }
-      });
-}
-function EnableOpt1(){
-    document.querySelectorAll("#specificSizeSelect option").forEach(opt => {
-        if (opt.value == "1") {
-            opt.disabled = false;
-        }
-      });
-}
+// function disOpt1(){
+//     document.querySelectorAll("#specificSizeSelect option").forEach(opt => {
+//         if (opt.value == "1") {
+//             opt.disabled = true;
+//             // console.log('fhfh')
+//         }
+//       });
+// }
+// function EnableOpt1(){
+//     document.querySelectorAll("#specificSizeSelect option").forEach(opt => {
+//         if (opt.value == "1") {
+//             opt.disabled = false;
+//         }
+//       });
+// }
 ///////////////////////////////comp-info---section-2/////////////////////////////////
 const btnAdd = document.querySelector('#btn-add-sug');
         const parentForm = document.querySelector('#parent-el');
@@ -741,6 +717,7 @@ let counter = 0;
         select.addEventListener('change',(e)=>{
             e.preventDefault();
             // console.log('here');
+            // select.selectedIndex = 0;
             parentCountEl.innerHTML = '';
             if(checkbox2.checked){
                 labelNameValue = 'اسم المساهم';
@@ -793,6 +770,8 @@ let counter = 0;
                             counter++;
                         }
                     });
+
+        // $("#specificSizeSelect").val('').trigger('change');
 
 const inputType6 = document.getElementsByClassName("inputtext6");
 const erroPercentage = document.getElementsByClassName('erroPercentage')
