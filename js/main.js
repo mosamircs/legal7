@@ -28,17 +28,17 @@ const select = document.querySelector('#specificSizeSelect');
 const parentCountEl = document.getElementById('part-form');
 ///////// show layers
 //samir 
-    var imgSrc = document.getElementsByName("manager_personal_id1");
-    var hrc = document.getElementsByName("hidden_personal_id1");
-    hrc[0].value =   imgSrc[0].getAttribute("src");
+    // var imgSrc = document.getElementsByName("manager_personal_id1");
+    // var hrc = document.getElementsByName("hidden_personal_id1");
+    // hrc[0].value =   imgSrc[0].getAttribute("src");
 
-    var imgSrc = document.getElementsByName("manager_personal_id2");
-    var hrc = document.getElementsByName("hidden_personal_id2");
-    hrc[0].value =   imgSrc[0].getAttribute("src");
+    // var imgSrc = document.getElementsByName("manager_personal_id2");
+    // var hrc = document.getElementsByName("hidden_personal_id2");
+    // hrc[0].value =   imgSrc[0].getAttribute("src");
 
-    var imgSrc = document.getElementsByName("manager_personal_id3");
-    var hrc = document.getElementsByName("hidden_personal_id3");
-    hrc[0].value =   imgSrc[0].getAttribute("src");
+    // var imgSrc = document.getElementsByName("manager_personal_id3");
+    // var hrc = document.getElementsByName("hidden_personal_id3");
+    // hrc[0].value =   imgSrc[0].getAttribute("src");
 
 let currLayer = 0;
 showLayer(currLayer);
@@ -121,7 +121,7 @@ if((curr == 3 && checkbox3.checked) || (curr == 3 && checkbox4.checked)){
 function changeLayer(curr){
     // console.log(curr);
     //hold for validation
-    // if (curr == 1 && !validateForm()) return false;
+    if (curr == 1 && !validateForm()) return false;
     layer[currLayer].style.display = "none";
     currLayer = currLayer + curr;
     // console.log(currLayer);
@@ -345,9 +345,8 @@ if(currLayer == 4){
     // let passlay42 = [];
     const inputAdd = document.getElementById('autocompleteinput');
     
-    if((inputAdd.value == '') || (document.getElementById('card-newAdd').getElementsByTagName('div').length == 0)){
-    //    console.log($('#inputtextAdd'))
-    // console.log(document.getElementById('card-newAdd').getElementsByTagName('div').length)
+    if((document.getElementById('card-newAdd').getElementsByTagName('div').length == 0)){
+    
     inputAdd.style.border = '1px solid red';
     valid = false;
     errorMangerAdd.innerHTML = 'يجب اضافه مديرين'
@@ -748,7 +747,6 @@ let counter = 0;
                         <label for="inputtext1" class="form-label mangPart">${labelrangeValue}</label>
                           <input type="text" class="form-control lay3 inputtext6" name="shareholder_percentage[]" placeholder="%" id="counter_${counter}" onkeyup='integerInRange(this.value, 0, 100, "counter_${counter}"); arabicValue(counter_${counter});'/>
                           <div class="error erroPercentage"></div>
-                          
                       </div>
                           <div class="col-md-6 mb-3">
                               <label for="formFileMultiple" class="form-label">اضافه البطاقه الشخصية</label>
