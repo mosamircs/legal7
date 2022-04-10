@@ -120,7 +120,7 @@ if((curr == 3 && checkbox3.checked) || (curr == 3 && checkbox4.checked)){
 function changeLayer(curr){
     // console.log(curr);
     //hold for validation
-    if (curr == 1 && !validateForm()) return false;
+    // if (curr == 1 && !validateForm()) return false;
     layer[currLayer].style.display = "none";
     currLayer = currLayer + curr;
     // console.log(currLayer);
@@ -869,13 +869,13 @@ if(parentCard.getElementsByTagName('div').length == 0 ){
                   <img src="images/svgexport-6 (16) 1.svg" alt="" 
                   onclick="this.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode.parentNode)">
               </div>
-               <div class="mt-3 mb-3 " dir="rtl" style="display:${displayٍSelect};"> 
+              <div class="mt-3 mb-3 " dir="rtl" style="display:${displayٍSelect};"> 
                   <label class="visually-hidden" for="specificSizeSelect">Preference</label>
-                  <select class="form-select" name = "manager_type[]" id="specificSizeSelect">
-                      <option selected disabled>برجاء تحديد التصنيف</option>
+                  <select class="form-select" name = "mangager_type" id="specificSizeSelect">
+                      <option selected readonly>برجاء تحديد التصنيف</option>
                       <option value = "ceo">رئيس مجلس الاداره</option>
                       <option value = "director_member">عضو مجلس اداره</option> 
-                      <option value = "director_manager">عضو منتدب</option> 
+                      <option name = "director_manager">عضو منتدب</option> 
                   </select>
               </div>
               <div class="row">
@@ -892,253 +892,7 @@ if(parentCard.getElementsByTagName('div').length == 0 ){
                       </div>
                   </div>
                   <div class="col-6 align-self-center" style="padding-top: 33px;">
-                      <div class="id"><img src="${e.prev}" alt="" width="100%" name = "personal_id[]" id="imagePrev_${i}" class="imgId"></div>
-                  </div>
-              </div>
-          </div>
-          <div class="card-body" id='card_${x}'>
-              <h6 class="h6part">${h6Name}</h6>
-              <div class="form-check">
-              <label class="form-check-label" for="flexCheckDefault1">
-              صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
-              </label>
-              <input class="form-check-input" type="checkbox" name = "perm1[]" value="1" >
-                </div>
-                <div class="form-check">
-                <label class="form-check-label" for="flexCheckChecked2">
-                صلاحية توقيع العقود بالنيابه عن الشركة
-                </label>
-                <input class="form-check-input" type="checkbox" value="1" name = "perm2[]">
-                </div>
-                <div class="form-check">
-                <label class="form-check-label" for="flexCheckChecked3">
-                صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
-                </label>
-                <input class="form-check-input" type="checkbox" value="1" name = "perm3[]">
-                </div>
-          </div>
-          <div class="card-footer align-self-center" style="display:none;">
-              <div class="buttons">
-                  <button class="btn save" type="button">حفظ</button>
-                  <button class="btn edit" type="button">تعديل</button>
-              </div>
-          </div></div>`
-        parentCard.appendChild(newCard)
-        // console.log('dcds')
-        }
-    });
-}else{
-      if(autocompleteinput.value !== ''){
-        //   console.log(autocompleteinput.value)
-        const newCard = document.createElement('div');
-        newCard.classList.add('col-xl-4','col-md-6','pt-3');
-        newCard.innerHTML= `<div class="card">
-        <div class="card-header">
-    <div class="close">
-        <img src="images/svgexport-6 (16) 1.svg" alt="" 
-        onclick="this.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode.parentNode)">
-    </div>
-    <div class="mt-3 mb-3" dir="rtl"  style="display:${displayٍSelect};"> 
-        <label class="visually-hidden" for="specificSizeSelect">Preference</label>
-        <select class="form-select" name = "manager_type[]" id="specificSizeSelect">
-            <option selected disabled>برجاء تحديد التصنيف</option>
-            <option value = "ceo">رئيس مجلس الاداره</option>
-            <option value = "director_member">عضو مجلس اداره</option> 
-            <option value = "director_manager">عضو منتدب</option> 
-        </select>
-    </div>
-    </div>
-    <div class="row">
-        <div class="col-6">
-            <div class=" g-3 justify-content-around" dir="rtl">
-                <div class="">
-                  <label for="input1" class="form-label mang">${lname}</label>
-                  <input type="text" class="form-control" id="input1" value="${autocompleteinput.value}"  name = "manager_name[]" data-id="input_${x}">
-                </div>
-                <div class="">
-                    <label for="inputtext2" class="form-label mang">${lnation}</label>
-                    <input type="text" class="form-control" id="inputtext2" name = "manager_nationality[]" data-id="input_${x}">
-                </div>
-            </div>
-        </div>
-        <div class="col-6 align-self-center" style="padding-top: 33px;">
-        <div class="id dispBlo" style="display: none;"><img src="" class="imageUpload imgId" id="img_prev_${i}"></div>
-        <div class="id d-flex justify-content-center align-items-center">
-            <div class="form-group">
-            <div class="form-line">
-                <div class="btn-file align-items-center">
-                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg"  name = "personal_id[]" value="" onchange="onFileSelected(event,${i})" data-id="input_${x}">
-                    <div class=" change-file-ico">
-                       <img src="images/upload.svg" width="25%" class="disNone">
-                       </div>
-                    <div class="full-width">
-                        <p id="wowonder-movie-name" class="disNone">اضافه البطاقه الشخصيه</p>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </div>
-
-        </div>
-    </div>
-    </div>
-    <div class="card-body" id='card_${x}'>
-    <h6 class="h6part">${h6Name}</h6>
-    <div class="form-check">
-    <label class="form-check-label" for="flexCheckDefault1">
-    صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
-    </label>
-    <input class="form-check-input" type="checkbox" name = "perm1[]" value="1" >
-      </div>
-      <div class="form-check">
-      <label class="form-check-label" for="flexCheckChecked2">
-      صلاحية توقيع العقود بالنيابه عن الشركة
-      </label>
-      <input class="form-check-input" type="checkbox" value="1" name = "perm2[]">
-      </div>
-      <div class="form-check">
-      <label class="form-check-label" for="flexCheckChecked3">
-      صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
-      </label>
-      <input class="form-check-input" type="checkbox" value="1" name = "perm3[]">
-      </div>
-    </div>
-    <div class="card-footer align-self-center" style="display:none;">
-    <div class="buttons">
-        <button class="btn save" type="button">حفظ</button>
-        <button class="btn edit" type="button">تعديل</button>
-    </div>
-    </div>
-    </div>`
-    parentCard.appendChild(newCard);
-} 
-else{
-        //   console.log('null')
-        const newCard = document.createElement('div');
-        newCard.classList.add('col-xl-4','col-md-6','pt-3');
-        newCard.innerHTML= `<div class="card">
-        <div class="card-header">
-    <div class="close">
-        <img src="images/svgexport-6 (16) 1.svg" alt="" 
-        onclick="this.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode.parentNode)">
-    </div>
-    <div class="mt-3 mb-3" dir="rtl" style="display:${displayٍSelect};"> 
-        <label class="visually-hidden" for="specificSizeSelect">Preference</label>
-        <select class="form-select" name = "manager_type[]" id="specificSizeSelect">
-            <option selected disabled>برجاء تحديد التصنيف</option>
-            <option value = "ceo">رئيس مجلس الاداره</option>
-            <option value = "director_member">عضو مجلس اداره</option> 
-            <option value = "director_manager">عضو منتدب</option> 
-        </select>
-    </div>
-    <div class="row">
-        <div class="col-6">
-            <div class=" g-3 justify-content-around" dir="rtl">
-                <div class="">
-                  <label for="inputtext1" class="form-label mang">${lname}</label>
-                  <input type="text" class="form-control" id="inputtext1" value="${autocompleteinput.value}"  name = "manager_name[]" data-id="input_${y}">
-                </div>
-                <div class="">
-                    <label for="inputtext2" class="form-label mang">${lnation}</label>
-                    <input type="text" class="form-control" id="inputtext2"   name = "manager_nationality[]" data-id="input_${y}">
-                </div>
-            </div>
-        </div>
-        <div class="col-6 align-self-center" style="padding-top: 33px;">
-        <div class="id dispBlo" style="display: none;"><img src="" class="imageUpload imgId" id="img_prev_${i}"></div>
-            <div class="id d-flex justify-content-center align-items-center">
-            <div class="form-group">
-            <div class="form-line">
-                <div class="btn-file align-items-center">
-                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name = "personal_id[]" value="" data-id="input_${y}" onchange="onFileSelected(event, ${i})">
-                    <div class=" change-file-ico">
-                       <img src="images/upload.svg" width="25%">
-                    </div>
-                    <div class="full-width">
-                        <p id="wowonder-movie-name">اضافه البطاقه الشخصيه</p>
-                    </div>
-                </div>
-            </div>
-            </div>
-            </div>
-        </div>
-    </div>
-    </div>
-    <div class="card-body" id='card_${x}'>
-    <h6 class="h6part">${h6Name}</h6>
-    <div class="form-check">
-    <label class="form-check-label" for="flexCheckDefault1">
-    صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
-    </label>
-    <input class="form-check-input" type="checkbox" name = "perm1[]" value = "1">
-      </div>
-      <div class="form-check"> 
-      <label class="form-check-label" for="flexCheckChecked2">
-      صلاحية توقيع العقود بالنيابه عن الشركة
-      </label>
-      <input class="form-check-input" type="checkbox" name = "perm2[]" value = "1">
-      </div>
-      <div class="form-check">
-      <label class="form-check-label" for="flexCheckChecked3">
-      صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
-      </label>
-      <input class="form-check-input" type="checkbox" name = "perm3[]" value = "1">
-      </div>
-    </div>
-    <div class="card-footer align-self-center" style="display:none;">
-    <div class="buttons">
-        <button class="btn save" type="button">حفظ</button>
-        <button class="btn edit" type="button">تعديل</button>
-    </div>
-    </div>
-    </div>`
-    parentCard.appendChild(newCard)
-    y++;
-      }
-    }
-} else{
-    if(!validateCard()){
-    console.log('invalid')
-    }
-   else{
-    console.log('valid')
-    if(arrayNames.includes(autocompleteinput.value)){
-        // console.log('in');
-        arrayEle.forEach((e)=>{
-            if(e.name == autocompleteinput.value)
-            { 
-                  const newCard = document.createElement('div');
-                  newCard.classList.add('col-xl-4','col-md-6','pt-3');
-                  newCard.innerHTML= `<div class="card">
-                  <div class="card-header">
-              <div class="close">
-                  <img src="images/svgexport-6 (16) 1.svg" alt="" 
-                  onclick="this.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode.parentNode)">
-              </div>
-              <div class="mt-3 mb-3" dir="rtl" style="display:${displayٍSelect};"> 
-                  <label class="visually-hidden" for="specificSizeSelect">Preference</label>
-                  <select class="form-select" name = "manager_type[]" id="specificSizeSelect">
-                      <option selected disabled>برجاء تحديد التصنيف</option>
-                      <option value = "ceo">رئيس مجلس الاداره</option>
-                      <option value = "director_member">عضو مجلس اداره</option> 
-                      <option value = "director_manager">عضو منتدب</option> 
-                  </select>
-              </div>
-              <div class="row">
-                  <div class="col-6">
-                      <div class=" g-3 justify-content-around" dir="rtl">
-                          <div class="">
-                            <label for="inputtext1" class="form-label mang">${lname}</label>
-                            <input type="text" class="form-control" id="inputtext1" value="${e.name}" name = "manager_name[]" readonly>
-                          </div>
-                          <div class="">
-                              <label for="inputtext2" class="form-label mang">${lnation}</label>
-                              <input type="text" class="form-control" id="inputtext2" value="${e.nationality}" name = "manager_nationality[]" readonly>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-6 align-self-center" style="padding-top: 33px;">
-                      <div class="id"><img src="${e.prev}" alt="" width="100%" name = "personal_id[]" id="imagePrev_${i}" class="imgId"></div>
+                      <div class="id"><img src="${e.prev}" alt="" width="100%" id="imagePrev_${i}" class="imgId"></div>
                   </div>
               </div>
           </div>
@@ -1184,13 +938,13 @@ else{
         <img src="images/svgexport-6 (16) 1.svg" alt="" 
         onclick="this.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode.parentNode)">
     </div>
-    <div class="mt-3 mb-3 " dir="rtl" style="display:${displayٍSelect};"> 
+    <div class="mt-3 mb-3" dir="rtl"  style="display:${displayٍSelect};"> 
         <label class="visually-hidden" for="specificSizeSelect">Preference</label>
-        <select class="form-select" name = "manager_type[]" id="specificSizeSelect">
-            <option selected disabled>برجاء تحديد التصنيف</option>
+        <select class="form-select" name = "mangager_type" id="specificSizeSelect">
+            <option selected readonly>برجاء تحديد التصنيف</option>
             <option value = "ceo">رئيس مجلس الاداره</option>
             <option value = "director_member">عضو مجلس اداره</option> 
-            <option value = "director_manager">عضو منتدب</option> 
+            <option name = "director_manager">عضو منتدب</option> 
         </select>
     </div>
     <div class="row">
@@ -1212,7 +966,7 @@ else{
             <div class="form-group">
             <div class="form-line">
                 <div class="btn-file align-items-center">
-                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name = "personal_id[]" value="" onchange="onFileSelected(event,${i})" data-id="input_${x}">
+                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name="source" name = "personal_id[]" value="" onchange="onFileSelected(event,${i})" data-id="input_${x}">
                     <div class=" change-file-ico">
                        <img src="images/upload.svg" width="25%" class="disNone">
                        </div>
@@ -1233,21 +987,21 @@ else{
     <label class="form-check-label" for="flexCheckDefault1">
     صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
     </label>
-    <input class="form-check-input" type="checkbox"  name = "perm1[]"  value="1" >
+    <input class="form-check-input" type="checkbox" value="1" name = "perm1[]">
+      </div>
+      <div class="form-check">
+      <label class="form-check-label" for="flexCheckChecked2">
+      صلاحية توقيع العقود بالنيابه عن الشركة
+      </label>
+      <input class="form-check-input" type="checkbox" value="1" name = "perm2[]">
+      </div>
+      <div class="form-check">
+      <label class="form-check-label" for="flexCheckChecked3">
+      صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
+      </label>
+      <input class="form-check-input" type="checkbox" value="1" name = "perm3[]">
+      </div>
     </div>
-    <div class="form-check">
-    <label class="form-check-label" for="flexCheckChecked2">
-    صلاحية توقيع العقود بالنيابه عن الشركة
-    </label>
-    <input class="form-check-input" type="checkbox" name = "perm2[]"  value="1" >
-    </div>
-    <div class="form-check">
-    <label class="form-check-label" for="flexCheckChecked3">
-    صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
-    </label>
-    <input class="form-check-input" type="checkbox"  name = "perm3[]" value="1" >
-    </div>
-  </div>
     <div class="card-footer align-self-center" style="display:none;">
     <div class="buttons">
         <button class="btn save" type="button">حفظ</button>
@@ -1269,11 +1023,11 @@ else{
     </div>
     <div class="mt-3 mb-3" dir="rtl" style="display:${displayٍSelect};"> 
         <label class="visually-hidden" for="specificSizeSelect">Preference</label>
-        <select class="form-select" name = "manager_type[]" id="specificSizeSelect">
-            <option selected disabled>برجاء تحديد التصنيف</option>
+        <select class="form-select" name = "mangager_type" id="specificSizeSelect">
+            <option selected readonly>برجاء تحديد التصنيف</option>
             <option value = "ceo">رئيس مجلس الاداره</option>
             <option value = "director_member">عضو مجلس اداره</option> 
-            <option value = "director_manager">عضو منتدب</option> 
+            <option name = "director_manager">عضو منتدب</option> 
         </select>
     </div>
     <div class="row">
@@ -1295,7 +1049,7 @@ else{
             <div class="form-group">
             <div class="form-line">
                 <div class="btn-file align-items-center">
-                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name = "personal_id[]" value="" data-id="input_${y}" onchange="onFileSelected(event, ${i})">
+                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name="source" value="" data-id="input_${y}" onchange="onFileSelected(event, ${i})">
                     <div class=" change-file-ico">
                        <img src="images/upload.svg" width="25%">
                     </div>
@@ -1315,21 +1069,266 @@ else{
     <label class="form-check-label" for="flexCheckDefault1">
     صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
     </label>
-    <input class="form-check-input" type="checkbox"  name = "perm1[]" value="1">
+    <input class="form-check-input" type="checkbox">
+      </div>
+      <div class="form-check">
+      <label class="form-check-label" for="flexCheckChecked2">
+      صلاحية توقيع العقود بالنيابه عن الشركة
+      </label>
+      <input class="form-check-input" type="checkbox">
+      </div>
+      <div class="form-check">
+      <label class="form-check-label" for="flexCheckChecked3">
+      صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
+      </label>
+      <input class="form-check-input" type="checkbox">
+      </div>
     </div>
+    <div class="card-footer align-self-center" style="display:none;">
+    <div class="buttons">
+        <button class="btn save" type="button">حفظ</button>
+        <button class="btn edit" type="button">تعديل</button>
+    </div>
+    </div>
+    </div>`
+    parentCard.appendChild(newCard)
+    y++;
+      }
+    }
+} else{
+    if(!validateCard()){
+    console.log('invalid')
+    }
+   else{
+    console.log('valid')
+    if(arrayNames.includes(autocompleteinput.value)){
+        // console.log('in');
+        arrayEle.forEach((e)=>{
+            if(e.name == autocompleteinput.value)
+            { 
+                  const newCard = document.createElement('div');
+                  newCard.classList.add('col-xl-4','col-md-6','pt-3');
+                  newCard.innerHTML= `<div class="card">
+                  <div class="card-header">
+              <div class="close">
+                  <img src="images/svgexport-6 (16) 1.svg" alt="" 
+                  onclick="this.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode.parentNode)">
+              </div>
+              <div class="mt-3 mb-3" dir="rtl" style="display:${displayٍSelect};"> 
+                  <label class="visually-hidden" for="specificSizeSelect">Preference</label>
+                  <select class="form-select" name = "mangager_type" id="specificSizeSelect">
+                      <option selected readonly>برجاء تحديد التصنيف</option>
+                      <option value = "ceo">رئيس مجلس الاداره</option>
+                      <option value = "director_member">عضو مجلس اداره</option> 
+                      <option name = "director_manager">عضو منتدب</option> 
+                  </select>
+              </div>
+              <div class="row">
+                  <div class="col-6">
+                      <div class=" g-3 justify-content-around" dir="rtl">
+                          <div class="">
+                            <label for="inputtext1" class="form-label mang">${lname}</label>
+                            <input type="text" class="form-control" id="inputtext1" value="${e.name}" name = "manager_name[]" readonly>
+                          </div>
+                          <div class="">
+                              <label for="inputtext2" class="form-label mang">${lnation}</label>
+                              <input type="text" class="form-control" id="inputtext2" value="${e.nationality}" name = "manager_nationality[]" readonly>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-6 align-self-center" style="padding-top: 33px;">
+                      <div class="id"><img src="${e.prev}" alt="" width="100%" id="imagePrev_${i}" class="imgId"></div>
+                  </div>
+              </div>
+          </div>
+          <div class="card-body" id='card_${x}'>
+              <h6 class="h6part">${h6Name}</h6>
+              <div class="form-check">
+              <label class="form-check-label" for="flexCheckDefault1">
+              صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
+              </label>
+              <input class="form-check-input" type="checkbox" value="" name = "perm1[]">
+                </div>
+                <div class="form-check">
+                <label class="form-check-label" for="flexCheckChecked2">
+                صلاحية توقيع العقود بالنيابه عن الشركة
+                </label>
+                <input class="form-check-input" type="checkbox" value="" name = "perm2[]">
+                </div>
+                <div class="form-check">
+                <label class="form-check-label" for="flexCheckChecked3">
+                صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
+                </label>
+                <input class="form-check-input" type="checkbox" value="" name = "perm3[]">
+                </div>
+          </div>
+          <div class="card-footer align-self-center" style="display:none;">
+              <div class="buttons">
+                  <button class="btn save" type="button">حفظ</button>
+                  <button class="btn edit" type="button">تعديل</button>
+              </div>
+          </div></div>`
+        parentCard.appendChild(newCard)
+        // console.log('dcds')
+        }
+    });
+}else{
+      if(autocompleteinput.value !== ''){
+        //   console.log(autocompleteinput.value)
+        const newCard = document.createElement('div');
+        newCard.classList.add('col-xl-4','col-md-6','pt-3');
+        newCard.innerHTML= `<div class="card">
+        <div class="card-header">
+    <div class="close">
+        <img src="images/svgexport-6 (16) 1.svg" alt="" 
+        onclick="this.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode.parentNode)">
+    </div>
+    <div class="mt-3 mb-3 " dir="rtl" style="display:${displayٍSelect};"> 
+        <label class="visually-hidden" for="specificSizeSelect">Preference</label>
+        <select class="form-select" name = "mangager_type" id="specificSizeSelect">
+            <option selected readonly>برجاء تحديد التصنيف</option>
+            <option value = "ceo">رئيس مجلس الاداره</option>
+            <option value = "director_member">عضو مجلس اداره</option> 
+            <option name = "director_manager">عضو منتدب</option> 
+        </select>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class=" g-3 justify-content-around" dir="rtl">
+                <div class="">
+                  <label for="input1" class="form-label mang">${lname}</label>
+                  <input type="text" class="form-control" id="input1" value="${autocompleteinput.value}"  name = "manager_name[]" data-id="input_${x}">
+                </div>
+                <div class="">
+                    <label for="inputtext2" class="form-label mang">${lnation}</label>
+                    <input type="text" class="form-control" id="inputtext2" name = "manager_nationality[]" data-id="input_${x}">
+                </div>
+            </div>
+        </div>
+        <div class="col-6 align-self-center" style="padding-top: 33px;">
+        <div class="id dispBlo" style="display: none;"><img src="" class="imageUpload imgId" id="img_prev_${i}"></div>
+        <div class="id d-flex justify-content-center align-items-center">
+            <div class="form-group">
+            <div class="form-line">
+                <div class="btn-file align-items-center">
+                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name="source" value="" onchange="onFileSelected(event,${i})" data-id="input_${x}">
+                    <div class=" change-file-ico">
+                       <img src="images/upload.svg" width="25%" class="disNone">
+                       </div>
+                    <div class="full-width">
+                        <p id="wowonder-movie-name" class="disNone">اضافه البطاقه الشخصيه</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        </div>
+    </div>
+    </div>
+    <div class="card-body" id='card_${x}'>
+    <h6 class="h6part">${h6Name}</h6>
     <div class="form-check">
-    <label class="form-check-label" for="flexCheckChecked2">
-    صلاحية توقيع العقود بالنيابه عن الشركة
+    <label class="form-check-label" for="flexCheckDefault1">
+    صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
     </label>
-    <input class="form-check-input" type="checkbox" name = "perm2[]" value="1" >
+    <input class="form-check-input" type="checkbox" >
+      </div>
+      <div class="form-check">
+      <label class="form-check-label" for="flexCheckChecked2">
+      صلاحية توقيع العقود بالنيابه عن الشركة
+      </label>
+      <input class="form-check-input" type="checkbox" >
+      </div>
+      <div class="form-check">
+      <label class="form-check-label" for="flexCheckChecked3">
+      صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
+      </label>
+      <input class="form-check-input" type="checkbox" >
+      </div>
     </div>
+    <div class="card-footer align-self-center" style="display:none;">
+    <div class="buttons">
+        <button class="btn save" type="button">حفظ</button>
+        <button class="btn edit" type="button">تعديل</button>
+    </div>
+    </div>
+    </div>`
+    parentCard.appendChild(newCard);
+} 
+else{
+        //   console.log('null')
+        const newCard = document.createElement('div');
+        newCard.classList.add('col-xl-4','col-md-6','pt-3');
+        newCard.innerHTML= `<div class="card">
+        <div class="card-header">
+    <div class="close">
+        <img src="images/svgexport-6 (16) 1.svg" alt="" 
+        onclick="this.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode.parentNode)">
+    </div>
+    <div class="mt-3 mb-3" dir="rtl" style="display:${displayٍSelect};"> 
+        <label class="visually-hidden" for="specificSizeSelect">Preference</label>
+        <select class="form-select" name = "mangager_type" id="specificSizeSelect">
+            <option selected readonly>برجاء تحديد التصنيف</option>
+            <option value = "ceo">رئيس مجلس الاداره</option>
+            <option value = "director_member">عضو مجلس اداره</option> 
+            <option name = "director_manager">عضو منتدب</option> 
+        </select>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class=" g-3 justify-content-around" dir="rtl">
+                <div class="">
+                  <label for="inputtext1" class="form-label mang">${lname}</label>
+                  <input type="text" class="form-control" id="inputtext1" value="${autocompleteinput.value}"  name = "manager_name[]" data-id="input_${y}">
+                </div>
+                <div class="">
+                    <label for="inputtext2" class="form-label mang">${lnation}</label>
+                    <input type="text" class="form-control" id="inputtext2"   name = "manager_nationality[]" data-id="input_${y}">
+                </div>
+            </div>
+        </div>
+        <div class="col-6 align-self-center" style="padding-top: 33px;">
+        <div class="id dispBlo" style="display: none;"><img src="" class="imageUpload imgId" id="img_prev_${i}"></div>
+            <div class="id d-flex justify-content-center align-items-center">
+            <div class="form-group">
+            <div class="form-line">
+                <div class="btn-file align-items-center">
+                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name="source" value="" data-id="input_${y}" onchange="onFileSelected(event, ${i})">
+                    <div class=" change-file-ico">
+                       <img src="images/upload.svg" width="25%">
+                    </div>
+                    <div class="full-width">
+                        <p id="wowonder-movie-name">اضافه البطاقه الشخصيه</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="card-body" id='card_${x}'>
+    <h6 class="h6part">${h6Name}</h6>
     <div class="form-check">
-    <label class="form-check-label" for="flexCheckChecked3">
-    صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
+    <label class="form-check-label" for="flexCheckDefault1">
+    صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
     </label>
-    <input class="form-check-input" type="checkbox" name = "perm3[]" value="1" >
+    <input class="form-check-input" type="checkbox">
+      </div>
+      <div class="form-check">
+      <label class="form-check-label" for="flexCheckChecked2">
+      صلاحية توقيع العقود بالنيابه عن الشركة
+      </label>
+      <input class="form-check-input" type="checkbox">
+      </div>
+      <div class="form-check">
+      <label class="form-check-label" for="flexCheckChecked3">
+      صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
+      </label>
+      <input class="form-check-input" type="checkbox">
+      </div>
     </div>
-  </div>
     <div class="card-footer align-self-center" style="display:none;">
     <div class="buttons">
         <button class="btn save" type="button">حفظ</button>
