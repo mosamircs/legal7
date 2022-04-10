@@ -27,18 +27,6 @@ const oneComp = document.getElementsByClassName('oneComp');
 const select = document.querySelector('#specificSizeSelect');
 const parentCountEl = document.getElementById('part-form');
 ///////// show layers
-//samir 
-    var imgSrc = document.getElementsByName("manager_personal_id1");
-    var hrc = document.getElementsByName("hidden_personal_id1");
-    hrc[0].value =   imgSrc[0].getAttribute("src");
-
-    var imgSrc = document.getElementsByName("manager_personal_id2");
-    var hrc = document.getElementsByName("hidden_personal_id2");
-    hrc[0].value =   imgSrc[0].getAttribute("src");
-
-    var imgSrc = document.getElementsByName("manager_personal_id3");
-    var hrc = document.getElementsByName("hidden_personal_id3");
-    hrc[0].value =   imgSrc[0].getAttribute("src");
 
 let currLayer = 0;
 showLayer(currLayer);
@@ -1515,36 +1503,3 @@ $(function() {
       });
   
     });
-    //////////////////file uploda area
-
-
-
-
-
-
-
-
-
-
-
-
-// sherholder[0][name]
-
-// sherholder[0][personal_id]
-// sherholder[0][nation]
-
-// sherholder[1][name]
-// sherholder[1][personal_id]
-// sherholder[1][nation]
-// [
-//     0=.[
-//         name=>|mohamed,
-//          pesonalid=> filwobject
-//          nation=.egy
-//     ],
-//     1=.[
-//         name=>|mohamed,
-//          pesonalid=> filwobject
-//          nation=.egy
-//     ]
-// ]
