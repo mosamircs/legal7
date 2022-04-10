@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-        <!-- welcom page-->
+    <!-- welcom page-->
         <section id="welcome-page" class="layer">
         <form action="register.php" id= "register_user" class="needs-validation" novalidate>
                 <div class="logo-box">
@@ -126,7 +126,7 @@
          <input type="hidden" name="userid" id="userid" value="">
                 <div class="main-content" id="main" >
                     <div class="container">
-                        <!-- layer--1 money& people -->
+                        <!-- layer--1 money & people -->
                         <div  class="layer">
                             <div class="buttons-tog"> 
                                 <button class="btn selected" id="btn-money" type="button">شركات الاموال</button>
@@ -351,7 +351,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- buttons change-layers-->
+                        <!-- buttons change-layers -->
                          <div id="but-chose">
                           <div class="btn-chose d-flex justify-content-center pb-3 pt-3">
                               <button class="btn next mr-3" id="next-1" type="button" onclick="changeLayer(1)">التالي</button>
