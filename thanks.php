@@ -118,27 +118,19 @@
             $shareholders[$i]["shareholder_percentage"] = $_POST["shareholder_percentage"][$i];
         }
     }
-    if (isset($_POST["personal_id"])) {
-        for ($i=0; $i < count($_POST["personal_id"]); $i++) { 
-            $formdata[$i]["personal_id"] = $_POST["personal_id"][$i];
-        }
-    }
     if (isset($_FILES['personal_id'])) {
         $counter = 0;
         foreach ($_FILES['personal_id']['tmp_name'] as $key => $tmp_name) {
-            $file_name = $key . $_FILES['personal_id']['name'][$key];
+            $shareholders["personal_id"][$counter] = time() . $_FILES['personal_id']['name'][$key];
+            echo $file_name;
             $file_size = $_FILES['personal_id']['size'][$key];
             $file_tmp = $_FILES['personal_id']['tmp_name'][$key];
             $file_type = $_FILES['personal_id']['type'][$key];
-            move_uploaded_file($file_tmp, 'uploads/' . $file_name);
+            move_uploaded_file($file_tmp, 'uploads/'  . $managers["personal_id"][$counter]);
             $counter++;
         }
     }
-    if (isset($_FILES["personal_id"]["name"])) {
-        for ($i=0; $i <count($_FILES["personal_id"]["name"]) ; $i++) {   
-             $formdata[$i]["personal_id"] = $_FILES["personal_id"]["name"][$i];
-        }
-    }
+
 
     /////////////////////////////// Managers layer ///////////////////////////////
     if (isset($_POST["manager_name"])) {
@@ -173,22 +165,18 @@
         }
     }
 
-    // if (isset($_FILES['manager_personal_id'])) {
-    //     $counter = 0;
-    //     foreach ($_FILES['manager_personal_id']['tmp_name'] as $key => $tmp_name) {
-    //         $file_name = $key . $_FILES['manager_personal_id']['name'][$key];
-    //         $file_size = $_FILES['manager_personal_id']['size'][$key];
-    //         $file_tmp = $_FILES['manager_personal_id']['tmp_name'][$key];
-    //         $file_type = $_FILES['manager_personal_id']['type'][$key];
-    //         move_uploaded_file($file_tmp, 'uploads/' . $file_name);
-    //         $counter++;
-    //     }
-    // }
-    // if (isset($_FILES["manager_personal_id"]["name"])) {
-    //     for ($i=0; $i <count($_FILES["manager_personal_id"]["name"]) ; $i++) {   
-    //          $managers[$i]["manager_personal_id"] = $_FILES["manager_personal_id"]["name"][$i];
-    //     }
-    // }
+    if (isset($_FILES['manager_personal_id'])) {
+        $counter = 0;
+        foreach ($_FILES['manager_personal_id']['tmp_name'] as $key => $tmp_name) {
+            $managers["manager_personal_id"][$counter] = time() . $_FILES['manager_personal_id']['name'][$key];
+            $file_size = $_FILES['manager_personal_id']['size'][$key];
+            $file_tmp = $_FILES['manager_personal_id']['tmp_name'][$key];
+            $file_type = $_FILES['manager_personal_id']['type'][$key];
+            move_uploaded_file($file_tmp, 'uploads/' .  $managers["manager_personal_id"][$counter]);
+            $counter++;
+        }
+    }
+
 
     //////////////////////////// insert company to database ///////////////////////////////
     $insert_company = "INSERT INTO `companies`(`company_type`,`company_name` , `company_address`, `company_activity`, `capital_value`, `capital_share`,`user_id`) VALUES ('".$formdata["company_type"]."','".$formdata["company_name"]."','".$formdata["company_address"]."','".$formdata["company_activity"]."','".$formdata["capital_value"]."','".$formdata["capital_share"]."','".$formdata["userid"]."')";
@@ -198,22 +186,22 @@
 
     /////////////////////////////// insert shareholders to database ///////////////////////////////
     for ($i=0; $i < count($shareholders); $i++) {
-        $insert_shareholder = "INSERT INTO `shareholders`(`name`,`nationality` , `percenatage`, `personal_id`,`company_id`) VALUES ('".$shareholders[$i]["shareholder_name"] ."','".$shareholders[$i]["shareholder_nationality"]."','".$shareholders[$i]["shareholder_percentage"]."','".$formdata[$i]["personal_id"]."','".$formdata["company_id"]."');";
-        $result = $connection->query($insert_shareholder);
+        $insert .= "INSERT INTO `shareholders`(`name`,`nationality` , `percenatage`, `personal_id`,`company_id`) VALUES ('".$shareholders[$i]["shareholder_name"] ."','".$shareholders[$i]["shareholder_nationality"]."','".$shareholders[$i]["shareholder_percentage"]."','".$shareholders[$i]["personal_id"]."','".$formdata["company_id"]."');";
+        // $result = $connection->query($insert_shareholder);
     }
     
     /////////////////////////////// insert managers to database ////////////////////////////////
     for ($i=0; $i < count($managers); $i++) {
-        $insert_manager = "INSERT INTO `managers`(`name`,`nationality` , `personal_id`,`perm1`,`perm2`,`perm3`,`manager_type`,`company_id`) VALUES ('".$managers[$i]["manager_name"]."','".$managers[$i]["manager_nationality"]."','".$formdata[$i]["personal_id"]."','".$permessions[$i]["perm1"]."','".$permessions[$i]["perm2"]."','".$permessions[$i]["perm3"]."','".$managers[$i]["manager_type"] ."','".$formdata["company_id"]."')";
-        $result1 = $connection->query($insert_manager);
+        $insert .= "INSERT INTO `managers`(`name`,`nationality` , `personal_id`,`perm1`,`perm2`,`perm3`,`manager_type`,`company_id`) VALUES ('".$managers[$i]["manager_name"]."','".$managers[$i]["manager_nationality"]."','".$managers[$i]["manager_personal_id"]."','".$permessions[$i]["perm1"]."','".$permessions[$i]["perm2"]."','".$permessions[$i]["perm3"]."','".$managers[$i]["manager_type"] ."','".$formdata["company_id"]."')";
+        // $result1 = $connection->query($insert_manager);
     }
 
     ///////////////////////////////////////// insert malek in database ////////////////////////////
     if (isset($_POST["malek_name"]) && isset($_POST["malek_nationality"]) && isset($_POST["malek_personal_id"])) {
-        $insert_malek = "INSERT INTO `managers`(`name`,`nationality` , `personal_id`,`company_id`) VALUES ('".$_POST["malek_name"]."','".$_POST["malek_nationality"]."','".$_POST["malek_personal_id"]."','".$formdata["company_id"]."')";
-        $result = $connection->query($insert_malek);
+        $insert .= "INSERT INTO `managers`(`name`,`nationality` , `personal_id`,`company_id`) VALUES ('".$_POST["malek_name"]."','".$_POST["malek_nationality"]."','".$_POST["malek_personal_id"]."','".$formdata["company_id"]."')";
+        // $result = $connection->query($insert_malek);
     }
     // ///////////////////////////////// insert multiquery to database  and close connection ///////////////////////////////
-    // $result = $connection->multi_query($insert);
-    // $database_instance->destructConnection();
+    $result = $connection->multi_query($insert);
+    $database_instance->destructConnection();
 ?>

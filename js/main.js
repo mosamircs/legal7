@@ -14,7 +14,7 @@ const layer = document.getElementsByClassName('layer');
 const progress = document.getElementById('progress');
 const circles = document.querySelectorAll('.circle');
 
-const partCompDel = document.getElementById('partCompDel');
+const partCompDel = document.getElgetElementByIdementById('partCompDel');
 const allCompOption = document.getElementById('allCompOption');
 const partName = document.getElementById('partName');
 const mangPart = document.getElementsByClassName('mangPart');
