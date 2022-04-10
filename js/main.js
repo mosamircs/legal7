@@ -157,7 +157,8 @@ const userPhone = document.getElementById('phone');
 const errorUserName = document.getElementById('error-userName');
 const errorUserEmail = document.getElementById('error-email');  
 const errorUserPhone = document.getElementById('error-phone');  
-const errorMangerAdd = document.getElementById('error-mangerAdd') ;
+const errorMangerAdd = document.getElementById('error-mangerAdd');
+const errormanger = document.getElementById('error-manger');
 
 let emailPattern = /^(\D)+(\w)*((\.(\w)+)?)+@(\D)+(\w)*((\.(\D)+(\w)*)+)?(\.)[a-z]{2,}$/;
 let phonePattern = /1?-?\.?\(?\d{3}[\-\)\.\s]?\d{3}[\-\.\s]?\d{4}/;
@@ -308,8 +309,22 @@ function validateForm() {
  if(currLayer == 3){
      
     if((checkbox2.checked) && (parentCountEl.getElementsByClassName('mangData').length < 3)){
-        console.log('wrong');
-
+        // console.log('wrong');
+           errormanger.innerHTML="عدد المساهمين يجب الا يقل عن 3";
+           errormanger.style.display="block";
+           errormanger.style.fontSize="14px";
+           errormanger.style.color="red";
+        //    errormanger.style.border = "1px solid red";
+    } else{
+        errormanger.innerHTML="";
+    }
+    if(((checkbox1.checked) || (checkbox5.checked) || (checkbox6.checked)) && (parentCountEl.getElementsByClassName('mangData').length < 2)){
+           errormanger.innerHTML="عدد المساهمين يجب الا يقل عن 2";
+           errormanger.style.display="block";
+           errormanger.style.fontSize="14px";
+           errormanger.style.color="red";
+    } else{
+        errormanger.innerHTML="";
     }
    let passLay3 = [];
     for(let i=0; i < inputTxt2.length; i++){

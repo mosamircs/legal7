@@ -311,6 +311,7 @@
                             </div>
                             </div>
                             <div id="part-form" class="container"></div>
+                            <div id="error-manger" class="error"></div>
                         </div>
                         <!-- layer---4 mangers names -->
                         <div  class="layer">
