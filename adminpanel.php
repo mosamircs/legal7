@@ -3,9 +3,6 @@ require_once("header.php");
 require_once ("database.php");
 $database_instance = Database::getInstance();
 $connection = $database_instance->getConnection(); 
-
-$all_row = array();
-
 $rows = array();
 $users = "SELECT users.name,users.email,users.phone,companies.company_type,companies.company_name,companies.company_address,companies.company_activity,companies.capital_share,companies.capital_value,shareholders.shareholder_name,shareholders.shareholder_nationality,shareholders.shareholder_percenatage,shareholders.shareholder_personal_id,managers.manager_name,managers.manager_nationality,managers.manager_personal_id,managers.perm1,managers.perm2,managers.perm3,managers.manager_type FROM users INNER JOIN companies on users.id = companies.user_id INNER JOIN shareholders on companies.id = shareholders.company_id INNER JOIN managers on  companies.id = managers.company_id";
 
