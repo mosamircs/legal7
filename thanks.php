@@ -201,19 +201,19 @@
 
     /////////////////////////////// insert shareholders to database ///////////////////////////////
     for ($i=0; $i < count($shareholders); $i++) {
-        $insert_shareholder = "INSERT INTO `shareholders`(`name`,`nationality` , `percenatage`, `personal_id`,`company_id`) VALUES ('".$shareholders[$i]["shareholder_name"] ."','".$shareholders[$i]["shareholder_nationality"]."','".$shareholders[$i]["shareholder_percentage"]."','".$shareholders[$i]["personal_id"]."','".$formdata["company_id"]."');";
+        $insert_shareholder = "INSERT INTO `shareholders`(`shareholder_name`,`shareholder_nationality` , `shareholder_percenatage`, `shareholder_personal_id`,`company_id`) VALUES ('".$shareholders[$i]["shareholder_name"] ."','".$shareholders[$i]["shareholder_nationality"]."','".$shareholders[$i]["shareholder_percentage"]."','".$shareholders[$i]["personal_id"]."','".$formdata["company_id"]."');";
         $result = $connection->query($insert_shareholder);
     }
     
     /////////////////////////////// insert managers to database ////////////////////////////////
         for ($i=0; $i < count($managers); $i++) {
-        $insert_manager = "INSERT INTO `managers`(`name`,`nationality` , `personal_id`,`perm1`,`perm2`,`perm3`,`manager_type`,`company_id`) VALUES ('".$managers[$i]["manager_name"]."','".$managers[$i]["manager_nationality"]."','".$shareholders[$i]["personal_id"] ."','".$permessions[$i]["perm1"]."','".$permessions[$i]["perm2"]."','".$permessions[$i]["perm3"]."','".$managers[$i]["manager_type"] ."','".$formdata["company_id"]."')";
+        $insert_manager = "INSERT INTO `managers`(`manager_name`,`manager_nationality` , `manager_personal_id`,`perm1`,`perm2`,`perm3`,`manager_type`,`company_id`) VALUES ('".$managers[$i]["manager_name"]."','".$managers[$i]["manager_nationality"]."','".$shareholders[$i]["personal_id"] ."','".$permessions[$i]["perm1"]."','".$permessions[$i]["perm2"]."','".$permessions[$i]["perm3"]."','".$managers[$i]["manager_type"] ."','".$formdata["company_id"]."')";
         $result1 = $connection->query($insert_manager);
     }
 
     if(isset($managers[0]["upload_manager"]))
     for ($i=0; $i < count($managers); $i++) {
-        $insert_manager = "INSERT INTO `managers`(`name`,`nationality` , `personal_id`,`perm1`,`perm2`,`perm3`,`manager_type`,`company_id`) VALUES ('".$managers[$i]["manager_name"]."','".$managers[$i]["manager_nationality"]."','".$managers[$i]["upload_manager"]."','".$permessions[$i]["perm1"]."','".$permessions[$i]["perm2"]."','".$permessions[$i]["perm3"]."','".$managers[$i]["manager_type"] ."','".$formdata["company_id"]."')";
+        $insert_manager = "INSERT INTO `managers`(`manager_name`,`manager_nationality` , `manager_personal_id`,`perm1`,`perm2`,`perm3`,`manager_type`,`company_id`) VALUES ('".$managers[$i]["manager_name"]."','".$managers[$i]["manager_nationality"]."','".$managers[$i]["upload_manager"]."','".$permessions[$i]["perm1"]."','".$permessions[$i]["perm2"]."','".$permessions[$i]["perm3"]."','".$managers[$i]["manager_type"] ."','".$formdata["company_id"]."')";
         $result1 = $connection->query($insert_manager);
     }
 
