@@ -219,7 +219,7 @@
 
     ///////////////////////////////////////// insert malek in database ////////////////////////////
     if (isset($_POST["malek_name"]) && isset($_POST["malek_nationality"]) && isset($_POST["malek_personal_id"])) {
-        $insert_malek = "INSERT INTO `managers`(`name`,`nationality` , `personal_id`,`company_id`) VALUES ('".$_POST["malek_name"]."','".$_POST["malek_nationality"]."','".$_POST["malek_personal_id"]."','".$formdata["company_id"]."')";
+        $insert_malek = "INSERT INTO `managers`(`manager_name`,`manager_nationality` , `manager_personal_id`,`company_id`) VALUES ('".$_POST["malek_name"]."','".$_POST["malek_nationality"]."','".$_POST["malek_personal_id"]."','".$formdata["company_id"]."')";
         $result = $connection->query($insert_malek);
     }
     // ///////////////////////////////// insert multiquery to database  and close connection ///////////////////////////////
