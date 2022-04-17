@@ -8,9 +8,6 @@ if(isset($_GET["id"])){
 }
 global $managers_array;
 global $shareholders_array;
-
-
-
 $user = "SELECT * FROM users WHERE id = $id";
 $result_user = mysqli_query($connection, $user);
 $row_user = mysqli_fetch_assoc($result_user);
@@ -18,7 +15,10 @@ $row_user = mysqli_fetch_assoc($result_user);
 $company = "SELECT * from companies where user_id = $id";
 $result_company = mysqli_query($connection, $company);
 $row_company = mysqli_fetch_assoc($result_company);
-$company_names = unserialize($row_company["company_name"]);
+//$company_names = $row_company["company_name"];
+//foreach ($company_names as $company_name){
+//    echo $company_name;
+//}
 
 $company_id = "SELECT id from companies where user_id = $id";
 $result_company_id = mysqli_query($connection, $company_id);
@@ -271,27 +271,21 @@ echo  "</pre>";
                             <div class="comp-name pt-4">
                                 <h3>اقترح اسم لشركتك</h3>
                                 <div id="form-in" dir="rtl">
-                                    <?php
-                                for($i =0; $i<count($company_names);$i++){
-                                    ?>
                                     <div class="row g-3 justify-content-evenly pt-3" id="parent-el">
                                         <div class="col-md-4">
                                           <label for="inputtext1" class="form-label">الاقتراح </label>
-                                          <input type="text" class="form-control lay2" name="company_name[]"  id="inputtext1" value = "<?php echo ($company_names[$i]); ?>">
+                                          <input type="text" class="form-control lay2" name="company_name[]"  id="inputtext1" value = "">
                                         </div>
-<!--                                        <div class="col-md-4">-->
-<!--                                            <label for="inputtext2" class="form-label">الاقتراح </label>-->
-<!--                                            <input type="text" class="form-control lay2" name="company_name[]" value = "--><?php //echo $row_company["company_name"]; ?><!--" id="inputtext2">-->
-<!--                                          </div>-->
+                                        <div class="col-md-4">
+                                            <label for="inputtext2" class="form-label">الاقتراح </label>
+                                            <input type="text" class="form-control lay2" name="company_name[]" value = "" id="inputtext2">
+                                          </div>
                                         <div class="col-md-4 align-self-end text-center" >
                                             <button class="btn btn-add" id="btn-add-sug" type="button">اضافه اقتراحات</button>
                                             <!-- <button class="btn btn-outline-danger" id="btn-delete-sug">حذف اقتراحات</button> -->
                                         </div>
                                     </div>
-                                    <?php
-                                }
-                                    ?>
-                                    ?>
+
                                 </div>
                             </div>
                             <div class="comp-info pt-4">
@@ -527,7 +521,7 @@ echo  "</pre>";
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.16/js/intlTelInput.min.js" integrity="sha512-Po9nSdYOcWIcoADdRjkAbRYPpR8OHjxzA/3RDUERZcDewTLzRTxbG4bUX7Sr7lVEcO3wTCzphdOBWgNFKVmxaA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="js/rome.js"></script>
 
-    <script src="js/main.js?t=<?php echo time();?>"></script>  
+    <script src="js/main2.js?t=<?php echo time();?>"></script>
     <script>
         //download files.pdf
          function download(filename) {
