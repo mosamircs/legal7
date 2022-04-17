@@ -358,7 +358,7 @@ echo  "</pre>";
                             </div>
                             <img src="<?php echo "uploads/".$shareholders_array[$i]["shareholder_personal_id"]; ?>" class="imageUpload imgId" id="">
                         <div class="col-md-3 x-last align-self-center d-flex justify-content-end">
-                                <button class="btn btn-outline-danger" type="reset" id="partCompDel" onclick="this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode)">${btnDelete}</button>
+                                <button class="btn btn-outline-danger" type="reset" id="partCompDel" onclick="this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode)">حذف المدير</button>
                             </div>
                             <hr>
                              <?php
@@ -451,7 +451,7 @@ echo  "</pre>";
                                             </div>
                                         </div>
                                         <div class="card-body" id='card_${x}'>
-                                            <h6 class="h6part">${h6Name}</h6>
+                                            <h6 class="h6part"></h6>
                                             <div class="form-check">
                                                 <label class="form-check-label" for="flexCheckDefault1">
                                                     صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
