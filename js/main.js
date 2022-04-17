@@ -28,15 +28,15 @@ const select = document.querySelector('#specificSizeSelect');
 const parentCountEl = document.getElementById('part-form');
 ///////// show layers
 //samir 
-    // var imgSrc = document.getElementsByName("manager_personal_id[]1");
+    // var imgSrc = document.getElementsByName("manager_personal_id[]");
     // var hrc = document.getElementsByName("hidden_personal_id1");
     // hrc[0].value =   imgSrc[0].getAttribute("src");
 
-    // var imgSrc = document.getElementsByName("manager_personal_id[]2");
+    // var imgSrc = document.getElementsByName("manager_personal_id[]");
     // var hrc = document.getElementsByName("hidden_personal_id2");
     // hrc[0].value =   imgSrc[0].getAttribute("src");
 
-    // var imgSrc = document.getElementsByName("manager_personal_id[]3");
+    // var imgSrc = document.getElementsByName("manager_personal_id[]");
     // var hrc = document.getElementsByName("hidden_personal_id3");
     // hrc[0].value =   imgSrc[0].getAttribute("src");
 
@@ -888,7 +888,7 @@ if(parentCard.getElementsByTagName('div').length == 0 ){
               <div class="mt-3 mb-3 " dir="rtl" style="display:${displayٍSelect};"> 
                   <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
                   <select class="form-select" name = "manager_type[]" id="specificSizeSelect2">
-                      <option selected readonly>برجاء تحديد التصنيف</option>
+                      <option selected disabled>برجاء تحديد التصنيف</option>
                       <option value = "ceo">رئيس مجلس الاداره</option>
                       <option value = "director_member">عضو مجلس اداره</option> 
                       <option value = "director_manager">عضو منتدب</option> 
@@ -908,7 +908,7 @@ if(parentCard.getElementsByTagName('div').length == 0 ){
                       </div>
                   </div>
                   <div class="col-6 align-self-center" style="padding-top: 33px;">
-                      <div class="id"><img src="${e.prev}" alt="" width="100%" id="imagePrev_${i}" name = "manager_personal_id[]1" class="imgId">
+                      <div class="id"><img src="${e.prev}" alt="" width="100%" id="imagePrev_${i}" name = "manager_personal_id[]" class="imgId">
                       </div>
                   </div>
               </div>
@@ -1040,7 +1040,7 @@ else{
     <div class="mt-3 mb-3" dir="rtl" style="display:${displayٍSelect};"> 
         <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
         <select class="form-select" name = "manager_type[]" id="specificSizeSelect2">
-            <option selected readonly>برجاء تحديد التصنيف</option>
+            <option selected disabled>برجاء تحديد التصنيف</option>
             <option value = "ceo">رئيس مجلس الاداره</option>
             <option value = "director_member">عضو مجلس اداره</option> 
             <option value = "director_manager">عضو منتدب</option> 
@@ -1133,7 +1133,7 @@ else{
               <div class="mt-3 mb-3" dir="rtl" style="display:${displayٍSelect};"> 
                   <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
                   <select class="form-select" name = "manager_type[]" id="specificSizeSelect2">
-                      <option selected readonly>برجاء تحديد التصنيف</option>
+                      <option selected disabled>برجاء تحديد التصنيف</option>
                       <option value = "ceo">رئيس مجلس الاداره</option>
                       <option value = "director_member">عضو مجلس اداره</option> 
                       <option value = "director_manager">عضو منتدب</option> 
@@ -1203,7 +1203,7 @@ else{
     <div class="mt-3 mb-3 " dir="rtl" style="display:${displayٍSelect};"> 
         <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
         <select class="form-select" name = "manager_type[]" id="specificSizeSelect2">
-            <option selected readonly>برجاء تحديد التصنيف</option>
+            <option selected disabled>برجاء تحديد التصنيف</option>
             <option value = "ceo">رئيس مجلس الاداره</option>
             <option value = "director_member">عضو مجلس اداره</option> 
             <option value = "director_manager">عضو منتدب</option> 
@@ -1223,7 +1223,7 @@ else{
             </div>
         </div>
         <div class="col-6 align-self-center" style="padding-top: 33px;">
-        <div class="id dispBlo" style="display: none;"><img src="" class="imageUpload imgId" id="img_prev_${i}" name="manager_personal_id[]3">
+        <div class="id dispBlo" style="display: none;"><img src="" class="imageUpload imgId" id="img_prev_${i}" name="manager_personal_id[]">
         </div>
         <div class="id d-flex justify-content-center align-items-center">
             <div class="form-group">
@@ -1286,7 +1286,7 @@ else{
     <div class="mt-3 mb-3" dir="rtl" style="display:${displayٍSelect};"> 
         <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
         <select class="form-select" name = "manager_type[]" id="specificSizeSelect2">
-            <option selected readonly>برجاء تحديد التصنيف</option>
+            <option selected disabled>برجاء تحديد التصنيف</option>
             <option value = "ceo">رئيس مجلس الاداره</option>
             <option value = "director_member">عضو مجلس اداره</option> 
             <option value = "director_manager">عضو منتدب</option> 

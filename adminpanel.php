@@ -34,6 +34,7 @@
         <th >perm2</th>
         <th >perm3</th>
         <th >Manger Type</th>
+        <th>View</th>
     </tr>
 </thead>
 <tbody>
@@ -71,6 +72,7 @@ while($r = mysqli_fetch_assoc($result_user)) {
     echo "<td>".$r["perm2"]."</td>";
     echo "<td>".$r["perm3"]."</td>";
     echo "<td>".$r["manager_type"]."</td>";
+    echo "<td>"."<a href = 'show.php?id=".$r["id"]."'".">View</a>"."</td>";
     echo "</tr>";
 
 }

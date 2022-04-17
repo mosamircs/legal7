@@ -85,7 +85,7 @@
     }
     }
     if (isset($_POST["company_name"])) {
-        $formdata["company_name"] = json_encode($_POST["company_name"]);
+        $formdata["company_name"] = serialize($_POST["company_name"]);
     }
     if (isset($_POST["company_activity"])) {
         $formdata["company_activity"] = $_POST["company_activity"];
