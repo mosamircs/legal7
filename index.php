@@ -37,8 +37,14 @@
                             <div class="col-lg-6  col-md-6 col-sm-12 my-auto mx-auto">
                                 <div class="welcome-msg text-center">
                                     <h2>مرحبا بك</h2>
-                                    <h3>ابدا شركتك الان</h3>
-                                    <p>نسهل عليك دمج عملك على الإنترنت. تضمن عمليتنا خطوة بخطوة حصولك على شركة دقيقة وفي الوقت المناسب. ما عليك سوى اتباع نموذجنا البسيط واختيار نوع الشركة الذي تريده. يستغرق الأمر بضع دقائق فقط من وقتك لتأسيس شركتك عبر الإنترنت!</p>
+                                    <h3>اسس شركتك الان</h3>
+                                    <p>بنسھل علیك اجراءات تأسیس شركتك الناشئة
+                                        بإتباعك للخطوات التالیه ستحصل على اوراق شركتك القانونیة
+                                        كاملة<br>
+                                        كل اللي علیك استكمال نموذجنا البسیط واختار نوع الشركة
+                                        الذي تریده.<br>
+                                        یستغرق الامر بضع دقائق فقط من وقتك لتأسیس شركتك عبر
+                                        الانترنت!</p>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12 welcome-form" style="text-align: -webkit-right;">
@@ -110,8 +116,8 @@
                 <div class="type">
                     <p>بيانات الشركه</p>
                 </div>
-                <div class="type">
-                    <p>بيانات المساهمين</p>
+                <div class="type" >
+                    <p id="mang-types">بيانات الشركاء</p>
                 </div>
                 <div class="type">
                     <p>بيانات المديرين</p>
@@ -134,8 +140,10 @@
                             </div>
                             <div  id="choice-Money">
                                 <div class="pref text-center">
-                                    <p>هو مزيج من الأصول أو الموارد التي يمكن للشركة الاستفادة منها في تمويل أعمالها<br>
-                                        .ينتج رأس مال الشركات من تمويل الديون وحقوق الملكية</p>
+                                    <p>لھا كیان قانوني منفصل عن أصحابھا
+                                    <br>یكون لكل شریك/مساھم مسئولیة محدودة – محدودة بقیمة
+                                        الحصص/الاسهم التي یملكھا       
+                                    </p>
                                 </div>
                                 <div class="choice d-flex justify-content-center flex-column align-items-end">
                                     <div class="form-check d-flex flex-row-reverse mt-3">
@@ -144,10 +152,12 @@
                                         <div class="mr-3">
                                             <label class="form-check-label" for="exampleRadios1">
                                                 <h2>شركة ذات مسئولية محدودة</h2>
-                                                <p>,ذات المسئولية المحدودة هي التي تتكون من عدد من الشركاء لا يزيد علي الخمسين<br>
-                                                    ,ولا يكون كل منهم مسئولاً إلا بقدر حصته في رأس المال<br>
-                                                     ,ولا يجوز تأسيس هذه الشركة أو زيادة رأس مالها أو الاقتراض لحسابها عن طريق الاكتتاب العام
-                                                     <br>.كما لا يجوز لها إصدار أسهم أو سندات قابلة للتداول</p>
+                                                <p>الشركة ذات المسؤولیة المحدودة ھي أقل الشركات تعقیدًا
+                                                    .والاكثر توصیة بھا للشركات الناشئة<br>
+                                                    ھي شركة بھا مساھمان اثنان على الاقل سواء كانوا مصریین أو
+                                                   أجانب، طبیعیین أو اعتباریین (شركات). <br>تقتصر مسؤولیة  
+                                                    المساھمین على قیمة حصصھم. لا یوجد حد أدنى لرأس المال
+                                                    المطلوب لشركة ذات مسؤولیة محدودة</p>
                                             </label>
                                         </div>
                                         <div class="mr-8"><button class="btn down" id="down-1" type="button" onclick="download('Incorporation of a Limited Liability Company - Legal Clinic');" style="display: none;">تنزيل ملف الشروط</button></div> 
@@ -157,10 +167,13 @@
                                         <div class="mr-3">
                                             <label class="form-check-label" for="exampleRadios1">
                                                 <h2>شركة مساهمة مصري</h2>
-                                                <p>.شركة ينقسم رأس مالها إلى أسهم متساوية القيمة يمكن تداولها على الوجه المبين في القانون<br>
-                                                    وتقتصر مسئولية المساهم على أداء قيمة الأسهم التي اكتتب فيها ولا يسأل عن ديون الشركة <br>إلا في حدود ما اكتتب فيه من أسهم
-                                                    ويكون للشركةاسم تجاري يشتق من الغرض من إنشائها<br>.ويجوز أن يتضمن الاسم التجاري للشركة اسما أو لقبا لواحد أو أكثر من مؤسسيها 
-                                                    </p>
+                                                <p>شركة المساھمة ھي شركة بھا ثلاثه مساھمین على الاقل سواء
+                                                    كانوا مصریین أو أجانب، طبیعیین أو اعتباریین (شركات).
+                                                    <br>تقتصر مسؤولیة المساھمین على قیمة أسھمھم
+                                                    الحد األدنى لرأس المال ھو ٢٥٠ ألف جنيه مصري.<br> خلال
+                                                    مرحلة التأسیس، یتم دفع ١٠٪ مع زیادة تحدث في غضون ثلاثه
+                                                    اشهر. یتم إیداع المبلغ المتبقي في غضون خمس سنوات<br>یجب أن تدار من قبل مجلس إدارة، والذي یجب أن یتألف من
+                                                    ثلاثه (٣) أعضاء على الاقل من أي جنسیة</p>
                                             </label>
                                         </div>
                                         <div class="mr-8"><button class="btn down"  id="down-2" style="display: none;" onclick="download('Joint Stock Incorporation');"  type="button">تنزيل ملف الشروط</button></div>
@@ -170,12 +183,8 @@
                                         <div class="mr-3">
                                             <label class="form-check-label" for="exampleRadios1">
                                                 <h2>شركة شخص واحد ذات مسئولية محدودة</h2>
-                                                <p>شركة يمتلك رأسمالها بالكامل شخص واحد، سواء كان طبيعيا أو اعتباريا وذلك بما لا يتعارض مع أغراضها <br>
-                                                    .ولا يسأل مؤسس الشركة عن التزاماتها إلا في حدود رأس المال المخصص لها<br> 
-                                                    وتتخذ الشركة اسما خاصا لها يستمد من أغراضها أو من اسم مؤسسها، 
-                                                    <br>ويجب أن يتبع اسمها بما يفيد أنها شركة من شرك الشخص الواحد ذات مسئولية محدودة،<br> 
-                                                    ويوضع على مركزها الرئيس وفروعها – إن وجدت – وفي جميع مكاتباتها.
-                                                    </p>
+                                                <p>شركة الشخص الواحد ھي في الاساس شركة ذات مؤسس
+                                                منفرد، سواء كان مصریا أو أجنبیًا، شخصا طبیعیًا أو اعتباري</p> 
                                             </label>
                                         </div>
                                         <div class="mr-8"><button class="btn down"  id="down-3" style="display: none;" onclick="download('OPC requirements');"  type="button">تنزيل ملف الشروط</button></div>
@@ -185,7 +194,11 @@
                             </div>
                             <div  id="choice-people" style="display: none;">
                                     <div class="pref mt-2 mb-2 text-center">
-                                        <p>يتكون من شخصين أو أكثر يجمعون مواردهم لتكوين شركة ويوافقون على مشاركة المخاطر والأرباح والخسائر </p>
+                                        <p>لیس لھا كیان قانوني منفصل عن أصحابھا
+                                            یتحمل كل شریك مسؤولیة غیر محدودة وھو مسؤول شخصیًا
+                                            عن جمیع دیون الشركة<br>
+                                            لا یجوز للشریك نقل حصته في الشركة دون موافقة جمیع
+                                            الشركاء</p>
                                     </div>
                                     <div class="choice d-flex justify-content-center flex-column align-items-end">
                                         <div class="form-check d-flex flex-row-reverse mt-3">
@@ -263,6 +276,7 @@
                                           <label for="inputtext3" class="form-label">قيمه رأس المال</label>
                                           <input type="text" class="form-control lay2" id="inputtext3"  name="capital_value" onkeyup="arabicValue(inputtext3)"></input>
                                           <div id="soloComp"><span >راس المال يجب الا يقل عن 50 الف جنيها</span></div>
+                                          <div id="partCompMoney"><span >راس المال يجب الا يقل عن 250 الف جنيها</span></div>
                                         </div>
                                         <div class="col-md-4">
                                             <!-- <label for="inputtext4" class="form-label" style="display: none;">قيمه السهم</label> -->
@@ -294,15 +308,15 @@
                                 <div class="row g-3 justify-content-between pt-3" dir="rtl" data-id="item_0">
                                 <div class="col-md-4">
                                   <label for="inputtext1" class="form-label mang" id="mangName">اسم المالك</label>
-                                  <input type="text" class="form-control lay3 mangOneInfo" id="name" name="malek_name" >
+                                  <input type="text" class="form-control  mangOneInfo" id="name" name="malek_name" >
                                 </div>
                                 <div class="col-md-4">
                                   <label for="inputtext1" class="form-label mang">جنسيه المالك</label>
-                                    <input type="text" class="form-control lay3 mangOneInfo" id="nation" name="malek_nationality">
+                                    <input type="text" class="form-control  mangOneInfo" id="nation" name="malek_nationality">
                                 </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="formFileMultiple" class="form-label">اضافه البطاقه الشخصية</label>
-                                        <input class="form-control lay3 mangOneInfo" name="malek_personal_id" type="file" id="id" accept="image/png, image/gif, image/jpeg">
+                                        <input class="form-control  mangOneInfo" name="malek_personal_id" type="file" id="id" accept="image/png, image/gif, image/jpeg">
                                       </div>
                                     <div class="col-md-4 x-last align-self-center">
                                         <button class="btn btn-outline-danger" type="reset" id="partCompDel">حذف المالك</button>

@@ -14,6 +14,8 @@ const layer = document.getElementsByClassName('layer');
 const progress = document.getElementById('progress');
 const circles = document.querySelectorAll('.circle');
 
+const mangTypes = document.getElementById('mang-types');
+
 const partCompDel = document.getElementById('partCompDel');
 const allCompOption = document.getElementById('allCompOption');
 const partName = document.getElementById('partName');
@@ -23,7 +25,7 @@ const h6part = document.getElementsByClassName('h6part');
 const partComp = document.getElementsByTagName('label');
 const mangers = document.getElementsByClassName('mang');
 const oneComp = document.getElementsByClassName('oneComp');
-
+const partCompMoney = document.getElementById('partCompMoney');
 const select = document.querySelector('#specificSizeSelect');
 const parentCountEl = document.getElementById('part-form');
 ///////// show layers
@@ -56,23 +58,26 @@ function showLayer(curr){
     if(curr == 2 && checkbox2.checked){
         document.getElementById('valueCor').innerHTML = 'قيمه السهم';
         // console.log('jjf')
+        mangTypes.innerHTML = "بيانات المساهمين";
+        partCompMoney.style.display = 'block';
     }else{
         document.getElementById('valueCor').innerHTML = 'قيمه الحصه';
+        mangTypes.innerHTML = "بيانات الشركاء";
+        partCompMoney.style.display = 'none';
     }
 
     if(curr == 2 && checkbox3.checked){
         document.getElementById('soloComp').style.display = 'block';
-        // console.log('jjf')
 
     }else{
         document.getElementById('soloComp').style.display = 'none';
     }
 
     if(curr == 3 && checkbox2.checked){
-        allCompOption.innerHTML = 'اختر عدد المساهمين'         
+        allCompOption.innerHTML = 'اختر عدد المساهمين';      
                 
     } else{
-        allCompOption.innerHTML = 'اختر عدد المديرين'
+        allCompOption.innerHTML = 'اختر عدد الشركاء';
     }
     // if((curr == 3 && checkbox5.checked) || (curr == 3 && checkbox6.checked) || (curr == 3 && checkbox1.checked)){
     //     disOpt1();
@@ -98,7 +103,7 @@ if((curr == 3 && checkbox3.checked) || (curr == 3 && checkbox4.checked)){
 }
 
     if(curr == 4 && checkbox2.checked){
-        partName.innerHTML = 'ادخل اسماء المساهمين';
+        partName.innerHTML = 'ادخل اسماء اعضاء مجلس الاداره';
             
     }else{
         partName.innerHTML = 'ادخل اسماء المديرين';
@@ -161,185 +166,256 @@ let inputTxt2 = document.getElementsByClassName('lay3');
 function validateForm() {
     let valid = true;
     let formValidArr = [];
-    if(currLayer == 0)
-    {
-       //user name
-       if(userName.value == ''){
-       //user name
-           errorUserName.innerHTML="يجب ادخال اسم المستخدم ";
-           errorUserName.style.display="block";
-           errorUserName.style.fontSize="14px";
-           errorUserName.style.color="red";
-           userName.style.border = "1px solid red";
-        //    valid = false;   
-        formValidArr.push(false);            
+    // if(currLayer == 0)
+    // {
+    //    //user name
+    //    if(userName.value == ''){
+    //    //user name
+    //        errorUserName.innerHTML="يجب ادخال اسم المستخدم ";
+    //        errorUserName.style.display="block";
+    //        errorUserName.style.fontSize="14px";
+    //        errorUserName.style.color="red";
+    //        userName.style.border = "1px solid red";
+    //     //    valid = false;   
+    //     formValidArr.push(false);            
 
-       } else{
-           // if(isNaN(userName.value)) {
-                   errorUserName.innerHTML="";
-                   userName.style.border = "1px solid green";
-                //    valid = true;
-        formValidArr.push(true);            
+    //    } else{
+    //        // if(isNaN(userName.value)) {
+    //                errorUserName.innerHTML="";
+    //                userName.style.border = "1px solid green";
+    //             //    valid = true;
+    //     formValidArr.push(true);            
 
-           }
-       //user email
-       if(userEmail.value == ''){
-           errorUserEmail.innerHTML="يجب ادخال البريد الالكترونى";
-           errorUserEmail.style.display="block";
-           errorUserEmail.style.fontSize="14px";
-           errorUserEmail.style.color="red";
-           userEmail.style.border = "1px solid red";
-        //    valid = false;
-        formValidArr.push(false);            
-        //    console.log('empty')            
-       } else{
-           if(emailPattern.test(userEmail.value)){
-               //user email
-                   errorUserEmail.innerHTML="";
-                   userEmail.style.border = "1px solid green";
-                //    valid = true;
-        //    console.log('valid') 
-        formValidArr.push(true);            
-
-
-           }else{
-                    //user email
-                    errorUserEmail.innerHTML="البريد الالكترونى غير صالح";
-                    errorUserEmail.style.display="block";
-                    errorUserEmail.style.fontSize="14px";
-                    errorUserEmail.style.color="red";
-                    userEmail.style.border = "1px solid red";
-                    // valid = false;  
-        //    console.log('invalidpattern')
-        formValidArr.push(false);            
+    //        }
+    //    //user email
+    //    if(userEmail.value == ''){
+    //        errorUserEmail.innerHTML="يجب ادخال البريد الالكترونى";
+    //        errorUserEmail.style.display="block";
+    //        errorUserEmail.style.fontSize="14px";
+    //        errorUserEmail.style.color="red";
+    //        userEmail.style.border = "1px solid red";
+    //     //    valid = false;
+    //     formValidArr.push(false);            
+    //     //    console.log('empty')            
+    //    } else{
+    //        if(emailPattern.test(userEmail.value)){
+    //            //user email
+    //                errorUserEmail.innerHTML="";
+    //                userEmail.style.border = "1px solid green";
+    //             //    valid = true;
+    //     //    console.log('valid') 
+    //     formValidArr.push(true);            
 
 
-             }
-        }
+    //        }else{
+    //                 //user email
+    //                 errorUserEmail.innerHTML="البريد الالكترونى غير صالح";
+    //                 errorUserEmail.style.display="block";
+    //                 errorUserEmail.style.fontSize="14px";
+    //                 errorUserEmail.style.color="red";
+    //                 userEmail.style.border = "1px solid red";
+    //                 // valid = false;  
+    //     //    console.log('invalidpattern')
+    //     formValidArr.push(false);            
+
+
+    //          }
+    //     }
        
-       //user phone
-       if(userPhone.value == ''){
-           errorUserPhone.innerHTML="يجب ادخال رقم الهاتف";
-           errorUserPhone.style.display="block";
-           errorUserPhone.style.fontSize="14px";
-           errorUserPhone.style.color="red";
-           userPhone.style.border = "1px solid red";
-       // console.log('hjekh')
-       //   valid = false;
-         formValidArr.push(false);            
+    //    //user phone
+    //    if(userPhone.value == ''){
+    //        errorUserPhone.innerHTML="يجب ادخال رقم الهاتف";
+    //        errorUserPhone.style.display="block";
+    //        errorUserPhone.style.fontSize="14px";
+    //        errorUserPhone.style.color="red";
+    //        userPhone.style.border = "1px solid red";
+    //    // console.log('hjekh')
+    //    //   valid = false;
+    //      formValidArr.push(false);            
 
-       } else{
-           if(phonePattern.test(userPhone.value)){
-               //user phone
-                   errorUserPhone.innerHTML="";
-                   userPhone.style.border = "1px solid green";
-            //    valid = true;
-        formValidArr.push(true);            
+    //    } else{
+    //        if(phonePattern.test(userPhone.value)){
+    //            //user phone
+    //                errorUserPhone.innerHTML="";
+    //                userPhone.style.border = "1px solid green";
+    //         //    valid = true;
+    //     formValidArr.push(true);            
 
-           }else{
-                   //user phone
-                   errorUserPhone.innerHTML="رقم الهاتف يجب الا يقل عن 11 رقم ولا يحتوى على رموز";
-                   errorUserPhone.style.display="block";
-                   errorUserPhone.style.fontSize="14px";
-                   errorUserPhone.style.color="red";
-                   userPhone.style.border = "1px solid red";
-                //    valid = false;
-                  formValidArr.push(false);            
+    //        }else{
+    //                //user phone
+    //                errorUserPhone.innerHTML="رقم الهاتف يجب الا يقل عن 11 رقم ولا يحتوى على رموز";
+    //                errorUserPhone.style.display="block";
+    //                errorUserPhone.style.fontSize="14px";
+    //                errorUserPhone.style.color="red";
+    //                userPhone.style.border = "1px solid red";
+    //             //    valid = false;
+    //               formValidArr.push(false);            
 
-               }
+    //            }
+    //     }
+    //     formValidArr.forEach((value)=>{
+    //         if(value == false){
+    //             valid = false;
+    //         }
+    //     });
+    // }
+    // if(currLayer == 1){
+    //     // console.log('dfghjk')
+    //     for(let i=0; i<inputVal.length; i++){
+    //         if(inputVal[i]['type'] == ['radio']){
+    //             if(inputVal[i]['checked'] != true){
+    //                 if($('.form-check-input:checked').length == 0)
+    //                 {
+    //                     inputVal[i].style.border = '1px solid red';
+    //                 // console.log(radioBtn[i])
+    //                     valid = false;
+    //                 }
+    //             } else {
+    //                 inputVal[i].style.border = '1px solid #000086';
+    //                 valid = true;
+    //             }
+    //         }
+    //     }
+    // }
+    // if(currLayer == 2){
+    //     let passLay2 = [];
+    //     for(let i=0; i<inputTxt.length; i++){
+    //         //  console.log(inputTxt[i].value)
+    //         if(inputTxt[i].value == ''){
+    //             inputTxt[i].style.border = '1px solid red';
+    //             // valid = false;
+    //             passLay2.push(false);
+    //         } else {
+    //             inputTxt[i].style.border = '1px solid #000086';
+    //             // valid = true;
+    //             passLay2.push(true);
+    //                 // console.log('dfdg')
+    //         }
+    //     }
+    //     passLay2.forEach((value)=>{
+    //         if(value == false){
+    //             valid = false;
+    //         }
+    //         // } else{
+    //         //     valid = true;
+    //         // }
+    //     })
+    //     // console.log(pass);
+    // }
+    if(currLayer == 3){
+        const mageData = parentCountEl.getElementsByClassName('mangData');
+        let passLay3 = [];
+        let passAll = [];
+       
+        if(checkbox2.checked){
+            if(mageData.length < 3){
+                // console.log('wrong');
+                errormanger.innerHTML="عدد المساهمين يجب الا يقل عن 3";
+                errormanger.style.display="block";
+                errormanger.style.fontSize="14px";
+                errormanger.style.color="red";
+                // errormanger.style.border = "1px solid red";
+                passLay3.push(false);
+                //    passAll.push(false);
+                // valid = false;
+            }else{
+                errormanger.innerHTML="";
+                // valid = true;
+                // passAll.push(true);
+                passLay3.push(true);
+                for(let i=0; i < inputTxt2.length; i++){
+                    // console.log(inputTxt2[i])
+                    if(inputTxt2[i].value == ''){
+                        inputTxt2[i].style.border = '1px solid red';
+                            // console.log(radioBtn[i])
+                                            //    valid = false;
+                        passLay3.push(false);
+                    } else {
+                        inputTxt2[i].style.border = '1px solid #000086';
+                                        //    valid = true;
+                        passLay3.push(true);
+                                            // console.log('dfdg')
+                    }
+                    }
+            }    
         }
-        formValidArr.forEach((value)=>{
-            if(value == false){
-                valid = false;
-            }
-        });
-   }
-if(currLayer == 1){
-    // console.log('dfghjk')
-    for(let i=0; i<inputVal.length; i++){
-        if(inputVal[i]['type'] == ['radio']){
-            if(inputVal[i]['checked'] != true){
-                if($('.form-check-input:checked').length == 0)
-                {
-                    inputVal[i].style.border = '1px solid red';
-                // console.log(radioBtn[i])
-                    valid = false;
-                }
+        if((checkbox1.checked) || (checkbox5.checked) || (checkbox6.checked)){
+            if(mageData.length < 2){
+                console.log('checked');
+                errormanger.innerHTML="عدد الشركاء يجب الا يقل عن 2";
+                errormanger.style.display="block";
+                errormanger.style.fontSize="14px";
+                errormanger.style.color="red";
+                // passLay3.push(false);
+                passAll.push(false);
             } else {
-                inputVal[i].style.border = '1px solid #000086';
+                errormanger.innerHTML="";
+                passAll.push(true);
+                for(let i=0; i < inputTxt2.length; i++){
+                    // console.log(inputTxt[i])
+                    if(inputTxt2[i].value == ''){
+                        inputTxt2[i].style.border = '1px solid red';
+                            // console.log(radioBtn[i])
+                                //    valid = false;
+                        passLay3.push(false);
+                    } else {
+                        inputTxt2[i].style.border = '1px solid #000086';
+                            //    valid = true;
+                        passLay3.push(true);
+                                // console.log('dfdg')
+                        }
+                }
+            }
+        //     //     // //   passLay3.push(true);
+        }
+        passLay3.forEach((val)=>{
+            if(val == false){
+                valid = false;
+            }else{
                 valid = true;
             }
-        }
-    }
-}
-if(currLayer == 2){
-    let passLay2 = [];
-     for(let i=0; i<inputTxt.length; i++){
-        //  console.log(inputTxt[i].value)
-        if(inputTxt[i].value == ''){
-            inputTxt[i].style.border = '1px solid red';
-            // valid = false;
-            passLay2.push(false);
-        } else {
-            inputTxt[i].style.border = '1px solid #000086';
-            // valid = true;
-            passLay2.push(true);
-                // console.log('dfdg')
-        }
-    }
-    passLay2.forEach((value)=>{
-        if(value == false){
-            valid = false;
-        }
-        // } else{
-        //     valid = true;
-        // }
-    })
-    // console.log(pass);
- }
- if(currLayer == 3){
-     
-    if((checkbox2.checked) && (parentCountEl.getElementsByClassName('mangData').length < 3)){
-        // console.log('wrong');
-           errormanger.innerHTML="عدد المساهمين يجب الا يقل عن 3";
-           errormanger.style.display="block";
-           errormanger.style.fontSize="14px";
-           errormanger.style.color="red";
-        //    errormanger.style.border = "1px solid red";
-    } 
-    else if(((checkbox1.checked) || (checkbox5.checked) || (checkbox6.checked)) && (parentCountEl.getElementsByClassName('mangData').length < 2)){
-           errormanger.innerHTML="عدد المساهمين يجب الا يقل عن 2";
-           errormanger.style.display="block";
-           errormanger.style.fontSize="14px";
-           errormanger.style.color="red";
-    } else{
-        errormanger.innerHTML="";
-    }
-   let passLay3 = [];
-    for(let i=0; i < inputTxt2.length; i++){
-       // console.log(inputTxt[i])
-         if(inputTxt2[i].value == ''){
-             inputTxt2[i].style.border = '1px solid red';
-                // console.log(radioBtn[i])
-            //    valid = false;
-            passLay3.push(false);
-           } else {
-               inputTxt2[i].style.border = '1px solid #000086';
-            //    valid = true;
-            passLay3.push(true);
-               // console.log('dfdg')
-      }
-   }
-   passLay3.forEach((value)=>{
-    if(value == false){
-        valid = false;
-    }
-    else{
-        valid = true;
-    }
-  })
+            })
+        console.log(passLay3);
+        //         // passAll.forEach((value)=>{
+                //     if(value == false){
+                //         valid = false;
+                //     }
+                //     else{
+                //         // passLay3.forEach((val)=>{
+                //         //     if(val == false){
+                //         //         valid = false;
+                //         //     } else{
+                //         //         valid = true;
+                //         //     }
+                //         // })
+                //         valid = true;
+                //     }
+                // });
+                // passAll.push(passLay3);
+                // else{
+                //   errormanger.innerHTML="";
+                // //   passLay3.push(true);
+                //   passAll.push = (true);
+                // }
+                // console.log(passLay3);
+                //     passAll.forEach((value)=>{
+                //         if(value == false){
+                //             valid = false;
+                //         }
+                //         else{
+                //             passLay3.forEach((val)=>{
+                //                 if(val == false){
+                //                     valid = false;
+                //                 }else{
+                //                     valid = true;
+                //                 }
+                //             })
+                //         }
+                //     });
+                // console.log(passAll);
+                // console.log(passLay3);
 
-}
+    } 
 /////////////////////////////////////////////edit--->4
 if(currLayer == 4){
     // let passlay42 = [];
@@ -590,7 +666,7 @@ function pushToArr(){
     // if(checkbox3.checked || checkbox4.checked){
         // for(let i=0; i < divs.length; i++){
             const inputs = oneCompDiv.getElementsByClassName('mangOneInfo');
-            console.log('mangOneInfo');
+            // console.log('mangOneInfo');
             // for( j=0; j< inputs.length ; j++){
                 const objectEle = {};
                 const reader  = new FileReader();
@@ -725,10 +801,10 @@ let counter = 0;
                 btnDelete = 'حذف المساهم'
                
             } else{
-                labelNameValue = 'اسم المدير';
-                labelNationValue = 'جنسيه المدير';
-                labelrangeValue = 'نسبه المدير';
-                btnDelete = 'حذف المدير'
+                labelNameValue = 'اسم الشريك';
+                labelNationValue = 'جنسيه الشريك';
+                labelrangeValue = 'نسبه الشريك';
+                btnDelete = 'حذف الشريك'
 
             }
             for(let j=1; j <= select.value; j++){
@@ -871,249 +947,249 @@ btnAddMang.addEventListener('click',(e)=>{
         lnation ='جنسيه المدير'; 
         h6Name ='صلاحيات المدير';
     }
-if(parentCard.getElementsByTagName('div').length == 0 ){
-    if(arrayNames.includes(autocompleteinput.value)){
-        // console.log('in');
-        arrayEle.forEach((e)=>{
-            if(e.name == autocompleteinput.value)
-            { 
-                  const newCard = document.createElement('div');
-                  newCard.classList.add('col-xl-4','col-md-6','pt-3');
-                  newCard.innerHTML= `<div class="card">
-                  <div class="card-header">
-              <div class="close">
-                  <img src="images/svgexport-6 (16) 1.svg" alt="" 
-                  onclick="this.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode.parentNode)">
-              </div>
-              <div class="mt-3 mb-3 " dir="rtl" style="display:${displayٍSelect};"> 
-                  <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
-                  <select class="form-select" name = "mangager_type" id="specificSizeSelect2">
-                      <option selected readonly>برجاء تحديد التصنيف</option>
-                      <option value = "ceo">رئيس مجلس الاداره</option>
-                      <option value = "director_member">عضو مجلس اداره</option> 
-                      <option value = "director_manager">عضو منتدب</option> 
-                  </select>
-              </div>
-              <div class="row">
-                  <div class="col-6">
-                      <div class=" g-3 justify-content-around" dir="rtl">
-                          <div class="">
-                            <label for="inputtext1" class="form-label mang">${lname}</label>
-                            <input type="text" class="form-control" id="inputtext1" value="${e.name}" name = "manager_name[]" readonly>
-                          </div>
-                          <div class="">
-                              <label for="inputtext2" class="form-label mang">${lnation}</label>
-                              <input type="text" class="form-control" id="inputtext2" value="${e.nationality}" name = "manager_nationality[]" readonly>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-6 align-self-center" style="padding-top: 33px;">
-                      <div class="id"><img src="${e.prev}" alt="" width="100%" id="imagePrev_${i}" name = "manager_personal_id1" class="imgId">
-                      <input type="hidden" name="hidden_personal_id1" />
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="card-body" id='card_${x}'>
-              <h6 class="h6part">${h6Name}</h6>
-              <div class="form-check">
-              <label class="form-check-label" for="flexCheckDefault1">
-              صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
-              </label>
-              <input class="form-check-input" type="checkbox" value="1" name = "perm1[]">
+    if(parentCard.getElementsByTagName('div').length == 0 ){
+        if(arrayNames.includes(autocompleteinput.value)){
+            // console.log('in');
+            arrayEle.forEach((e)=>{
+                if(e.name == autocompleteinput.value)
+                { 
+                    const newCard = document.createElement('div');
+                    newCard.classList.add('col-xl-4','col-md-6','pt-3');
+                    newCard.innerHTML= `<div class="card">
+                    <div class="card-header">
+                <div class="close">
+                    <img src="images/svgexport-6 (16) 1.svg" alt="" 
+                    onclick="this.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode.parentNode)">
                 </div>
-                <div class="form-check">
-                <label class="form-check-label" for="flexCheckChecked2">
-                صلاحية توقيع العقود بالنيابه عن الشركة
-                </label>
-                <input class="form-check-input" type="checkbox" value="1" name = "perm2[]">
+                <div class="mt-3 mb-3 " dir="rtl" style="display:${displayٍSelect};"> 
+                    <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
+                    <select class="form-select" name = "mangager_type" id="specificSizeSelect2">
+                        <option selected readonly>برجاء تحديد التصنيف</option>
+                        <option value = "ceo">رئيس مجلس الاداره</option>
+                        <option value = "director_member">عضو مجلس اداره</option> 
+                        <option value = "director_manager">عضو منتدب</option> 
+                    </select>
                 </div>
-                <div class="form-check">
-                <label class="form-check-label" for="flexCheckChecked3">
-                صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
-                </label>
-                <input class="form-check-input" type="checkbox" value="1" name = "perm3[]">
-                </div>
-          </div>
-          <div class="card-footer align-self-center" style="display:none;">
-              <div class="buttons">
-                  <button class="btn save" type="button">حفظ</button>
-                  <button class="btn edit" type="button">تعديل</button>
-              </div>
-          </div></div>`
-        parentCard.appendChild(newCard)
-        // console.log('dcds')
-        }
-    });
-}else{
-      if(autocompleteinput.value !== ''){
-        //   console.log(autocompleteinput.value)
-        const newCard = document.createElement('div');
-        newCard.classList.add('col-xl-4','col-md-6','pt-3');
-        newCard.innerHTML= `<div class="card">
-        <div class="card-header">
-    <div class="close">
-        <img src="images/svgexport-6 (16) 1.svg" alt="" 
-        onclick="this.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode.parentNode)">
-    </div>
-    <div class="mt-3 mb-3" dir="rtl"  style="display:${displayٍSelect};"> 
-        <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
-        <select class="form-select" name = "manager_type[]" id="specificSizeSelect2">
-            <option selected disabled>برجاء تحديد التصنيف</option>
-            <option value = "ceo">رئيس مجلس الاداره</option>
-            <option value = "director_member">عضو مجلس اداره</option> 
-            <option value = "director_manager">عضو منتدب</option> 
-        </select>
-    </div>
-    <div class="row">
-        <div class="col-6">
-            <div class=" g-3 justify-content-around" dir="rtl">
-                <div class="">
-                  <label for="input1" class="form-label mang">${lname}</label>
-                  <input type="text" class="form-control" id="input1" value="${autocompleteinput.value}"  name = "manager_name[]" data-id="input_${x}">
-                </div>
-                <div class="">
-                    <label for="inputtext2" class="form-label mang">${lnation}</label>
-                    <input type="text" class="form-control" id="inputtext2" name = "manager_nationality[]" data-id="input_${x}">
-                </div>
-            </div>
-        </div>
-        <div class="col-6 align-self-center" style="padding-top: 33px;">
-        <div class="id dispBlo" style="display: none;"><img src="" class="imageUpload imgId" id="img_prev_${i}"></div>
-        <div class="id d-flex justify-content-center align-items-center">
-            <div class="form-group">
-            <div class="form-line">
-                <div class="btn-file align-items-center">
-                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg"   name = "upload_manager[]"  value="" onchange="onFileSelected(event,${i})" data-id="input_${x}">
-                    <div class=" change-file-ico">
-                       <img src="images/upload.svg" width="25%" class="disNone">
-                       </div>
-                    <div class="full-width">
-                        <p id="wowonder-movie-name" class="disNone">اضافه البطاقه الشخصيه</p>
+                <div class="row">
+                    <div class="col-6">
+                        <div class=" g-3 justify-content-around" dir="rtl">
+                            <div class="">
+                                <label for="inputtext1" class="form-label mang">${lname}</label>
+                                <input type="text" class="form-control" id="inputtext1" value="${e.name}" name = "manager_name[]" readonly>
+                            </div>
+                            <div class="">
+                                <label for="inputtext2" class="form-label mang">${lnation}</label>
+                                <input type="text" class="form-control" id="inputtext2" value="${e.nationality}" name = "manager_nationality[]" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 align-self-center" style="padding-top: 33px;">
+                        <div class="id"><img src="${e.prev}" alt="" width="100%" id="imagePrev_${i}" name = "manager_personal_id1" class="imgId">
+                        <input type="hidden" name="hidden_personal_id1" />
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="card-body" id='card_${x}'>
+                <h6 class="h6part">${h6Name}</h6>
+                <div class="form-check">
+                <label class="form-check-label" for="flexCheckDefault1">
+                صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
+                </label>
+                <input class="form-check-input" type="checkbox" value="1" name = "perm1[]">
+                    </div>
+                    <div class="form-check">
+                    <label class="form-check-label" for="flexCheckChecked2">
+                    صلاحية توقيع العقود بالنيابه عن الشركة
+                    </label>
+                    <input class="form-check-input" type="checkbox" value="1" name = "perm2[]">
+                    </div>
+                    <div class="form-check">
+                    <label class="form-check-label" for="flexCheckChecked3">
+                    صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
+                    </label>
+                    <input class="form-check-input" type="checkbox" value="1" name = "perm3[]">
+                    </div>
             </div>
-        </div>
-
-        </div>
-    </div>
-    </div>
-    <div class="card-body" id='card_${x}'>
-    <h6 class="h6part">${h6Name}</h6>
-    <div class="form-check">
-    <label class="form-check-label" for="flexCheckDefault1">
-    صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
-    </label>
-    <input class="form-check-input" type="checkbox" value="1" name = "perm1[]">
-      </div>
-      <div class="form-check">
-      <label class="form-check-label" for="flexCheckChecked2">
-      صلاحية توقيع العقود بالنيابه عن الشركة
-      </label>
-      <input class="form-check-input" type="checkbox" value="1" name = "perm2[]">
-      </div>
-      <div class="form-check">
-      <label class="form-check-label" for="flexCheckChecked3">
-      صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
-      </label>
-      <input class="form-check-input" type="checkbox" value="1" name = "perm3[]">
-      </div>
-    </div>
-    <div class="card-footer align-self-center" style="display:none;">
-    <div class="buttons">
-        <button class="btn save" type="button">حفظ</button>
-        <button class="btn edit" type="button">تعديل</button>
-    </div>
-    </div>
-    </div>`
-    parentCard.appendChild(newCard);
-} 
-else{
-        //   console.log('null')
-        const newCard = document.createElement('div');
-        newCard.classList.add('col-xl-4','col-md-6','pt-3');
-        newCard.innerHTML= `<div class="card">
-        <div class="card-header">
-    <div class="close">
-        <img src="images/svgexport-6 (16) 1.svg" alt="" 
-        onclick="this.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode.parentNode)">
-    </div>
-    <div class="mt-3 mb-3" dir="rtl" style="display:${displayٍSelect};"> 
-        <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
-        <select class="form-select" name = "mangager_type" id="specificSizeSelect2">
-            <option selected readonly>برجاء تحديد التصنيف</option>
-            <option value = "ceo">رئيس مجلس الاداره</option>
-            <option value = "director_member">عضو مجلس اداره</option> 
-            <option value = "director_manager">عضو منتدب</option> 
-        </select>
-    </div>
-    <div class="row">
-        <div class="col-6">
-            <div class=" g-3 justify-content-around" dir="rtl">
-                <div class="">
-                  <label for="inputtext1" class="form-label mang">${lname}</label>
-                  <input type="text" class="form-control" id="inputtext1" value="${autocompleteinput.value}"  name = "manager_name[]" data-id="input_${y}">
+            <div class="card-footer align-self-center" style="display:none;">
+                <div class="buttons">
+                    <button class="btn save" type="button">حفظ</button>
+                    <button class="btn edit" type="button">تعديل</button>
                 </div>
-                <div class="">
-                    <label for="inputtext2" class="form-label mang">${lnation}</label>
-                    <input type="text" class="form-control" id="inputtext2"   name = "manager_nationality[]" data-id="input_${y}">
+            </div></div>`
+            parentCard.appendChild(newCard)
+            // console.log('dcds')
+            }
+        });
+    }else{
+        if(autocompleteinput.value !== ''){
+            //   console.log(autocompleteinput.value)
+            const newCard = document.createElement('div');
+            newCard.classList.add('col-xl-4','col-md-6','pt-3');
+            newCard.innerHTML= `<div class="card">
+            <div class="card-header">
+        <div class="close">
+            <img src="images/svgexport-6 (16) 1.svg" alt="" 
+            onclick="this.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode.parentNode)">
+        </div>
+        <div class="mt-3 mb-3" dir="rtl"  style="display:${displayٍSelect};"> 
+            <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
+            <select class="form-select" name = "manager_type[]" id="specificSizeSelect2">
+                <option selected disabled>برجاء تحديد التصنيف</option>
+                <option value = "ceo">رئيس مجلس الاداره</option>
+                <option value = "director_member">عضو مجلس اداره</option> 
+                <option value = "director_manager">عضو منتدب</option> 
+            </select>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class=" g-3 justify-content-around" dir="rtl">
+                    <div class="">
+                    <label for="input1" class="form-label mang">${lname}</label>
+                    <input type="text" class="form-control" id="input1" value="${autocompleteinput.value}"  name = "manager_name[]" data-id="input_${x}">
+                    </div>
+                    <div class="">
+                        <label for="inputtext2" class="form-label mang">${lnation}</label>
+                        <input type="text" class="form-control" id="inputtext2" name = "manager_nationality[]" data-id="input_${x}">
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-6 align-self-center" style="padding-top: 33px;">
-        <div class="id dispBlo" style="display: none;"><img src="" class="imageUpload imgId"  id="img_prev_${i}"></div>
+            <div class="col-6 align-self-center" style="padding-top: 33px;">
+            <div class="id dispBlo" style="display: none;"><img src="" class="imageUpload imgId" id="img_prev_${i}"></div>
             <div class="id d-flex justify-content-center align-items-center">
-            <div class="form-group">
-            <div class="form-line">
-                <div class="btn-file align-items-center">
-                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg"  name = "upload_manager[]"  value="" data-id="input_${y}" onchange="onFileSelected(event, ${i})">
-                    <div class=" change-file-ico">
-                       <img src="images/upload.svg" width="25%">
+                <div class="form-group">
+                <div class="form-line">
+                    <div class="btn-file align-items-center">
+                    <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg"   name = "upload_manager[]"  value="" onchange="onFileSelected(event,${i})" data-id="input_${x}">
+                        <div class=" change-file-ico">
+                        <img src="images/upload.svg" width="25%" class="disNone">
+                        </div>
+                        <div class="full-width">
+                            <p id="wowonder-movie-name" class="disNone">اضافه البطاقه الشخصيه</p>
+                        </div>
                     </div>
-                    <div class="full-width">
-                        <p id="wowonder-movie-name">اضافه البطاقه الشخصيه</p>
+                </div>
+                </div>
+            </div>
+
+            </div>
+        </div>
+        </div>
+        <div class="card-body" id='card_${x}'>
+        <h6 class="h6part">${h6Name}</h6>
+        <div class="form-check">
+        <label class="form-check-label" for="flexCheckDefault1">
+        صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
+        </label>
+        <input class="form-check-input" type="checkbox" value="1" name = "perm1[]">
+        </div>
+        <div class="form-check">
+        <label class="form-check-label" for="flexCheckChecked2">
+        صلاحية توقيع العقود بالنيابه عن الشركة
+        </label>
+        <input class="form-check-input" type="checkbox" value="1" name = "perm2[]">
+        </div>
+        <div class="form-check">
+        <label class="form-check-label" for="flexCheckChecked3">
+        صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
+        </label>
+        <input class="form-check-input" type="checkbox" value="1" name = "perm3[]">
+        </div>
+        </div>
+        <div class="card-footer align-self-center" style="display:none;">
+        <div class="buttons">
+            <button class="btn save" type="button">حفظ</button>
+            <button class="btn edit" type="button">تعديل</button>
+        </div>
+        </div>
+        </div>`
+        parentCard.appendChild(newCard);
+    } 
+    else{
+            //   console.log('null')
+            const newCard = document.createElement('div');
+            newCard.classList.add('col-xl-4','col-md-6','pt-3');
+            newCard.innerHTML= `<div class="card">
+            <div class="card-header">
+        <div class="close">
+            <img src="images/svgexport-6 (16) 1.svg" alt="" 
+            onclick="this.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode.parentNode)">
+        </div>
+        <div class="mt-3 mb-3" dir="rtl" style="display:${displayٍSelect};"> 
+            <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
+            <select class="form-select" name = "mangager_type" id="specificSizeSelect2">
+                <option selected readonly>برجاء تحديد التصنيف</option>
+                <option value = "ceo">رئيس مجلس الاداره</option>
+                <option value = "director_member">عضو مجلس اداره</option> 
+                <option value = "director_manager">عضو منتدب</option> 
+            </select>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class=" g-3 justify-content-around" dir="rtl">
+                    <div class="">
+                    <label for="inputtext1" class="form-label mang">${lname}</label>
+                    <input type="text" class="form-control" id="inputtext1" value="${autocompleteinput.value}"  name = "manager_name[]" data-id="input_${y}">
+                    </div>
+                    <div class="">
+                        <label for="inputtext2" class="form-label mang">${lnation}</label>
+                        <input type="text" class="form-control" id="inputtext2"   name = "manager_nationality[]" data-id="input_${y}">
                     </div>
                 </div>
             </div>
-            </div>
+            <div class="col-6 align-self-center" style="padding-top: 33px;">
+            <div class="id dispBlo" style="display: none;"><img src="" class="imageUpload imgId"  id="img_prev_${i}"></div>
+                <div class="id d-flex justify-content-center align-items-center">
+                <div class="form-group">
+                <div class="form-line">
+                    <div class="btn-file align-items-center">
+                    <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg"  name = "upload_manager[]"  value="" data-id="input_${y}" onchange="onFileSelected(event, ${i})">
+                        <div class=" change-file-ico">
+                        <img src="images/upload.svg" width="25%">
+                        </div>
+                        <div class="full-width">
+                            <p id="wowonder-movie-name">اضافه البطاقه الشخصيه</p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                </div>
             </div>
         </div>
-    </div>
-    </div>
-    <div class="card-body" id='card_${x}'>
-    <h6 class="h6part">${h6Name}</h6>
-    <div class="form-check">
-    <label class="form-check-label" for="flexCheckDefault1">
-    صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
-    </label>
-    <input class="form-check-input" type="checkbox" name = "perm1[]" value = "1" >
-      </div>
-      <div class="form-check">
-      <label class="form-check-label" for="flexCheckChecked2">
-      صلاحية توقيع العقود بالنيابه عن الشركة
-      </label>
-      <input class="form-check-input" type="checkbox" name = "perm2[]" value = "1" >
-      </div>
-      <div class="form-check">
-      <label class="form-check-label" for="flexCheckChecked3">
-      صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
-      </label>
-      <input class="form-check-input" type="checkbox" name = "perm3[]" value = "1" >
-      </div>
-    </div>
-    <div class="card-footer align-self-center" style="display:none;">
-    <div class="buttons">
-        <button class="btn save" type="button">حفظ</button>
-        <button class="btn edit" type="button">تعديل</button>
-    </div>
-    </div>
-    </div>`
-    parentCard.appendChild(newCard)
-    y++;
-      }
-    }
-} else{
+        </div>
+        <div class="card-body" id='card_${x}'>
+        <h6 class="h6part">${h6Name}</h6>
+        <div class="form-check">
+        <label class="form-check-label" for="flexCheckDefault1">
+        صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
+        </label>
+        <input class="form-check-input" type="checkbox" name = "perm1[]" value = "1" >
+        </div>
+        <div class="form-check">
+        <label class="form-check-label" for="flexCheckChecked2">
+        صلاحية توقيع العقود بالنيابه عن الشركة
+        </label>
+        <input class="form-check-input" type="checkbox" name = "perm2[]" value = "1" >
+        </div>
+        <div class="form-check">
+        <label class="form-check-label" for="flexCheckChecked3">
+        صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
+        </label>
+        <input class="form-check-input" type="checkbox" name = "perm3[]" value = "1" >
+        </div>
+        </div>
+        <div class="card-footer align-self-center" style="display:none;">
+        <div class="buttons">
+            <button class="btn save" type="button">حفظ</button>
+            <button class="btn edit" type="button">تعديل</button>
+        </div>
+        </div>
+        </div>`
+        parentCard.appendChild(newCard)
+        y++;
+        }
+        }
+    } else{
     if(!validateCard()){
     // console.log('invalid')
     }
@@ -1363,7 +1439,7 @@ else{
       }
    }
    
-}
+    }
 }
     
    x++ ; i++; z++; y++;
@@ -1374,9 +1450,9 @@ function detectSelection(){
     //             arrMangerRoleSelection.push(opt);
     //             console.log(arrMangerRoleSelection)
     //           });
-let selectValue = document.getElementById('specificSizeSelect2').value;
-arrMangerRoleSelection.push(selectValue);
-console.log(arrMangerRoleSelection);
+    let selectValue = document.getElementById('specificSizeSelect2').value;
+    arrMangerRoleSelection.push(selectValue);
+    console.log(arrMangerRoleSelection);
 }
 ////////////////////////////////////
 function onFileSelected(event,i) {
