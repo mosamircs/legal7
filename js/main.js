@@ -133,7 +133,7 @@ if((curr == 3 && checkbox3.checked) || (curr == 3 && checkbox4.checked)){
 function changeLayer(curr){
     // console.log(curr);
     //hold for validation
-    if (curr == 1 && !validateForm()) return false;
+    // if (curr == 1 && !validateForm()) return false;
     layer[currLayer].style.display = "none";
     currLayer = currLayer + curr;
     // console.log(currLayer);
@@ -403,7 +403,6 @@ if(currLayer == 4){
     }
     // console.log(valid)
     return valid; // return the valid status
-
 }
 //////////////////////validate inputs
 function checkValidInputs(){
@@ -773,7 +772,7 @@ const btnAdd = document.querySelector('#btn-add-sug');
         
 ///////////////////////////part-info---section-3//////////////////////////////////////
 
-let labelNameValue, labelNationValue, labelrangeValue, btnDelete;
+let labelNameValue, labelNationValue, labelrangeValue,btnDelete;
 let counter = 0;
 
           for(let i=1; i<= 50; i++){
@@ -799,7 +798,8 @@ let counter = 0;
             } else{
                 labelNameValue = 'اسم الشريك';
                 labelNationValue = 'جنسيه الشريك';
-                labelrangeValue = 'نسبه الشريك من رأس المال';
+                labelrangeValue = 'نسبه الشريك من راس المال';
+                // labelrangeValue2 = 'من راس المال';
                 btnDelete = 'حذف الشريك'
 
             }
@@ -839,8 +839,8 @@ let counter = 0;
                             
                             counter++;
                         }
-                    });
-
+        });
+        // select.selectedIndex = null;
         // $("#specificSizeSelect").val('').trigger('change');
 
 const inputType6 = document.getElementsByClassName("inputtext6");
@@ -959,9 +959,9 @@ btnAddMang.addEventListener('click',(e)=>{
                   </div>
                   <div class="mt-3 mb-3 " dir="rtl" style="display:${displayٍSelect};"> 
                       <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
-                      <select class="form-select" name = "manager_type[]" id="specificSizeSelect2">
+                      <select class="form-select selectMangerSpec" name = "manager_type[]" id="specificSizeSelect2">
                           <option selected disabled>برجاء تحديد التصنيف</option>
-                          <option value = "ceo">رئيس مجلس الاداره</option>
+                          <option value = "ceo" class="ceo">رئيس مجلس الاداره</option>
                           <option value = "director_member">عضو مجلس اداره</option> 
                           <option value = "director_manager">عضو منتدب</option> 
                       </select>
@@ -1030,9 +1030,9 @@ btnAddMang.addEventListener('click',(e)=>{
         </div>
         <div class="mt-3 mb-3" dir="rtl"  style="display:${displayٍSelect};"> 
             <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
-            <select class="form-select" name = "manager_type_upload[]" id="specificSizeSelect2">
+            <select class="form-select selectMangerSpec" name = "manager_type_upload[]" id="specificSizeSelect2">
                 <option selected disabled>برجاء تحديد التصنيف</option>
-                <option value = "ceo">رئيس مجلس الاداره</option>
+                <option value = "ceo" class="ceo">رئيس مجلس الاداره</option>
                 <option value = "director_member">عضو مجلس اداره</option> 
                 <option value = "director_manager">عضو منتدب</option> 
             </select>
@@ -1113,9 +1113,9 @@ btnAddMang.addEventListener('click',(e)=>{
         </div>
         <div class="mt-3 mb-3" dir="rtl" style="display:${displayٍSelect};"> 
             <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
-            <select class="form-select" name = "manager_type_upload[]" id="specificSizeSelect2">
+            <select class="form-select selectMangerSpec" name = "manager_type_upload[]" id="specificSizeSelect2">
                 <option selected disabled>برجاء تحديد التصنيف</option>
-                <option value = "ceo">رئيس مجلس الاداره</option>
+                <option value = "ceo" class="ceo">رئيس مجلس الاداره</option>
                 <option value = "director_member">عضو مجلس اداره</option> 
                 <option value = "director_manager">عضو منتدب</option> 
             </select>
@@ -1185,11 +1185,11 @@ btnAddMang.addEventListener('click',(e)=>{
         y++;
           }
         }
-    } else{
+        } else{
         if(!validateCard()){
         // console.log('invalid')
         }
-       else{
+        else{
         // console.log('valid')
         if(arrayNames.includes(autocompleteinput.value)){
             // console.log('in');
@@ -1206,9 +1206,9 @@ btnAddMang.addEventListener('click',(e)=>{
                   </div>
                   <div class="mt-3 mb-3" dir="rtl" style="display:${displayٍSelect};"> 
                       <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
-                      <select class="form-select" name = "manager_type[]" id="specificSizeSelect2">
+                      <select class="form-select selectMangerSpec" name = "manager_type[]" id="specificSizeSelect2">
                           <option selected disabled>برجاء تحديد التصنيف</option>
-                          <option value = "ceo">رئيس مجلس الاداره</option>
+                          <option value = "ceo" class="ceo">رئيس مجلس الاداره</option>
                           <option value = "director_member">عضو مجلس اداره</option> 
                           <option value = "director_manager">عضو منتدب</option> 
                       </select>
@@ -1277,9 +1277,9 @@ btnAddMang.addEventListener('click',(e)=>{
         </div>
         <div class="mt-3 mb-3 " dir="rtl" style="display:${displayٍSelect};"> 
             <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
-            <select class="form-select" name = "manager_type[]" id="specificSizeSelect2">
+            <select class="form-select selectMangerSpec" name = "manager_type[]" id="specificSizeSelect2">
                 <option selected disabled>برجاء تحديد التصنيف</option>
-                <option value = "ceo">رئيس مجلس الاداره</option>
+                <option value = "ceo" class="ceo">رئيس مجلس الاداره</option>
                 <option value = "director_member">عضو مجلس اداره</option> 
                 <option value = "director_manager">عضو منتدب</option> 
             </select>
@@ -1362,9 +1362,9 @@ btnAddMang.addEventListener('click',(e)=>{
         </div>
         <div class="mt-3 mb-3" dir="rtl" style="display:${displayٍSelect};"> 
             <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
-            <select class="form-select" name = "manager_type[]" id="specificSizeSelect2">
+            <select class="form-select selectMangerSpec" name = "manager_type[]" id="specificSizeSelect2">
                 <option selected disabled>برجاء تحديد التصنيف</option>
-                <option value = "ceo">رئيس مجلس الاداره</option>
+                <option value = "ceo" class="ceo">رئيس مجلس الاداره</option>
                 <option value = "director_member">عضو مجلس اداره</option> 
                 <option value = "director_manager">عضو منتدب</option> 
             </select>
@@ -1434,20 +1434,32 @@ btnAddMang.addEventListener('click',(e)=>{
         y++;
           }
        }
-    }
+        }
     }
    x++ ; i++; z++; y++;
+//    const selectValue = document.getElementsByClassName('selectMangerSpec');
+//    const ceo = document.getElementsByClassName('ceo');
+//    let choosen = false;
+//    [...selectValue].forEach((val)=>{
+//     //    console.log(val);
+    
+//     if(val.hasAttribute('selected')){
+//         choosen = true;
+//     } else{
+//         choosen = false;
+//     }
+//    })
+//    console.log(choosen)
 });
 
-function detectSelection(){
-    // document.querySelectorAll("#specificSizeSelect2 option").forEach(opt => {
-    //             arrMangerRoleSelection.push(opt);
-    //             console.log(arrMangerRoleSelection)
-    //           });
-    let selectValue = document.getElementById('specificSizeSelect2').value;
-    arrMangerRoleSelection.push(selectValue);
-    console.log(arrMangerRoleSelection);
-}
+// function detectSelection(){
+    // console.log(select)
+    // console.log(arrMangerRoleSelection);
+// }
+// selectValue.addEventListener('change',(e)=>{
+//     e.preventDefault();
+//     console.log(selectValue.value);
+// })
 ////////////////////////////////////
 function onFileSelected(event,i) {
     let disNone = $('.id.d-flex');
