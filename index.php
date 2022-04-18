@@ -113,11 +113,11 @@
                 <div class="type">
                     <p>نوع الشركه</p>
                 </div>
-                <div class="type">
+                <div class="type spec-type">
                     <p>بيانات الشركه</p>
                 </div>
                 <div class="type" >
-                    <p id="mang-types">بيانات الشركاء</p>
+                    <p id="mang-types"></p>
                 </div>
                 <div class="type">
                     <p>بيانات المديرين</p>
@@ -160,7 +160,9 @@
                                                     المطلوب لشركة ذات مسؤولیة محدودة</p>
                                             </label>
                                         </div>
-                                        <div class="mr-8"><button class="btn down" id="down-1" type="button" onclick="download('Incorporation of a Limited Liability Company - Legal Clinic');" style="display: none;">تنزيل ملف الشروط</button></div> 
+                                        <div class="mr-8">
+                                            <button class="btn down" id="down-1" type="button" onclick="download('Incorporation of a Limited Liability Company - Legal Clinic');" style="display: none;">المستندات المطلوبة</button>
+                                        </div> 
                                     </div>
                                       <div class="form-check d-flex flex-row-reverse mt-3">
                                         <div><input class="form-check-input" type="radio"  name="company_type" id="exampleRadios2" value="JointStockIncorporation" onclick="checkboxSelection()" required></div>
@@ -176,7 +178,9 @@
                                                     ثلاثه (٣) أعضاء على الاقل من أي جنسیة</p>
                                             </label>
                                         </div>
-                                        <div class="mr-8"><button class="btn down"  id="down-2" style="display: none;" onclick="download('Joint Stock Incorporation');"  type="button">تنزيل ملف الشروط</button></div>
+                                        <div class="mr-8">
+                                            <button class="btn down"  id="down-2" style="display: none;" onclick="download('Joint Stock Incorporation');"  type="button">المستندات المطلوبة</button>
+                                        </div>
                                     </div>
                                       <div class="form-check d-flex flex-row-reverse mt-3">
                                         <div><input class="form-check-input" type="radio"  name="company_type" id="exampleRadios3" value="OPCrequirements" onclick="checkboxSelection()" required></div>
@@ -187,7 +191,9 @@
                                                 منفرد، سواء كان مصریا أو أجنبیًا، شخصا طبیعیًا أو اعتباري</p> 
                                             </label>
                                         </div>
-                                        <div class="mr-8"><button class="btn down"  id="down-3" style="display: none;" onclick="download('OPC requirements');"  type="button">تنزيل ملف الشروط</button></div>
+                                        <div class="mr-8">
+                                            <button class="btn down"  id="down-3" style="display: none;" onclick="download('OPC requirements');"  type="button">المستندات المطلوبة</button>
+                                        </div>
                                     </div>
                                     <div class="invalid-feedback">يجب اختيار شركه</div>
                                 </div>
@@ -213,7 +219,9 @@
                                                        <span>ملحوظة: لا یجوز تحویل المنشأة الفردیة الى أي نوع اخر من الشركات</span></p>
                                                 </label>
                                             </div>
-                                            <div class="mr-8"><button class="btn down" id="down-4" type="button" onclick="download('Sole Entity');" style="display: none;">تنزيل ملف الشروط</button></div> 
+                                            <div class="mr-8">
+                                                <button class="btn down" id="down-4" type="button" onclick="download('Sole Entity');" style="display: none;">المستندات المطلوبة</button>
+                                            </div> 
                                         </div>
                                           <div class="form-check d-flex flex-row-reverse mt-3">
                                             <div><input class="form-check-input" type="radio"  name="company_type" id="exampleRadios5" value="Generalpartnership" onclick="checkboxSelection()" required></div>
@@ -228,7 +236,9 @@
                                                     </p>
                                                 </label>
                                             </div>
-                                            <div class="mr-8"><button class="btn down"  id="down-5" style="display: none;" onclick="download('General partnership');"  type="button">تنزيل ملف الشروط</button></div>
+                                            <div class="mr-8">
+                                                <button class="btn down"  id="down-5" style="display: none;" onclick="download('General partnership');"  type="button">المستندات المطلوبة</button>
+                                            </div>
                                         </div>
                                           <div class="form-check d-flex flex-row-reverse mt-3">
                                             <div><input class="form-check-input" type="radio"  name="company_type" id="exampleRadios6" value="LimitedPartnership" onclick="checkboxSelection()" required></div>
@@ -248,7 +258,9 @@
                                                 </label>
                                             </div>
                                             <div class="invalid-feedback">يجب اختيار شركه</div>
-                                            <div class="mr-8"><button class="btn down"  id="down-6" style="display: none;" onclick="download('Limited Partnership');" type="button">تنزيل ملف الشروط</button></div>
+                                            <div class="mr-8">
+                                                <button class="btn down"  id="down-6" style="display: none;" onclick="download('Limited Partnership');" type="button">المستندات المطلوبة</button>
+                                            </div>
                                         </div>
                                         </div>
                             </div>
@@ -326,15 +338,15 @@
                                 <div class="row g-3 justify-content-between pt-3" dir="rtl" data-id="item_0">
                                 <div class="col-md-4">
                                   <label for="inputtext1" class="form-label mang" id="mangName">اسم المالك</label>
-                                  <input type="text" class="form-control  mangOneInfo" id="name" name="malek_name" >
+                                  <input type="text" class="form-control mangSolo mangOneInfo" id="name" name="malek_name" >
                                 </div>
                                 <div class="col-md-4">
                                   <label for="inputtext1" class="form-label mang">جنسيه المالك</label>
-                                    <input type="text" class="form-control  mangOneInfo" id="nation" name="malek_nationality">
+                                    <input type="text" class="form-control mangSolo mangOneInfo" id="nation" name="malek_nationality">
                                 </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="formFileMultiple" class="form-label">اضافه البطاقه الشخصية</label>
-                                        <input class="form-control  mangOneInfo" name="malek_personal_id" type="file" id="id" accept="image/png, image/gif, image/jpeg">
+                                        <input class="form-control mangSolo mangOneInfo" name="malek_personal_id" type="file" id="id" accept="image/png, image/gif, image/jpeg">
                                       </div>
                                     <div class="col-md-4 x-last align-self-center">
                                         <button class="btn btn-outline-danger" type="reset" id="partCompDel">حذف المالك</button>

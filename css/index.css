@@ -462,6 +462,12 @@ input.invalid{
     font-size: 14px;
     text-align: right;
 }
+@media screen and (min-width: 767px) {
+    .spec-type{
+        padding-right: 21px;
+    }
+    
+}
 @media screen and (max-width: 768px) {
     .type p{
         padding-top: .5rem;
