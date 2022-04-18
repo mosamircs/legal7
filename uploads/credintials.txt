@@ -1,4 +1,2 @@
     private $username = "legal";
     private $password  = "?6Ew3hs0";
-    name = "upload_manager[]" 
-    name = "manager_personal_id[]" 

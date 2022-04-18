@@ -1,0 +1,50 @@
+Documentation and database structure 
+we work on form with register user to establish company with  its shareholders and managers and sign date 
+form of layers :
+	0-  user register layer[name - email -phone]
+	1-  company type layer [6 types]
+	2- company data layer [names - activity - address  - capital - share]
+	3-  shareholders  data layer [name - nationality - percentage - personal_id]
+	4- managers data layer [name -nationality - permessions]
+	5 - date of sign layer
+	6- thanks layer
+database :
+	1- users table:
+		[user has one company]
+		[id] integer primary key
+		[name] string 
+		[email] string 
+		[phone] string 
+		[date] string
+		[sign date] string
+	2- companies table: 
+			[company belongs to one user]
+			[company has many shareholders]
+			[company	has many managers]
+			[id] integer primary key
+			[company_type] string [arabic]
+			[company_name] string 
+			[company_address] string 
+			[company_activity] string 
+			[capital_value] integer
+			[capital_share] integer 
+			[user_id] integer foreign key
+	3- shareholders table:
+			[shareholders belongs to one company]
+			[id] integer primary key
+			[shareholder_name] string
+			[shareholder_nationality] string 
+			[shareholder_percenatage] integer
+			[shareholder_personal_id] string [image upload]
+			[company_id] integer foreign key
+	4- managers table:
+			[managers belongs to one company]
+			 [id] integer primary key
+			[manager_name] string
+			[manager_nationality] string
+			[manager_personal_id]string in db [image upload]
+			[perm1] integer
+			[perm2] integer
+			[perm3] integer
+			[manager_type] string [ceo-director-member]
+			[company_id] integer foreign key
