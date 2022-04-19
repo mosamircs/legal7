@@ -484,20 +484,48 @@ function validateCard(){
     }
     
    }); 
+   let arrCardPer = [];
    [...divDataId].forEach(e=>{
-       let checkboxInput = e.querySelectorAll('input[type="checkbox"]');
-    //    console.log(checkboxInput);
-       if(checkboxInput.length == 3){
-        [...checkboxInput].forEach(e=>{
-            if($('.form-check-input:checked').length == 0){
-                e.style.border = '1px solid red';
-                     passLay4.push(false);
-            } else{
-             e.style.border = '1px solid #000086';
-             passLay4.push(true);
-            }
+       //    console.log(e);
+       arrCardPer.push(e);
+       //    console.log(arrCardPer);
+       [...arrCardPer].forEach((val)=>{
+        //    console.log(val);
+           let checkboxInput = val.querySelectorAll('.allow');
+           console.log(checkboxInput)
+        //    [...checkboxInput].forEach(e=>{
+        //    for(let i=0; i<checkboxInput.length; i++){
+        //       if(checkboxInput[i]['type'] == ['checkbox']){
+        //            // console.log(checkboxInput[i]['type'] = ['checkbox']);
+        //            if(checkboxInput[i]['checked'] != true){
+        //                console.log($('.allow:checked'))
+        //                if($('.allow:checked').length == 0){
+        //                    // console.log('dhdh')
+        //                    checkboxInput[i].style.border = '1px solid red';
+        //                    passLay4.push(false);
+        //                } else{
+        //                    checkboxInput[i].style.border = '1px solid #000086';
+        //                    passLay4.push(true);
+        //                }
+        //            }
+        //        }
+        //    }
+        //    })
+
         })
-    }
+    // if(inputVal[i]['type'] == ['radio']){
+    //             if(inputVal[i]['checked'] != true){
+    //                 if($('.form-check-input:checked').length == 0)
+    //                 {
+    //                     inputVal[i].style.border = '1px solid red';
+    //                 // console.log(radioBtn[i])
+    //                     valid = false;
+    //                 }
+    //             } else {
+    //                 inputVal[i].style.border = '1px solid #000086';
+    //                 valid = true;
+    //             }
+    //         }
    })
         passLay4.forEach((value)=>{
             if(value == false){
@@ -685,21 +713,7 @@ function pushToArr(){
         // }
     // }
 }
-// function disOpt1(){
-//     document.querySelectorAll("#specificSizeSelect option").forEach(opt => {
-//         if (opt.value == "1") {
-//             opt.disabled = true;
-//             // console.log('fhfh')
-//         }
-//       });
-// }
-// function EnableOpt1(){
-//     document.querySelectorAll("#specificSizeSelect option").forEach(opt => {
-//         if (opt.value == "1") {
-//             opt.disabled = false;
-//         }
-//       });
-// }
+
 ///////////////////////////////comp-info---section-2/////////////////////////////////
 const btnAdd = document.querySelector('#btn-add-sug');
         const parentForm = document.querySelector('#parent-el');
@@ -773,6 +787,7 @@ const btnAdd = document.querySelector('#btn-add-sug');
 ///////////////////////////part-info---section-3//////////////////////////////////////
 
 let labelNameValue, labelNationValue, labelrangeValue,btnDelete;
+const specFont = document.getElementsByClassName('specFont');
 let counter = 0;
 
           for(let i=1; i<= 50; i++){
@@ -793,15 +808,17 @@ let counter = 0;
                 labelNameValue = 'اسم المساهم';
                 labelNationValue = 'جنسيه المساهم';
                 labelrangeValue = 'نسبه المساهم';
-                btnDelete = 'حذف المساهم'
+                btnDelete = 'حذف المساهم';
                
             } else{
                 labelNameValue = 'اسم الشريك';
                 labelNationValue = 'جنسيه الشريك';
                 labelrangeValue = 'نسبه الشريك من راس المال';
+                [...specFont].forEach((v)=>{
+                    v.style.fontSize = '16px';
+                })
                 // labelrangeValue2 = 'من راس المال';
-                btnDelete = 'حذف الشريك'
-
+                btnDelete = 'حذف الشريك';
             }
             for(let j=1; j <= select.value; j++){
                         const newEl = document.createElement('div');
@@ -816,7 +833,7 @@ let counter = 0;
                         <input type="text" class="form-control lay3 mangInfo" id="nation" name="shareholder_nationality[]">
                       </div>
                       <div class="col-md-3">
-                        <label for="inputtext1" class="form-label mangPart">${labelrangeValue}</label>
+                        <label for="inputtext1" class="form-label mangPart specFont">${labelrangeValue}</label>
                           <input type="text" class="form-control lay3 inputtext6" name="shareholder_percentage[]" placeholder="%" id="counter_${counter}" onkeyup='integerInRange(this.value, 0, 100, "counter_${counter}"); arabicValue(counter_${counter});'/>
                           <div class="error erroPercentage"></div>
                       </div>
@@ -925,7 +942,7 @@ function getFormData(){
 
 const btnAddMang = document.getElementById('btn-add-mang');
 const parentCard = document.getElementById('card-newAdd');
-const arrMangerRoleSelection = [];
+const arrCards = [];
 let x = 0 , i = 0 , z = 0 , y = 0;
 
 let displayٍSelect , lname , lnation , h6Name;
@@ -943,13 +960,13 @@ btnAddMang.addEventListener('click',(e)=>{
         lnation ='جنسيه المدير'; 
         h6Name ='صلاحيات المدير';
     }
+    const newCard = document.createElement('div');
     if(parentCard.getElementsByTagName('div').length == 0 ){
         if(arrayNames.includes(autocompleteinput.value)){
             // console.log('in');
             arrayEle.forEach((e)=>{
                 if(e.name == autocompleteinput.value)
                 { 
-                      const newCard = document.createElement('div');
                       newCard.classList.add('col-xl-4','col-md-6','pt-3');
                       newCard.innerHTML= `<div class="card">
                       <div class="card-header">
@@ -992,19 +1009,19 @@ btnAddMang.addEventListener('click',(e)=>{
                   <label class="form-check-label" for="flexCheckDefault1">
                   صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
                   </label>
-                  <input class="form-check-input" type="checkbox" value="1" name = "perm1_upload[]">
+                  <input class="form-check-input allow" type="checkbox" value="1" name = "perm1_upload[]">
                     </div>
                     <div class="form-check">
                     <label class="form-check-label" for="flexCheckChecked2">
                     صلاحية توقيع العقود بالنيابه عن الشركة
                     </label>
-                    <input class="form-check-input" type="checkbox" value="1" name = "perm2_upload[]">
+                    <input class="form-check-input allow" type="checkbox" value="1" name = "perm2_upload[]">
                     </div>
                     <div class="form-check">
                     <label class="form-check-label" for="flexCheckChecked3">
                     صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
                     </label>
-                    <input class="form-check-input" type="checkbox" value="1" name = "perm3_upload[]">
+                    <input class="form-check-input allow" type="checkbox" value="1" name = "perm3_upload[]">
                     </div>
               </div>
               <div class="card-footer align-self-center" style="display:none;">
@@ -1020,7 +1037,7 @@ btnAddMang.addEventListener('click',(e)=>{
     }else{
           if(autocompleteinput.value !== ''){
             //   console.log(autocompleteinput.value)
-            const newCard = document.createElement('div');
+            // const newCard = document.createElement('div');
             newCard.classList.add('col-xl-4','col-md-6','pt-3');
             newCard.innerHTML= `<div class="card">
             <div class="card-header">
@@ -1077,19 +1094,19 @@ btnAddMang.addEventListener('click',(e)=>{
         <label class="form-check-label" for="flexCheckDefault1">
         صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
         </label>
-        <input class="form-check-input" type="checkbox" value="1" name = "perm1_upload[]">
+        <input class="form-check-input allow" type="checkbox" value="1" name = "perm1_upload[]">
           </div>
           <div class="form-check">
           <label class="form-check-label" for="flexCheckChecked2">
           صلاحية توقيع العقود بالنيابه عن الشركة
           </label>
-          <input class="form-check-input" type="checkbox" value="1" name = "perm2_upload[]">
+          <input class="form-check-input allow" type="checkbox" value="1" name = "perm2_upload[]">
           </div>
           <div class="form-check">
           <label class="form-check-label" for="flexCheckChecked3">
           صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
           </label>
-          <input class="form-check-input" type="checkbox" value="1" name = "perm3_upload[]">
+          <input class="form-check-input allow" type="checkbox" value="1" name = "perm3_upload[]">
           </div>
         </div>
         <div class="card-footer align-self-center" style="display:none;">
@@ -1103,7 +1120,7 @@ btnAddMang.addEventListener('click',(e)=>{
     } 
     else{
             //   console.log('null')
-            const newCard = document.createElement('div');
+            // const newCard = document.createElement('div');
             newCard.classList.add('col-xl-4','col-md-6','pt-3');
             newCard.innerHTML= `<div class="card">
             <div class="card-header">
@@ -1159,19 +1176,19 @@ btnAddMang.addEventListener('click',(e)=>{
         <label class="form-check-label" for="flexCheckDefault1">
         صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
         </label>
-        <input class="form-check-input" type="checkbox" name = "perm1_upload[]" value = "1" >
+        <input class="form-check-input allow" type="checkbox" name = "perm1_upload[]" value = "1" >
           </div>
           <div class="form-check">
           <label class="form-check-label" for="flexCheckChecked2">
           صلاحية توقيع العقود بالنيابه عن الشركة
           </label>
-          <input class="form-check-input" type="checkbox" name = "perm2_upload[]" value = "1" >
+          <input class="form-check-input allow" type="checkbox" name = "perm2_upload[]" value = "1" >
           </div>
           <div class="form-check">
           <label class="form-check-label" for="flexCheckChecked3">
           صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
           </label>
-          <input class="form-check-input" type="checkbox" name = "perm3_upload[]" value = "1" >
+          <input class="form-check-input allow" type="checkbox" name = "perm3_upload[]" value = "1" >
           </div>
         </div>
         <div class="card-footer align-self-center" style="display:none;">
@@ -1182,7 +1199,7 @@ btnAddMang.addEventListener('click',(e)=>{
         </div>
         </div>`
         parentCard.appendChild(newCard)
-        y++;
+        // y++;
           }
         }
         } else{
@@ -1196,7 +1213,7 @@ btnAddMang.addEventListener('click',(e)=>{
             arrayEle.forEach((e)=>{
                 if(e.name == autocompleteinput.value)
                 { 
-                      const newCard = document.createElement('div');
+                    //   const newCard = document.createElement('div');
                       newCard.classList.add('col-xl-4','col-md-6','pt-3');
                       newCard.innerHTML= `<div class="card">
                       <div class="card-header">
@@ -1239,19 +1256,19 @@ btnAddMang.addEventListener('click',(e)=>{
                   <label class="form-check-label" for="flexCheckDefault1">
                   صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
                   </label>
-                  <input class="form-check-input" type="checkbox" value="1" name = "perm1_upload[]">
+                  <input class="form-check-input allow" type="checkbox" value="1" name = "perm1_upload[]">
                     </div>
                     <div class="form-check">
                     <label class="form-check-label" for="flexCheckChecked2">
                     صلاحية توقيع العقود بالنيابه عن الشركة
                     </label>
-                    <input class="form-check-input" type="checkbox" value="1" name = "perm2_upload[]">
+                    <input class="form-check-input allow" type="checkbox" value="1" name = "perm2_upload[]">
                     </div>
                     <div class="form-check">
                     <label class="form-check-label" for="flexCheckChecked3">
                     صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
                     </label>
-                    <input class="form-check-input" type="checkbox" value="1" name = "perm3_upload[]">
+                    <input class="form-check-input allow" type="checkbox" value="1" name = "perm3_upload[]">
                     </div>
               </div>
               <div class="card-footer align-self-center" style="display:none;">
@@ -1265,9 +1282,9 @@ btnAddMang.addEventListener('click',(e)=>{
             }
         });
     }else{
-          if(autocompleteinput.value !== ''){
+        if(autocompleteinput.value !== ''){
             //   console.log(autocompleteinput.value)
-            const newCard = document.createElement('div');
+            // const newCard = document.createElement('div');
             newCard.classList.add('col-xl-4','col-md-6','pt-3');
             newCard.innerHTML= `<div class="card">
             <div class="card-header">
@@ -1326,19 +1343,19 @@ btnAddMang.addEventListener('click',(e)=>{
         <label class="form-check-label" for="flexCheckDefault1">
         صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
         </label>
-        <input class="form-check-input" type="checkbox" name = "perm1_upload[]"  value="1" >
+        <input class="form-check-input allow" type="checkbox" name = "perm1_upload[]"  value="1" >
           </div>
           <div class="form-check">
           <label class="form-check-label" for="flexCheckChecked2">
           صلاحية توقيع العقود بالنيابه عن الشركة
           </label>
-          <input class="form-check-input" type="checkbox" name = "perm2_upload[]" value="1" >
+          <input class="form-check-input allow" type="checkbox" name = "perm2_upload[]" value="1" >
           </div>
           <div class="form-check">
           <label class="form-check-label" for="flexCheckChecked3">
           صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
           </label>
-          <input class="form-check-input" type="checkbox" name = "perm3_upload[]" value="1" >
+          <input class="form-check-input allow" type="checkbox" name = "perm3_upload[]" value="1" >
           </div>
         </div>
         <div class="card-footer align-self-center" style="display:none;">
@@ -1350,9 +1367,9 @@ btnAddMang.addEventListener('click',(e)=>{
         </div>`
         parentCard.appendChild(newCard);
     } 
-    else{
+        else{
             //   console.log('null')
-            const newCard = document.createElement('div');
+            // const newCard = document.createElement('div');
             newCard.classList.add('col-xl-4','col-md-6','pt-3');
             newCard.innerHTML= `<div class="card">
             <div class="card-header">
@@ -1408,19 +1425,19 @@ btnAddMang.addEventListener('click',(e)=>{
         <label class="form-check-label" for="flexCheckDefault1">
         صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
         </label>
-        <input class="form-check-input" type="checkbox" name = "perm1_upload[]" value="1">
+        <input class="form-check-input allow" type="checkbox" name = "perm1_upload[]" value="1">
           </div>
           <div class="form-check">
           <label class="form-check-label" for="flexCheckChecked2">
           صلاحية توقيع العقود بالنيابه عن الشركة
           </label>
-          <input class="form-check-input" type="checkbox" name = "perm2_upload[]" value="1" >
+          <input class="form-check-input allow" type="checkbox" name = "perm2_upload[]" value="1" >
           </div>
           <div class="form-check">
           <label class="form-check-label" for="flexCheckChecked3">
           صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
           </label>
-          <input class="form-check-input" type="checkbox" name = "perm3_upload[]" value="1" >
+          <input class="form-check-input allow" type="checkbox" name = "perm3_upload[]" value="1" >
           </div>
         </div>
         <div class="card-footer align-self-center" style="display:none;">
@@ -1431,35 +1448,48 @@ btnAddMang.addEventListener('click',(e)=>{
         </div>
         </div>`
         parentCard.appendChild(newCard)
-        y++;
+        // y++;
           }
        }
-        }
+    }
     }
    x++ ; i++; z++; y++;
-//    const selectValue = document.getElementsByClassName('selectMangerSpec');
-//    const ceo = document.getElementsByClassName('ceo');
-//    let choosen = false;
-//    [...selectValue].forEach((val)=>{
-//     //    console.log(val);
-    
-//     if(val.hasAttribute('selected')){
-//         choosen = true;
-//     } else{
-//         choosen = false;
-//     }
-//    })
+
+   const selectValue = document.getElementsByClassName('selectMangerSpec');
+   const ceo = document.getElementsByClassName('ceo');
+   let chooseCeo = false;
+//    let arrayChoosen = [];
+   [...selectValue].forEach((val)=>{
+    //    console.log(val);
+    val.addEventListener('change',(e)=>{
+        e.preventDefault();
+        if(val.value == 'ceo'){
+            chooseCeo = true;
+            // console.log(val.value);  
+        } else{
+            chooseCeo = false;
+        }
+        if(chooseCeo){
+            [...ceo].forEach((v)=>{
+                // console.log(v);
+                v.setAttribute('disabled','disabled');
+            })
+        }else{
+            [...ceo].forEach((v)=>{
+                // console.log(v);
+                v.removeAttribute('disabled','disabled');
+            })
+        }
+    })
+   })
 //    console.log(choosen)
+    // if(validateCard()){
+    //     arrCards.push(newCard);
+    //     console.log(arrCards)
+    // }
 });
 
-// function detectSelection(){
-    // console.log(select)
-    // console.log(arrMangerRoleSelection);
-// }
-// selectValue.addEventListener('change',(e)=>{
-//     e.preventDefault();
-//     console.log(selectValue.value);
-// })
+
 ////////////////////////////////////
 function onFileSelected(event,i) {
     let disNone = $('.id.d-flex');
@@ -1606,8 +1636,8 @@ $(function() {
 function arabicValue(txt) {
     yas = txt.value;
     yas = Number(yas.replace(/[٠١٢٣٤٥٦٧٨٩]/g, function (d) {
-                    return d.charCodeAt(0) - 1632;                
-                    }).replace(/[۰۱۲۳۴۵۶۷۸۹]/g, function (d) { return d.charCodeAt(0) - 1776; })
-                );
+        return d.charCodeAt(0) - 1632;                
+        }).replace(/[۰۱۲۳۴۵۶۷۸۹]/g, function (d) { return d.charCodeAt(0) - 1776; })
+    );
 }
 
