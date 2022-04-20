@@ -1009,19 +1009,19 @@ btnAddMang.addEventListener('click',(e)=>{
                   <label class="form-check-label" for="flexCheckDefault1">
                   صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
                   </label>
-                  <input class="form-check-input allow" type="checkbox" value="1" name = "perm1_upload[]">
+                  <input class="form-check-input allow" type="checkbox" value="1" name = "perm1[]">
                     </div>
                     <div class="form-check">
                     <label class="form-check-label" for="flexCheckChecked2">
                     صلاحية توقيع العقود بالنيابه عن الشركة
                     </label>
-                    <input class="form-check-input allow" type="checkbox" value="1" name = "perm2_upload[]">
+                    <input class="form-check-input allow" type="checkbox" value="1" name = "perm2[]">
                     </div>
                     <div class="form-check">
                     <label class="form-check-label" for="flexCheckChecked3">
                     صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
                     </label>
-                    <input class="form-check-input allow" type="checkbox" value="1" name = "perm3_upload[]">
+                    <input class="form-check-input allow" type="checkbox" value="1" name = "perm3[]">
                     </div>
               </div>
               <div class="card-footer align-self-center" style="display:none;">
@@ -1256,19 +1256,19 @@ btnAddMang.addEventListener('click',(e)=>{
                   <label class="form-check-label" for="flexCheckDefault1">
                   صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
                   </label>
-                  <input class="form-check-input allow" type="checkbox" value="1" name = "perm1_upload[]">
+                  <input class="form-check-input allow" type="checkbox" value="1" name = "perm1[]">
                     </div>
                     <div class="form-check">
                     <label class="form-check-label" for="flexCheckChecked2">
                     صلاحية توقيع العقود بالنيابه عن الشركة
                     </label>
-                    <input class="form-check-input allow" type="checkbox" value="1" name = "perm2_upload[]">
+                    <input class="form-check-input allow" type="checkbox" value="1" name = "perm2[]">
                     </div>
                     <div class="form-check">
                     <label class="form-check-label" for="flexCheckChecked3">
                     صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
                     </label>
-                    <input class="form-check-input allow" type="checkbox" value="1" name = "perm3_upload[]">
+                    <input class="form-check-input allow" type="checkbox" value="1" name = "perm3[]">
                     </div>
               </div>
               <div class="card-footer align-self-center" style="display:none;">
@@ -1322,7 +1322,7 @@ btnAddMang.addEventListener('click',(e)=>{
                 <div class="form-group">
                 <div class="form-line">
                     <div class="btn-file align-items-center">
-                    <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg"  value="" onchange="onFileSelected(event,${i})" data-id="input_${x}">
+                    <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name = "upload_manager[]" value="" onchange="onFileSelected(event,${i})" data-id="input_${x}">
                         <div class=" change-file-ico">
                            <img src="images/upload.svg" width="25%" class="disNone">
                            </div>
@@ -1343,19 +1343,19 @@ btnAddMang.addEventListener('click',(e)=>{
         <label class="form-check-label" for="flexCheckDefault1">
         صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
         </label>
-        <input class="form-check-input allow" type="checkbox" name = "perm1_upload[]"  value="1" >
+        <input class="form-check-input allow" type="checkbox" name = "perm1[]"  value="1" >
           </div>
           <div class="form-check">
           <label class="form-check-label" for="flexCheckChecked2">
           صلاحية توقيع العقود بالنيابه عن الشركة
           </label>
-          <input class="form-check-input allow" type="checkbox" name = "perm2_upload[]" value="1" >
+          <input class="form-check-input allow" type="checkbox" name = "perm2[]" value="1" >
           </div>
           <div class="form-check">
           <label class="form-check-label" for="flexCheckChecked3">
           صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
           </label>
-          <input class="form-check-input allow" type="checkbox" name = "perm3_upload[]" value="1" >
+          <input class="form-check-input allow" type="checkbox" name = "perm3[]" value="1" >
           </div>
         </div>
         <div class="card-footer align-self-center" style="display:none;">
