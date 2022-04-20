@@ -133,7 +133,7 @@ if((curr == 3 && checkbox3.checked) || (curr == 3 && checkbox4.checked)){
 function changeLayer(curr){
     // console.log(curr);
     //hold for validation
-    // if (curr == 1 && !validateForm()) return false;
+    if (curr == 1 && !validateForm()) return false;
     layer[currLayer].style.display = "none";
     currLayer = currLayer + curr;
     // console.log(currLayer);
@@ -1322,7 +1322,7 @@ btnAddMang.addEventListener('click',(e)=>{
                 <div class="form-group">
                 <div class="form-line">
                     <div class="btn-file align-items-center">
-                    <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name = "upload_manager[]" value="" onchange="onFileSelected(event,${i})" data-id="input_${x}">
+                    <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg"  value="" onchange="onFileSelected(event,${i})" data-id="input_${x}">
                         <div class=" change-file-ico">
                            <img src="images/upload.svg" width="25%" class="disNone">
                            </div>
