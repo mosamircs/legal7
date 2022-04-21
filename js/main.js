@@ -452,6 +452,8 @@ function checkInputValidForSoloComp(){
     return validate3;
 }
 //////////////////////validate card
+let arrCardPer = [];
+
 function validateCard(){
     let passLay4 = [];
     var validate = true;
@@ -484,49 +486,41 @@ function validateCard(){
     }
     
    }); 
-   let arrCardPer = [];
+
    [...divDataId].forEach(e=>{
        //    console.log(e);
-       arrCardPer.push(e);
-       //    console.log(arrCardPer);
-       [...arrCardPer].forEach((val)=>{
+       if(arrCardPer.length == 0){
+           arrCardPer.push(e);
+       } else{
+           arrCardPer = [];
+           arrCardPer.push(e);
+       }
+        //  console.log(arrCardPer);
+    });
+    [...arrCardPer].forEach((val)=>{
         //    console.log(val);
            let checkboxInput = val.querySelectorAll('.allow');
-           console.log(checkboxInput)
-        //    [...checkboxInput].forEach(e=>{
+        //    console.log(checkboxInput);
+           [...checkboxInput].forEach(e=>{
         //    for(let i=0; i<checkboxInput.length; i++){
-        //       if(checkboxInput[i]['type'] == ['checkbox']){
-        //            // console.log(checkboxInput[i]['type'] = ['checkbox']);
-        //            if(checkboxInput[i]['checked'] != true){
-        //                console.log($('.allow:checked'))
-        //                if($('.allow:checked').length == 0){
-        //                    // console.log('dhdh')
-        //                    checkboxInput[i].style.border = '1px solid red';
-        //                    passLay4.push(false);
-        //                } else{
-        //                    checkboxInput[i].style.border = '1px solid #000086';
-        //                    passLay4.push(true);
-        //                }
-        //            }
-        //        }
+              if(e['type'] == ['checkbox']){
+                //    console.log('type-checkbox');
+                   if(e['checked'] != true){
+                    //    console.log(e)t
+                       if(val.querySelectorAll('.allow:checked').length == 0){
+                        //    console.log('not checked')
+                           e.style.border = '1px solid red';
+                           passLay4.push(false);
+                    } else{
+                          e.style.border = '1px solid #000086';
+                           passLay4.push(true);
+                       }
+                    }
+               }
         //    }
-        //    })
+           })
 
-        })
-    // if(inputVal[i]['type'] == ['radio']){
-    //             if(inputVal[i]['checked'] != true){
-    //                 if($('.form-check-input:checked').length == 0)
-    //                 {
-    //                     inputVal[i].style.border = '1px solid red';
-    //                 // console.log(radioBtn[i])
-    //                     valid = false;
-    //                 }
-    //             } else {
-    //                 inputVal[i].style.border = '1px solid #000086';
-    //                 valid = true;
-    //             }
-    //         }
-   })
+        }) 
         passLay4.forEach((value)=>{
             if(value == false){
                validate = false;
@@ -534,6 +528,10 @@ function validateCard(){
     });
     // console.log(passLay4)
     return validate;
+}
+////////////////////////////////////////
+const validateCheckBoxs = ()=>{
+
 }
 ////////////////////////////////////////
 // Restricts input for the given textbox to the given inputFilter function.
@@ -942,7 +940,18 @@ function getFormData(){
 
 const btnAddMang = document.getElementById('btn-add-mang');
 const parentCard = document.getElementById('card-newAdd');
+
+const selectValue = document.getElementsByClassName('selectMangerSpec');
+const ceo = document.getElementsByClassName('ceo');
+const directorMember = document.getElementsByClassName('director_member');
 const arrCards = [];
+   let chooseCeo = false;
+   let choosedirMember = false;
+   let choosedirManager = false;
+
+   let StatusAttr = '';
+
+
 let x = 0 , i = 0 , z = 0 , y = 0;
 
 let displayٍSelect , lname , lnation , h6Name;
@@ -972,14 +981,14 @@ btnAddMang.addEventListener('click',(e)=>{
                       <div class="card-header">
                   <div class="close">
                       <img src="images/svgexport-6 (16) 1.svg" alt="" 
-                      onclick="this.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode.parentNode)">
+                      onclick="this.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode.parentNode);onRest();">
                   </div>
                   <div class="mt-3 mb-3 " dir="rtl" style="display:${displayٍSelect};"> 
                       <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
                       <select class="form-select selectMangerSpec" name = "manager_type[]" id="specificSizeSelect2">
                           <option selected disabled>برجاء تحديد التصنيف</option>
                           <option value = "ceo" class="ceo">رئيس مجلس الاداره</option>
-                          <option value = "director_member">عضو مجلس اداره</option> 
+                          <option value = "director_member" class="director_member">عضو مجلس اداره</option> 
                           <option value = "director_manager">عضو منتدب</option> 
                       </select>
                   </div>
@@ -1043,14 +1052,14 @@ btnAddMang.addEventListener('click',(e)=>{
             <div class="card-header">
         <div class="close">
             <img src="images/svgexport-6 (16) 1.svg" alt="" 
-            onclick="this.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode.parentNode)">
+            onclick="this.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode.parentNode);onRest();">
         </div>
         <div class="mt-3 mb-3" dir="rtl"  style="display:${displayٍSelect};"> 
             <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
             <select class="form-select selectMangerSpec" name = "manager_type_upload[]" id="specificSizeSelect2">
                 <option selected disabled>برجاء تحديد التصنيف</option>
                 <option value = "ceo" class="ceo">رئيس مجلس الاداره</option>
-                <option value = "director_member">عضو مجلس اداره</option> 
+                <option value = "director_member" class="director_member">عضو مجلس اداره</option> 
                 <option value = "director_manager">عضو منتدب</option> 
             </select>
         </div>
@@ -1133,7 +1142,7 @@ btnAddMang.addEventListener('click',(e)=>{
             <select class="form-select selectMangerSpec" name = "manager_type_upload[]" id="specificSizeSelect2">
                 <option selected disabled>برجاء تحديد التصنيف</option>
                 <option value = "ceo" class="ceo">رئيس مجلس الاداره</option>
-                <option value = "director_member">عضو مجلس اداره</option> 
+                <option value = "director_member" class="director_member">عضو مجلس اداره</option> 
                 <option value = "director_manager">عضو منتدب</option> 
             </select>
         </div>
@@ -1219,14 +1228,14 @@ btnAddMang.addEventListener('click',(e)=>{
                       <div class="card-header">
                   <div class="close">
                       <img src="images/svgexport-6 (16) 1.svg" alt="" 
-                      onclick="this.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode.parentNode)">
+                      onclick="this.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode.parentNode);onRest();">
                   </div>
                   <div class="mt-3 mb-3" dir="rtl" style="display:${displayٍSelect};"> 
                       <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
                       <select class="form-select selectMangerSpec" name = "manager_type[]" id="specificSizeSelect2">
                           <option selected disabled>برجاء تحديد التصنيف</option>
                           <option value = "ceo" class="ceo">رئيس مجلس الاداره</option>
-                          <option value = "director_member">عضو مجلس اداره</option> 
+                          <option value = "director_member" class="director_member">عضو مجلس اداره</option> 
                           <option value = "director_manager">عضو منتدب</option> 
                       </select>
                   </div>
@@ -1290,14 +1299,14 @@ btnAddMang.addEventListener('click',(e)=>{
             <div class="card-header">
         <div class="close">
             <img src="images/svgexport-6 (16) 1.svg" alt="" 
-            onclick="this.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode.parentNode)">
+            onclick="this.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode.parentNode);onRest();">
         </div>
         <div class="mt-3 mb-3 " dir="rtl" style="display:${displayٍSelect};"> 
             <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
             <select class="form-select selectMangerSpec" name = "manager_type[]" id="specificSizeSelect2">
                 <option selected disabled>برجاء تحديد التصنيف</option>
                 <option value = "ceo" class="ceo">رئيس مجلس الاداره</option>
-                <option value = "director_member">عضو مجلس اداره</option> 
+                <option value = "director_member" class="director_member">عضو مجلس اداره</option> 
                 <option value = "director_manager">عضو منتدب</option> 
             </select>
         </div>
@@ -1375,14 +1384,14 @@ btnAddMang.addEventListener('click',(e)=>{
             <div class="card-header">
         <div class="close">
             <img src="images/svgexport-6 (16) 1.svg" alt="" 
-            onclick="this.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode.parentNode)">
+            onclick="this.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode.parentNode);onRest();">
         </div>
         <div class="mt-3 mb-3" dir="rtl" style="display:${displayٍSelect};"> 
             <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
             <select class="form-select selectMangerSpec" name = "manager_type[]" id="specificSizeSelect2">
                 <option selected disabled>برجاء تحديد التصنيف</option>
                 <option value = "ceo" class="ceo">رئيس مجلس الاداره</option>
-                <option value = "director_member">عضو مجلس اداره</option> 
+                <option value = "director_member" class="director_member">عضو مجلس اداره</option> 
                 <option value = "director_manager">عضو منتدب</option> 
             </select>
         </div>
@@ -1455,39 +1464,89 @@ btnAddMang.addEventListener('click',(e)=>{
     }
    x++ ; i++; z++; y++;
 
-   const selectValue = document.getElementsByClassName('selectMangerSpec');
-   const ceo = document.getElementsByClassName('ceo');
-   let chooseCeo = false;
-//    let arrayChoosen = [];
+//    const directorManager = document.getElementsByClassName('director_manager');
+    //let arrayChoosen = [];
    [...selectValue].forEach((val)=>{
     //    console.log(val);
-    val.addEventListener('change',(e)=>{
+    val.addEventListener('click',(e)=>{
         e.preventDefault();
+        // console.log(chooseCeo);
         if(val.value == 'ceo'){
             chooseCeo = true;
-            // console.log(val.value);  
-        } else{
-            chooseCeo = false;
+            // choosedirMember = false;
+            // console.log(chooseCeo);  
         }
         if(chooseCeo){
             [...ceo].forEach((v)=>{
                 // console.log(v);
-                v.setAttribute('disabled','disabled');
+                v.setAttribute('disabled',StatusAttr);
+                // v.style.display = 'none';
+
             })
         }else{
             [...ceo].forEach((v)=>{
+                // console.log('disceo');
+                v.removeAttribute('disabled');
+                // v.style.display = 'block';
+            })
+        }
+        if(val.value == 'director_member'){
+            choosedirMember = true;
+            // chooseCeo = false;
+            // console.log(choosedirMember)
+        }
+        if(choosedirMember){
+            [...directorMember].forEach((v)=>{
                 // console.log(v);
-                v.removeAttribute('disabled','disabled');
+                v.setAttribute('disabled',StatusAttr);
+            })
+        }else{
+            [...directorMember].forEach((v)=>{
+                // console.log(v); 
+                v.removeAttribute('disabled');
             })
         }
     })
+    // val.addEventListener('change',(e)=>{
+    //     e.preventDefault();
+    //     if(val.value == 'ceo'){
+    //         chooseCeo = true;
+    //     } else{
+    //          chooseCeo = false;
+    //     }
+    //     if(val.value == 'director_member'){
+    //         choosedirMember = true;
+    //     } else{
+    //         choosedirMember = false;
+    //     }
+    // })
    })
-//    console.log(choosen)
-    // if(validateCard()){
-    //     arrCards.push(newCard);
-    //     console.log(arrCards)
-    // }
 });
+// let chooseCeo = false;
+//    let choosedirMember = false;
+//    let choosedirManager = false;
+function onRest(){
+    if(parentCard.getElementsByTagName('div').length == 0 ){
+        chooseCeo = false;
+        choosedirMember = false;
+        // console.log(parentCard.getElementsByTagName('div').length)
+    } 
+    else{
+        [...selectValue].forEach((val)=>{
+            if(val.value == 'ceo'){
+                chooseCeo = true;
+            } else{
+                 chooseCeo = false;
+            }
+            if(val.value == 'director_member'){
+                choosedirMember = true;
+            } else{
+                choosedirMember = false;
+            }
+        })
+      
+    }
+}
 
 
 ////////////////////////////////////
