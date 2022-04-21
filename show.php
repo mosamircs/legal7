@@ -50,7 +50,7 @@ echo  "</pre>";
     <title>The Legal Clinic</title>
     <link rel="stylesheet" href="css/all.min.css"  />
     <link href="css/bootstrap.min.css" rel="stylesheet" >
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.16/css/intlTelInput.css" integrity="sha512-gxWow8Mo6q6pLa1XH/CcH8JyiSDEtiwJV78E+D+QP0EVasFs8wKXq16G8CLD4CJ2SnonHr4Lm/yY2fSI2+cbmw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.16/css/intlTelInput.css" integrity="sha512-gxWow8Mo6q6pLa1XH/CcH8JyiSDEtiwJV78E+D+QP0EVasFs8wKXq16G8CLD4CJ2SnonHr4Lm/yY2fSI2+cbmw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
     <link rel="stylesheet" href="css/rome.css">
     <link rel="stylesheet" href="css/index.css">
 </head>
@@ -289,7 +289,7 @@ echo  "</pre>";
 <!--                                            <input type="text" class="form-control lay2" name="company_name[]" value = "" id="inputtext2">-->
 <!--                                          </div>-->
                                         <div class="col-md-4 align-self-end text-center" >
-                                            <button class="btn btn-add" id="btn-add-sug" type="button">اضافه اقتراحات</button>
+                                            <!-- <button class="btn btn-add" id="btn-add-sug" type="button">اضافه اقتراحات</button> -->
                                             <!-- <button class="btn btn-outline-danger" id="btn-delete-sug">حذف اقتراحات</button> -->
                                         </div>
                                     </div>
@@ -329,11 +329,10 @@ echo  "</pre>";
                         <!-- layer--3 parts info -->
                         <div  class="layer">
                             <div class="count">
-                                <div class="col-sm-3" dir="rtl">
+                                <!-- <div class="col-sm-3" dir="rtl">
                                     <label class="visually-hidden" for="specificSizeSelect">Preference</label>
                                     <select class="form-select" id="specificSizeSelect">
                                         <option  disabled selected class="OPT-padding" id="allCompOption">اختر عدد المديرين</option>
-                                        <!-- <option  disabled id="partCompOption" class="OPT-padding">اختر عدد المساهمين</option> -->
                                     </select>
                                    <div class="oneComp">
                                    <div style="text-align: center ;background-color: var(--main-color);
@@ -341,7 +340,7 @@ echo  "</pre>";
                                     <p style="margin: auto;padding-right: 1rem;padding-left: 1rem;font-weight 400;">بيانات المالك</p>
                                     </div>
                                   </div>
-                                </div>
+                                </div> -->
                             </div>
                             <!--edit shareholders-->
                             <?php
@@ -361,19 +360,19 @@ echo  "</pre>";
                                 <div class="error erroPercentage"></div>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="formFileMultiple" class="form-label">اضافه البطاقه الشخصية</label>
-                                <input class="form-control lay3 mangInfo" name="personal_id[]" type="file" id="id" accept="image/png, image/gif, image/jpeg">
+                                <!-- <label for="formFileMultiple" class="form-label">اضافه البطاقه الشخصية</label> -->
+                                <!-- <input class="form-control lay3 mangInfo" name="personal_id[]" type="file" id="id" accept="image/png, image/gif, image/jpeg"> -->
                             </div>
                             <img src="<?php echo "uploads/".$shareholders_array[$i]["shareholder_personal_id"]; ?>" class="imageUpload imgId" id="">
                         <div class="col-md-3 x-last align-self-center d-flex justify-content-end">
-                                <button class="btn btn-outline-danger" type="reset" id="partCompDel" onclick="this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode)">حذف المدير</button>
+                                <!-- <button class="btn btn-outline-danger" type="reset" id="partCompDel" onclick="this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode)">حذف المدير</button> -->
                             </div>
                             <hr>
                              <?php
                                 }
                             ?>
                             <!--end edit shareholders-->
-                            <div class="oneComp" id="oneCompDiv">
+                            <!-- <div class="oneComp" id="oneCompDiv">
                                 <div class="row g-3 justify-content-between pt-3" dir="rtl" data-id="item_0">
                                 <div class="col-md-4">
                                   <label for="inputtext1" class="form-label mang" id="mangName">اسم المالك</label>
@@ -388,34 +387,29 @@ echo  "</pre>";
                                     <div class="col-md-6 mb-3">
                                     <div class="id dispBlo" style="display: none;">
                                         <img src="<?php echo "uploads/".$shareholders_array[0]["shareholder_personal_id"]; ?>" class="imageUpload imgId" id=""></div>
-                                        <label for="formFileMultiple" class="form-label">اضافه البطاقه الشخصية</label>
-                                        <input class="form-control lay3 mangOneInfo" name="malek_personal_id" type="file" id="id" accept="image/png, image/gif, image/jpeg">
                                     </div>
                                     <div class="col-md-4 x-last align-self-center">
                                         <button class="btn btn-outline-danger" type="reset" id="partCompDel">حذف المالك</button>
                                     </div>
                                  <hr>
-                            </div>
+                            </div> -->
                             </div>
                             <div id="part-form" class="container"></div>
                             <div id="error-manger" class="error"></div>
-
-                            ?>
                         </div>
                         <!-- layer---4 mangers names -->
                         <div  class="layer">
                             <div class="mang-names pt-4">
-                                <div class="row g-3 justify-content-center" dir="rtl">
+                                <!-- <div class="row g-3 justify-content-center" dir="rtl">
                                     <div class="col-md-6">
                                       <label for="inputtextAdd" class="form-label" id="partName">ادخل اسماء المديرين</label>
-                                      <!-- <label for="inputtextAdd" class="form-label" value="Amsterdam,Washington,Sydney,Beijing,Cairo" data-role="tagsinput" style="display: none;">ادخل اسماء المساهمين</label> -->
                                       <input type="text" class="form-control" id="autocompleteinput" autocomplete="additional-name">
                                       <div id="error-mangerAdd" class="error"></div>
                                     </div>
                                     <div class="col-3 " style="text-align: center;padding-top: 2.1rem;">
                                         <button class="btn bttn-add" style="width: 10rem;" id="btn-add-mang" type="button">اضافه</button>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="mang-details pt-4 pb-4" dir="rtl" >
                                 <div class="row" id="card-newAdd">
@@ -526,7 +520,7 @@ echo  "</pre>";
     <script src="js/jquery.min.js" ></script>
     <script src="js/popper.min.js" ></script>
     <script src="js/bootstrap.min.js" ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.16/js/intlTelInput.min.js" integrity="sha512-Po9nSdYOcWIcoADdRjkAbRYPpR8OHjxzA/3RDUERZcDewTLzRTxbG4bUX7Sr7lVEcO3wTCzphdOBWgNFKVmxaA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.16/js/intlTelInput.min.js" integrity="sha512-Po9nSdYOcWIcoADdRjkAbRYPpR8OHjxzA/3RDUERZcDewTLzRTxbG4bUX7Sr7lVEcO3wTCzphdOBWgNFKVmxaA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
     <script src="js/rome.js"></script>
 
     <script src="js/main2.js?t=<?php echo time();?>"></script>
