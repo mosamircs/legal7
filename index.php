@@ -161,7 +161,7 @@
                                             </label>
                                         </div>
                                         <div class="mr-8">
-                                            <button class="btn down" id="down-1" type="button" onclick="download('Incorporation of a Limited Liability Company - Legal Clinic');" style="display: none;">المستندات المطلوبة</button>
+                                            <button class="btn down" id="down-1" type="button" onclick="download('شركة ذات مسئولية محدودة');" style="display: none;">المستندات المطلوبة</button>
                                         </div> 
                                     </div>
                                       <div class="form-check d-flex flex-row-reverse mt-3">
@@ -179,7 +179,7 @@
                                             </label>
                                         </div>
                                         <div class="mr-8">
-                                            <button class="btn down"  id="down-2" style="display: none;" onclick="download('Joint Stock Incorporation');"  type="button">المستندات المطلوبة</button>
+                                            <button class="btn down"  id="down-2" style="display: none;" onclick="download('شركة المساهمة');"  type="button">المستندات المطلوبة</button>
                                         </div>
                                     </div>
                                       <div class="form-check d-flex flex-row-reverse mt-3">
@@ -192,7 +192,7 @@
                                             </label>
                                         </div>
                                         <div class="mr-8">
-                                            <button class="btn down"  id="down-3" style="display: none;" onclick="download('OPC requirements');"  type="button">المستندات المطلوبة</button>
+                                            <button class="btn down"  id="down-3" style="display: none;" onclick="download('شركة الشخص الواحد – ذ.م.م');"  type="button">المستندات المطلوبة</button>
                                         </div>
                                     </div>
                                     <div class="invalid-feedback">يجب اختيار شركه</div>
@@ -220,7 +220,7 @@
                                                 </label>
                                             </div>
                                             <div class="mr-8">
-                                                <button class="btn down" id="down-4" type="button" onclick="download('Sole Entity');" style="display: none;">المستندات المطلوبة</button>
+                                                <button class="btn down" id="down-4" type="button" onclick="download('منشأة فردية');" style="display: none;">المستندات المطلوبة</button>
                                             </div> 
                                         </div>
                                           <div class="form-check d-flex flex-row-reverse mt-3">
@@ -237,7 +237,7 @@
                                                 </label>
                                             </div>
                                             <div class="mr-8">
-                                                <button class="btn down"  id="down-5" style="display: none;" onclick="download('General partnership');"  type="button">المستندات المطلوبة</button>
+                                                <button class="btn down"  id="down-5" style="display: none;" onclick="download('شركة التضامن');"  type="button">المستندات المطلوبة</button>
                                             </div>
                                         </div>
                                           <div class="form-check d-flex flex-row-reverse mt-3">
@@ -259,7 +259,7 @@
                                             </div>
                                             <div class="invalid-feedback">يجب اختيار شركه</div>
                                             <div class="mr-8">
-                                                <button class="btn down"  id="down-6" style="display: none;" onclick="download('Limited Partnership');" type="button">المستندات المطلوبة</button>
+                                                <button class="btn down"  id="down-6" style="display: none;" onclick="download('شركة التوصية البسيطه');" type="button">المستندات المطلوبة</button>
                                             </div>
                                         </div>
                                         </div>
