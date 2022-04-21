@@ -173,198 +173,198 @@ let inputTxt2 = document.getElementsByClassName('lay3');
 function validateForm() {
     let valid = true;
     let formValidArr = [];
-    // if(currLayer == 0)
-    // {
-    //    //user name
-    //    if(userName.value == ''){
-    //    //user name
-    //        errorUserName.innerHTML="يجب ادخال اسم المستخدم ";
-    //        errorUserName.style.display="block";
-    //        errorUserName.style.fontSize="14px";
-    //        errorUserName.style.color="red";
-    //        userName.style.border = "1px solid red";
-    //     //    valid = false;   
-    //     formValidArr.push(false);            
+    if(currLayer == 0)
+    {
+       //user name
+       if(userName.value == ''){
+       //user name
+           errorUserName.innerHTML="يجب ادخال اسم المستخدم ";
+           errorUserName.style.display="block";
+           errorUserName.style.fontSize="14px";
+           errorUserName.style.color="red";
+           userName.style.border = "1px solid red";
+        //    valid = false;   
+        formValidArr.push(false);            
 
-    //    } else{
-    //        // if(isNaN(userName.value)) {
-    //                errorUserName.innerHTML="";
-    //                userName.style.border = "1px solid green";
-    //             //    valid = true;
-    //     formValidArr.push(true);            
+       } else{
+           // if(isNaN(userName.value)) {
+                   errorUserName.innerHTML="";
+                   userName.style.border = "1px solid green";
+                //    valid = true;
+        formValidArr.push(true);            
 
-    //        }
-    //    //user email
-    //    if(userEmail.value == ''){
-    //        errorUserEmail.innerHTML="يجب ادخال البريد الالكترونى";
-    //        errorUserEmail.style.display="block";
-    //        errorUserEmail.style.fontSize="14px";
-    //        errorUserEmail.style.color="red";
-    //        userEmail.style.border = "1px solid red";
-    //     //    valid = false;
-    //     formValidArr.push(false);            
-    //     //    console.log('empty')            
-    //    } else{
-    //        if(emailPattern.test(userEmail.value)){
-    //            //user email
-    //                errorUserEmail.innerHTML="";
-    //                userEmail.style.border = "1px solid green";
-    //             //    valid = true;
-    //     //    console.log('valid') 
-    //     formValidArr.push(true);            
-
-
-    //        }else{
-    //                 //user email
-    //                 errorUserEmail.innerHTML="البريد الالكترونى غير صالح";
-    //                 errorUserEmail.style.display="block";
-    //                 errorUserEmail.style.fontSize="14px";
-    //                 errorUserEmail.style.color="red";
-    //                 userEmail.style.border = "1px solid red";
-    //                 // valid = false;  
-    //     //    console.log('invalidpattern')
-    //     formValidArr.push(false);            
+           }
+       //user email
+       if(userEmail.value == ''){
+           errorUserEmail.innerHTML="يجب ادخال البريد الالكترونى";
+           errorUserEmail.style.display="block";
+           errorUserEmail.style.fontSize="14px";
+           errorUserEmail.style.color="red";
+           userEmail.style.border = "1px solid red";
+        //    valid = false;
+        formValidArr.push(false);            
+        //    console.log('empty')            
+       } else{
+           if(emailPattern.test(userEmail.value)){
+               //user email
+                   errorUserEmail.innerHTML="";
+                   userEmail.style.border = "1px solid green";
+                //    valid = true;
+        //    console.log('valid') 
+        formValidArr.push(true);            
 
 
-    //          }
-    //     }
+           }else{
+                    //user email
+                    errorUserEmail.innerHTML="البريد الالكترونى غير صالح";
+                    errorUserEmail.style.display="block";
+                    errorUserEmail.style.fontSize="14px";
+                    errorUserEmail.style.color="red";
+                    userEmail.style.border = "1px solid red";
+                    // valid = false;  
+        //    console.log('invalidpattern')
+        formValidArr.push(false);            
+
+
+             }
+        }
        
-    //    //user phone
-    //    if(userPhone.value == ''){
-    //        errorUserPhone.innerHTML="يجب ادخال رقم الهاتف";
-    //        errorUserPhone.style.display="block";
-    //        errorUserPhone.style.fontSize="14px";
-    //        errorUserPhone.style.color="red";
-    //        userPhone.style.border = "1px solid red";
-    //    // console.log('hjekh')
-    //    //   valid = false;
-    //      formValidArr.push(false);            
+       //user phone
+       if(userPhone.value == ''){
+           errorUserPhone.innerHTML="يجب ادخال رقم الهاتف";
+           errorUserPhone.style.display="block";
+           errorUserPhone.style.fontSize="14px";
+           errorUserPhone.style.color="red";
+           userPhone.style.border = "1px solid red";
+       // console.log('hjekh')
+       //   valid = false;
+         formValidArr.push(false);            
 
-    //    } else{
-    //        if(phonePattern.test(userPhone.value)){
-    //            //user phone
-    //                errorUserPhone.innerHTML="";
-    //                userPhone.style.border = "1px solid green";
-    //         //    valid = true;
-    //     formValidArr.push(true);            
+       } else{
+           if(phonePattern.test(userPhone.value)){
+               //user phone
+                   errorUserPhone.innerHTML="";
+                   userPhone.style.border = "1px solid green";
+            //    valid = true;
+        formValidArr.push(true);            
 
-    //        }else{
-    //                //user phone
-    //                errorUserPhone.innerHTML="رقم الهاتف يجب الا يقل عن 11 رقم ولا يحتوى على رموز";
-    //                errorUserPhone.style.display="block";
-    //                errorUserPhone.style.fontSize="14px";
-    //                errorUserPhone.style.color="red";
-    //                userPhone.style.border = "1px solid red";
-    //             //    valid = false;
-    //               formValidArr.push(false);            
+           }else{
+                   //user phone
+                   errorUserPhone.innerHTML="رقم الهاتف يجب الا يقل عن 11 رقم ولا يحتوى على رموز";
+                   errorUserPhone.style.display="block";
+                   errorUserPhone.style.fontSize="14px";
+                   errorUserPhone.style.color="red";
+                   userPhone.style.border = "1px solid red";
+                //    valid = false;
+                  formValidArr.push(false);            
 
-    //            }
-    //     }
-    //     formValidArr.forEach((value)=>{
-    //         if(value == false){
-    //             valid = false;
-    //         }
-    //     });
-    // }
-    // if(currLayer == 1){
-    //     // console.log('dfghjk')
-    //     for(let i=0; i<inputVal.length; i++){
-    //         if(inputVal[i]['type'] == ['radio']){
-    //             if(inputVal[i]['checked'] != true){
-    //                 if($('.form-check-input:checked').length == 0)
-    //                 {
-    //                     inputVal[i].style.border = '1px solid red';
-    //                 // console.log(radioBtn[i])
-    //                     valid = false;
-    //                 }
-    //             } else {
-    //                 inputVal[i].style.border = '1px solid #000086';
-    //                 valid = true;
-    //             }
-    //         }
-    //     }
-    // }
-    // if(currLayer == 2){
-    //     let passLay2 = [];
-    //     for(let i=0; i<inputTxt.length; i++){
-    //         //  console.log(inputTxt[i].value)
-    //         if(inputTxt[i].value == ''){
-    //             inputTxt[i].style.border = '1px solid red';
-    //             // valid = false;
-    //             passLay2.push(false);
-    //         } else {
-    //             inputTxt[i].style.border = '1px solid #000086';
-    //             // valid = true;
-    //             passLay2.push(true);
-    //                 // console.log('dfdg')
-    //         }
-    //     }
-    //     passLay2.forEach((value)=>{
-    //         if(value == false){
-    //             valid = false;
-    //         }
-    //         // } else{
-    //         //     valid = true;
-    //         // }
-    //     })
-    //     // console.log(pass);
-    // }
-    // if(currLayer == 3){
-    //     const mageData = parentCountEl.getElementsByClassName('mangData');
-    //     let passAll = [];
+               }
+        }
+        formValidArr.forEach((value)=>{
+            if(value == false){
+                valid = false;
+            }
+        });
+    }
+    if(currLayer == 1){
+        // console.log('dfghjk')
+        for(let i=0; i<inputVal.length; i++){
+            if(inputVal[i]['type'] == ['radio']){
+                if(inputVal[i]['checked'] != true){
+                    if($('.form-check-input:checked').length == 0)
+                    {
+                        inputVal[i].style.border = '1px solid red';
+                    // console.log(radioBtn[i])
+                        valid = false;
+                    }
+                } else {
+                    inputVal[i].style.border = '1px solid #000086';
+                    valid = true;
+                }
+            }
+        }
+    }
+    if(currLayer == 2){
+        let passLay2 = [];
+        for(let i=0; i<inputTxt.length; i++){
+            //  console.log(inputTxt[i].value)
+            if(inputTxt[i].value == ''){
+                inputTxt[i].style.border = '1px solid red';
+                // valid = false;
+                passLay2.push(false);
+            } else {
+                inputTxt[i].style.border = '1px solid #000086';
+                // valid = true;
+                passLay2.push(true);
+                    // console.log('dfdg')
+            }
+        }
+        passLay2.forEach((value)=>{
+            if(value == false){
+                valid = false;
+            }
+            // } else{
+            //     valid = true;
+            // }
+        })
+        // console.log(pass);
+    }
+    if(currLayer == 3){
+        const mageData = parentCountEl.getElementsByClassName('mangData');
+        let passAll = [];
        
-    //     if(checkbox2.checked){
-    //         if(mageData.length < 3){
-    //             // console.log('wrong');
-    //             errormanger.innerHTML="عدد المساهمين يجب الا يقل عن 3";
-    //             errormanger.style.display="block";
-    //             errormanger.style.fontSize="14px";
-    //             errormanger.style.color="red";
-    //             passAll.push(false);
+        if(checkbox2.checked){
+            if(mageData.length < 3){
+                // console.log('wrong');
+                errormanger.innerHTML="عدد المساهمين يجب الا يقل عن 3";
+                errormanger.style.display="block";
+                errormanger.style.fontSize="14px";
+                errormanger.style.color="red";
+                passAll.push(false);
                 
-    //         }else{
-    //             errormanger.innerHTML="";
-    //             if(!checkValidInputs()){
-    //                 passAll.push(false);
-    //             } else{
-    //                 passAll.push(true);
-    //             }
-    //         }    
-    //     } else if((checkbox1.checked) || (checkbox5.checked) || (checkbox6.checked)){
-    //         // console.log('checked')
-    //         if(mageData.length < 2){
-    //             // console.log('checked length');
-    //             errormanger.innerHTML="عدد الشركاء يجب الا يقل عن 2";
-    //             errormanger.style.display="block";
-    //             errormanger.style.fontSize="14px";
-    //             errormanger.style.color="red";
-    //             // passLay3.push(false);
-    //             passAll.push(false);
-    //         } 
-    //         else {
-    //             errormanger.innerHTML="";
-    //             if(!checkValidInputs()){
-    //                 passAll.push(false);
-    //             } else{
-    //                 passAll.push(true);
-    //             }
-    //             // console.log(checkValidInputs())
-    //         }
-    //     } else{
-    //         errormanger.innerHTML="";
-    //         if(!checkInputValidForSoloComp()){
-    //             passAll.push(false);
-    //         } else{
-    //             passAll.push(true);
-    //         }
-    //     }
-    //     passAll.forEach((val)=>{
-    //         if(val == false){
-    //             valid = false;
-    //         }
-    //     })
-    //     console.log(passAll);
-    // } 
+            }else{
+                errormanger.innerHTML="";
+                if(!checkValidInputs()){
+                    passAll.push(false);
+                } else{
+                    passAll.push(true);
+                }
+            }    
+        } else if((checkbox1.checked) || (checkbox5.checked) || (checkbox6.checked)){
+            // console.log('checked')
+            if(mageData.length < 2){
+                // console.log('checked length');
+                errormanger.innerHTML="عدد الشركاء يجب الا يقل عن 2";
+                errormanger.style.display="block";
+                errormanger.style.fontSize="14px";
+                errormanger.style.color="red";
+                // passLay3.push(false);
+                passAll.push(false);
+            } 
+            else {
+                errormanger.innerHTML="";
+                if(!checkValidInputs()){
+                    passAll.push(false);
+                } else{
+                    passAll.push(true);
+                }
+                // console.log(checkValidInputs())
+            }
+        } else{
+            errormanger.innerHTML="";
+            if(!checkInputValidForSoloComp()){
+                passAll.push(false);
+            } else{
+                passAll.push(true);
+            }
+        }
+        passAll.forEach((val)=>{
+            if(val == false){
+                valid = false;
+            }
+        })
+        // console.log(passAll);
+    } 
 /////////////////////////////////////////////edit--->4
 if(currLayer == 4){
     // let passlay42 = [];
@@ -785,7 +785,7 @@ const btnAdd = document.querySelector('#btn-add-sug');
 ///////////////////////////part-info---section-3//////////////////////////////////////
 
 let labelNameValue, labelNationValue, labelrangeValue,btnDelete;
-const specFont = document.getElementsByClassName('specFont');
+const specFont = document.getElementsByTagName('label');
 let counter = 0;
 
           for(let i=1; i<= 50; i++){
@@ -807,14 +807,16 @@ let counter = 0;
                 labelNationValue = 'جنسيه المساهم';
                 labelrangeValue = 'نسبه المساهم';
                 btnDelete = 'حذف المساهم';
+                // [...specFont].forEach((val)=>{
+                //     // console.log(val)
+                //     // val.classList.remove('specFont');
+                //     val.classList.remove('specFont')
+                // })
                
             } else{
                 labelNameValue = 'اسم الشريك';
                 labelNationValue = 'جنسيه الشريك';
                 labelrangeValue = 'نسبه الشريك من راس المال';
-                [...specFont].forEach((v)=>{
-                    v.style.fontSize = '16px';
-                })
                 // labelrangeValue2 = 'من راس المال';
                 btnDelete = 'حذف الشريك';
             }
@@ -831,7 +833,7 @@ let counter = 0;
                         <input type="text" class="form-control lay3 mangInfo" id="nation" name="shareholder_nationality[]">
                       </div>
                       <div class="col-md-3">
-                        <label for="inputtext1" class="form-label mangPart specFont">${labelrangeValue}</label>
+                        <label for="inputtext1" class="form-label mangPart">${labelrangeValue}</label>
                           <input type="text" class="form-control lay3 inputtext6" name="shareholder_percentage[]" placeholder="%" id="counter_${counter}" onkeyup='integerInRange(this.value, 0, 100, "counter_${counter}"); arabicValue(counter_${counter});'/>
                           <div class="error erroPercentage"></div>
                       </div>
@@ -868,7 +870,7 @@ function integerInRange(value, min, max, name) {
         document.getElementById(name).value = "100";
         // alert("Write here your message");
         [...erroPercentage].forEach(e=>{
-            e.innerHTML = '%النسبه يجب ان تكون بين ال 10% - 100'
+            e.innerHTML = 'النسبه يجب ان تكون بين ال 10%-100%';
             e.style.display="block";
             e.style.fontSize="14px";
             e.style.color="red";
