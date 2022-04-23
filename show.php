@@ -133,7 +133,6 @@ echo  "</pre>";
                     <div class="turn-en">
                         <div class="cir-4">
                             <button type="button"></button>
-                            <!-- <img src="images/eng.svg" alt="" srcset=""> -->
                         </div>
                     </div>
                 </div>
@@ -278,7 +277,6 @@ echo  "</pre>";
                                         <?php
                                             for ($i = 0;$i<count($company_names);$i++){
                                         ?>
-
                                         <div class="col-md-4">
                                           <label for="inputtext1" class="form-label">الاقتراح </label>
                                           <input type="text" class="form-control lay2" name="company_name[]" value = "<?php echo $company_names[$i]; ?>"  id="inputtext1" value = "">
@@ -286,16 +284,7 @@ echo  "</pre>";
                                         <?php
                                             }
                                         ?>
-<!--                                        <div class="col-md-4">-->
-<!--                                            <label for="inputtext2" class="form-label">الاقتراح </label>-->
-<!--                                            <input type="text" class="form-control lay2" name="company_name[]" value = "" id="inputtext2">-->
-<!--                                          </div>-->
-                                        <!-- <div class="col-md-4 align-self-end text-center" > -->
-                                            <!-- <button class="btn btn-add" id="btn-add-sug" type="button">اضافه اقتراحات</button> -->
-                                            <!-- <button class="btn btn-outline-danger" id="btn-delete-sug">حذف اقتراحات</button> -->
-                                        <!-- </div> -->
                                     </div>
-
                                 </div>
                             </div>
                             <div class="comp-info pt-4">
@@ -304,12 +293,10 @@ echo  "</pre>";
                                     <div class="row g-3 justify-content-start pt-3">
                                         <div class="col-md-4">
                                           <label for="floatingTextarea" class="form-label">نشاط الشركه</label>
-                                          <!-- <input type="text" class="form-control"  required> -->
                                           <textarea class="form-control lay2" placeholder="نشاط الشركه"  value = "" name="company_activity" id="floatingTextarea"><?php echo $row_company["company_activity"]; ?></textarea>
                                         </div>
                                         <div class="col-md-4">
                                             <label for="floatingTextarea2" class="form-label">عنوان الشركه</label>
-                                            <!-- <input type="text" class="form-control" height="72px"  aria-label="Large" aria-describedby="inputGroup-sizing-sm" required> -->
                                             <textarea class="form-control lay2" placeholder="عنوان الشركه" name="company_address" value = "" id="floatingTextarea2"><?php echo $row_company["company_address"]; ?></textarea>
                                         </div>
                                     </div>
@@ -320,7 +307,6 @@ echo  "</pre>";
                                           <div id="soloComp"><span >راس المال يجب الا يقل عن 50 الف جنيها</span></div>
                                         </div>
                                         <div class="col-md-4">
-                                            <!-- <label for="inputtext4" class="form-label" style="display: none;">قيمه السهم</label> -->
                                             <label for="inputtext4" class="form-label" id="valueCor">قيمه الحصه</label>
                                             <input type="text" class="form-control lay2" id="inputtext4" name="capital_share" value = "<?php echo $row_company["capital_share"]; ?>" onkeyup="arabicValue(inputtext4)"></input>
                                         </div>
@@ -330,7 +316,6 @@ echo  "</pre>";
                         </div>
                         <!-- layer--3 parts info -->
                         <div  class="layer">
-                               
                             <!--edit shareholders-->
                             <?php
                                 for($i = 0;$i <count($shareholders_array);$i++){
@@ -367,15 +352,72 @@ echo  "</pre>";
                         </div>
                         <!-- layer---4 mangers names -->
                         <div class="layer">
-                            <div class="mang-details pt-5 pb-5" dir="rtl">
-                                <!-- <div class="row"> -->
-                                    <!-- </div> -->
-                                    <div class="col-xl-4 col-md-6">
-                                        <h6>hello</h6>
+                        <div class="mang-names pt-4"></div>
+                            <div class="mang-details pt-4 pb-4" dir="rtl" >
+                                <div class="container">
+                                    <div class="row" id="card-newAdd">
+                                        <div class="col-xl-4 col-md-6 pt-3">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <div class="close">
+                                                        <img src="images/svgexport-6 (16) 1.svg" alt="" onclick="this.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode.parentNode);onRest();">
+                                                     </div>
+                                                    <div class="mt-3 mb-3 " dir="rtl"> 
+                                                        <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
+                                                        <select class="form-select selectMangerSpec" name = "manager_type[]" id="specificSizeSelect2">
+                                                            <option selected disabled>برجاء تحديد التصنيف</option>
+                                                            <option value = "ceo" class="ceo">رئيس مجلس الاداره</option>
+                                                            <option value = "director_member" class="director_member">عضو مجلس اداره</option> 
+                                                            <option value = "director_manager">عضو منتدب</option> 
+                                                        </select>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <div class=" g-3 justify-content-around" dir="rtl">
+                                                                <div class="">
+                                                                    <label for="inputtext1" class="form-label mang">${lname}</label>
+                                                                    <input type="text" class="form-control" id="inputtext1" value="${e.name}" name = "manager_name[]" readonly>
+                                                                </div>
+                                                                <div class="">
+                                                                    <label for="inputtext2" class="form-label mang">${lnation}</label>
+                                                                    <input type="text" class="form-control" id="inputtext2" value="${e.nationality}" name = "manager_nationality[]" readonly>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 align-self-center" style="padding-top: 33px;">
+                                                            <div class="id"><img src="${e.prev}" alt="" width="100%" id="imagePrev_${i}" class="imgId">
+                                                            <input type="hidden" name="hidden_personal_id1" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-body" id='card_${x}'>
+                                                    <h6 class="h6part">صلاحيات المدير</h6>
+                                                         <div class="form-check">
+                                                            <label class="form-check-label" for="flexCheckDefault1">
+                                                            صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
+                                                            </label>
+                                                            <input class="form-check-input allow" type="checkbox" value="1" name = "perm1[]">
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <label class="form-check-label" for="flexCheckChecked2">
+                                                            صلاحية توقيع العقود بالنيابه عن الشركة
+                                                            </label>
+                                                            <input class="form-check-input allow" type="checkbox" value="1" name = "perm2[]">
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <label class="form-check-label" for="flexCheckChecked3">
+                                                            صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
+                                                            </label>
+                                                            <input class="form-check-input allow" type="checkbox" value="1" name = "perm3[]">
+                                                        </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
+                                </div>
                             </div>
                         </div>
-
                         <!-- layer---5 calender -->
                         <div class="layer">
                             <div class="d-flex justify-content-center">
