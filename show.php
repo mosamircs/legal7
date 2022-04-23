@@ -1,4 +1,6 @@
 <?php
+error_reporting(0);
+@ini_set('display_errors', 0);
 require_once("header.php");
 require_once ("database.php");
 $database_instance = Database::getInstance();
@@ -272,7 +274,7 @@ echo  "</pre>";
                             <div class="comp-name pt-4">
                                 <h3>اقترح اسم لشركتك</h3>
                                 <div id="form-in" dir="rtl">
-                                    <div class="row g-3 justify-content-evenly pt-3" id="parent-el">
+                                    <div class="row g-3 pt-3" id="parent-el">
                                         <?php
                                             for ($i = 0;$i<count($company_names);$i++){
                                         ?>
@@ -288,10 +290,10 @@ echo  "</pre>";
 <!--                                            <label for="inputtext2" class="form-label">الاقتراح </label>-->
 <!--                                            <input type="text" class="form-control lay2" name="company_name[]" value = "" id="inputtext2">-->
 <!--                                          </div>-->
-                                        <div class="col-md-4 align-self-end text-center" >
+                                        <!-- <div class="col-md-4 align-self-end text-center" > -->
                                             <!-- <button class="btn btn-add" id="btn-add-sug" type="button">اضافه اقتراحات</button> -->
                                             <!-- <button class="btn btn-outline-danger" id="btn-delete-sug">حذف اقتراحات</button> -->
-                                        </div>
+                                        <!-- </div> -->
                                     </div>
 
                                 </div>
@@ -328,24 +330,12 @@ echo  "</pre>";
                         </div>
                         <!-- layer--3 parts info -->
                         <div  class="layer">
-                            <div class="count">
-                                <!-- <div class="col-sm-3" dir="rtl">
-                                    <label class="visually-hidden" for="specificSizeSelect">Preference</label>
-                                    <select class="form-select" id="specificSizeSelect">
-                                        <option  disabled selected class="OPT-padding" id="allCompOption">اختر عدد المديرين</option>
-                                    </select>
-                                   <div class="oneComp">
-                                   <div style="text-align: center ;background-color: var(--main-color);
-                                    color: var(--bg-main-color);height: 50px;border-radius: 18px;display: flex;" > 
-                                    <p style="margin: auto;padding-right: 1rem;padding-left: 1rem;font-weight 400;">بيانات المالك</p>
-                                    </div>
-                                  </div>
-                                </div> -->
-                            </div>
+                               
                             <!--edit shareholders-->
                             <?php
                                 for($i = 0;$i <count($shareholders_array);$i++){
                             ?>
+                            <div class="row g-3 justify-content-between  mt-3" dir="rtl" data-id="item_0">
                             <div class="col-md-3">
                                 <label for="inputtext1" class="form-label mangPart" id="mangName">اسم المدير</label>
                                 <input type="text" class="form-control lay3 mangInfo" id="name" name="shareholder_name[]" value="<?php echo $shareholders_array[$i]["shareholder_name"]?>">
@@ -362,131 +352,30 @@ echo  "</pre>";
                             <div class="col-md-6 mb-3">
                                 <!-- <label for="formFileMultiple" class="form-label">اضافه البطاقه الشخصية</label> -->
                                 <!-- <input class="form-control lay3 mangInfo" name="personal_id[]" type="file" id="id" accept="image/png, image/gif, image/jpeg"> -->
+                                <img src="<?php echo "uploads/".$shareholders_array[$i]["shareholder_personal_id"]; ?>" class="imageUpload imgId" id="" width="100%">
                             </div>
-                            <img src="<?php echo "uploads/".$shareholders_array[$i]["shareholder_personal_id"]; ?>" class="imageUpload imgId" id="">
-                        <div class="col-md-3 x-last align-self-center d-flex justify-content-end">
+                            <!-- <div class="col-md-6  align-self-center d-flex "> -->
                                 <!-- <button class="btn btn-outline-danger" type="reset" id="partCompDel" onclick="this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode)">حذف المدير</button> -->
-                            </div>
+                            <!-- </div> -->
                             <hr>
+                                </div>
                              <?php
                                 }
                             ?>
-                            <!--end edit shareholders-->
-                            <!-- <div class="oneComp" id="oneCompDiv">
-                                <div class="row g-3 justify-content-between pt-3" dir="rtl" data-id="item_0">
-                                <div class="col-md-4">
-                                  <label for="inputtext1" class="form-label mang" id="mangName">اسم المالك</label>
-                                  <input type="text" class="form-control lay3 mangOneInfo" id="name" name="malek_name" value = "<?php echo $shareholders_array[0]["shareholder_name"]; ?>">
-                                </div>
-                                <div class="col-md-4">
-                                  <label for="inputtext1" class="form-label mang">جنسيه المالك</label>
-                                    <input type="text" class="form-control lay3 mangOneInfo" id="nation" name="malek_nationality" value = "<?php echo $shareholders_array[$i]["shareholder_nationality"]; ?>">
-                                </div>
-                                    <img src="uploads/<?php echo $shareholders_array[0]["shareholder_personal_id"]; ?>">
-
-                                    <div class="col-md-6 mb-3">
-                                    <div class="id dispBlo" style="display: none;">
-                                        <img src="<?php echo "uploads/".$shareholders_array[0]["shareholder_personal_id"]; ?>" class="imageUpload imgId" id=""></div>
-                                    </div>
-                                    <div class="col-md-4 x-last align-self-center">
-                                        <button class="btn btn-outline-danger" type="reset" id="partCompDel">حذف المالك</button>
-                                    </div>
-                                 <hr>
-                            </div> -->
                             </div>
-                            <div id="part-form" class="container"></div>
-                            <div id="error-manger" class="error"></div>
+                            
                         </div>
                         <!-- layer---4 mangers names -->
-                        <div  class="layer">
-                            <div class="mang-names pt-4">
-                                <!-- <div class="row g-3 justify-content-center" dir="rtl">
-                                    <div class="col-md-6">
-                                      <label for="inputtextAdd" class="form-label" id="partName">ادخل اسماء المديرين</label>
-                                      <input type="text" class="form-control" id="autocompleteinput" autocomplete="additional-name">
-                                      <div id="error-mangerAdd" class="error"></div>
+                        <div class="layer">
+                            <div class="mang-details pt-5 pb-5" dir="rtl">
+                                <!-- <div class="row"> -->
+                                    <!-- </div> -->
+                                    <div class="col-xl-4 col-md-6">
+                                        <h6>hello</h6>
                                     </div>
-                                    <div class="col-3 " style="text-align: center;padding-top: 2.1rem;">
-                                        <button class="btn bttn-add" style="width: 10rem;" id="btn-add-mang" type="button">اضافه</button>
-                                    </div>
-                                </div> -->
                             </div>
-                            <div class="mang-details pt-4 pb-4" dir="rtl" >
-                                <div class="row" id="card-newAdd">
-                                    <!--edits manager-->
-                                    <?php
-                                        for($i = 0; $i<count($managers_array);$i++){
-                                    ?>
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <div class="close">
-                                                <img src="images/svgexport-6 (16) 1.svg" alt=""
-                                                     onclick="this.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode.parentNode)">
-                                            </div>
-                                            <div class="mt-3 mb-3 " dir="rtl" style="">
-                                                <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
-                                                <select class="form-select" name = "manager_type[]" id="specificSizeSelect2">
-                                                    <option selected disabled>برجاء تحديد التصنيف</option>
-                                                    <option value = "ceo">رئيس مجلس الاداره</option>
-                                                    <option value = "director_member">عضو مجلس اداره</option>
-                                                    <option value = "director_manager">عضو منتدب</option>
-                                                </select>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-6">
-                                                    <div class=" g-3 justify-content-around" dir="rtl">
-                                                        <div class="">
-                                                            <label for="inputtext1" class="form-label mang">اسم المدير</label>
-                                                            <input type="text" class="form-control" id="inputtext1" value="<?php echo $managers_array[$i]["manager_name"]; ?>" name = "manager_name[]" readonly>
-                                                        </div>
-                                                        <div class="">
-                                                            <label for="inputtext2" class="form-label mang">جنسية المدير</label>
-                                                            <input type="text" class="form-control" id="inputtext2" value="<?php echo $managers_array[$i]["manager_nationality"]; ?>" name = "manager_nationality[]" readonly>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-6 align-self-center" style="padding-top: 33px;">
-                                                    <div class="id">
-                                                        <img src="<?php echo "uploads/".$managers_array[$i]["manager_personal_id"]; ?>"alt="" width="100%" id=""  class="imgId">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card-body" id='card_${x}'>
-                                            <h6 class="h6part"></h6>
-                                            <div class="form-check">
-                                                <label class="form-check-label" for="flexCheckDefault1">
-                                                    صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
-                                                </label>
-                                                <input class="form-check-input" type="checkbox" value="<?php echo $managers_array[$i]["perm1"] ?>" name = "perm1[]">
-                                            </div>
-                                            <div class="form-check">
-                                                <label class="form-check-label" for="flexCheckChecked2">
-                                                    صلاحية توقيع العقود بالنيابه عن الشركة
-                                                </label>
-                                                <input class="form-check-input" type="checkbox" value="<?php echo $managers_array[$i]["perm2"] ?>" name = "perm2[]">
-                                            </div>
-                                            <div class="form-check">
-                                                <label class="form-check-label" for="flexCheckChecked3">
-                                                    صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
-                                                </label>
-                                                <input class="form-check-input" type="checkbox" value="<?php echo $managers_array[$i]["perm3"] ?>" name = "perm3[]">
-                                            </div>
-                                        </div>
-                                        <div class="card-footer align-self-center" style="display:none;">
-                                            <div class="buttons">
-                                                <button class="btn save" type="button">حفظ</button>
-                                                <button class="btn edit" type="button">تعديل</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <?php
-                                        }
-                                    ?>
-                                </div>
-                            </div>
-
                         </div>
+
                         <!-- layer---5 calender -->
                         <div class="layer">
                             <div class="d-flex justify-content-center">
@@ -509,7 +398,7 @@ echo  "</pre>";
                          <div id="but-chose">
                           <div class="btn-chose d-flex justify-content-center pb-3 pt-3">
                               <button class="btn next mr-3" id="next-1" type="button" onclick="changeLayer(1)">التالي</button>
-                              <button class="btn pre " id="prev-1" type="button" onclick="changeLayer(-1);arrayEle = []; arrayNames = [];">السابق</button>
+                              <button class="btn pre " id="prev-1" type="button" onclick="changeLayer(-1)">السابق</button>
                           </div>
                          </div>
                     </div>
