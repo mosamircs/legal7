@@ -74,17 +74,17 @@ if (isset($_POST["signdate"])){
 if (isset($_POST['company_type'])) {
 $company_radio = $_POST['company_type'];
 if ($company_radio == 'LimitedLiabilityCompany') {
-    $formdata["company_type"] = "شركة ذات مسئولية محدودة";
+    $formdata["company_type"] = "LimitedLiabilityCompany";
 } elseif ($company_radio == 'JointStockIncorporation') {
-    $formdata["company_type"]  = "شركة مساهمة مصري";
+    $formdata["company_type"]  = "JointStockIncorporation";
 } elseif ($company_radio == 'OPCrequirements') {
-    $formdata["company_type"]  = "شركة شخص واحد ذات مسئولية محدودة";
+    $formdata["company_type"]  = "OPCrequirements";
 } elseif ($company_radio == 'SoleEntity') {
-    $formdata["company_type"]  = "المنشاة الفردية";
+    $formdata["company_type"]  = "SoleEntity";
 } elseif ($company_radio == 'Generalpartnership') {
-    $formdata["company_type"]  = "شركة التضامن";
+    $formdata["company_type"]  = "Generalpartnership";
 } elseif ($company_radio == 'LimitedPartnership') {
-    $formdata["company_type"]  = "شركة التوصية البسيطة";
+    $formdata["company_type"]  = "LimitedPartnership";
 }
 }
 if (isset($_POST["company_name"])) {
@@ -267,17 +267,17 @@ for ($i=0; $i < count($shareholders); $i++) {
     $result1 = $connection->query($insert_manager);
 }
 
-if(isset($managers[0]["upload_manager"]))
-for ($i=0; $i < count($managers); $i++) {
-    $insert_manager = "INSERT INTO `managers`(`manager_name`,`manager_nationality` , `manager_personal_id`,
-                   `perm1`,`perm2`,`perm3`,`manager_type`,`company_id`) 
-                   VALUES ('".$managers[$i]["manager_name_upload"]."','".$managers[$i]["manager_nationality_upload"]."',
-                   '".$managers[$i]["upload_manager"]."','".$permessions[$i]["perm1_upload"]."',
-                   '".$permessions[$i]["perm2_upload"]."','".$permessions[$i]["perm3_upload"]."','".$managers[$i]["manager_type_upload"] ."',
-                   '".$formdata["company_id"]."')";
-    $result1 = $connection->query($insert_manager);
+if(isset($managers[0]["upload_manager"])){
+    for ($i=0; $i < count($managers); $i++) {
+        $insert_manager = "INSERT INTO `managers`(`manager_name`,`manager_nationality` , `manager_personal_id`,
+                    `perm1`,`perm2`,`perm3`,`manager_type`,`company_id`) 
+                    VALUES ('".$managers[$i]["manager_name_upload"]."','".$managers[$i]["manager_nationality_upload"]."',
+                    '".$managers[$i]["upload_manager"]."','".$permessions[$i]["perm1_upload"]."',
+                    '".$permessions[$i]["perm2_upload"]."','".$permessions[$i]["perm3_upload"]."','".$managers[$i]["manager_type_upload"] ."',
+                    '".$formdata["company_id"]."')";
+        $result1 = $connection->query($insert_manager);
+    }
 }
-
 ///////////////////////////////////////// insert malek in database ////////////////////////////
 if (isset($_POST["malek_name"]) && isset($_POST["malek_nationality"]) && isset($_POST["malek_personal_id"])) {
     $insert_malek = "INSERT INTO `managers`(`manager_name`,`manager_nationality` , `manager_personal_id`,

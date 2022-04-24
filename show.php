@@ -19,9 +19,9 @@ $result_company = mysqli_query($connection, $company);
 $row_company = mysqli_fetch_assoc($result_company);
 //$company_names = $row_company["company_name"];
 $company_names = json_decode($row_company["company_name"]);
-//echo "<pre>";
-//var_dump($company_names);
-//echo  "</pre>";
+// echo "<pre>";
+// var_dump($row_company);
+// echo  "</pre>";
 
 $company_id = "SELECT id from companies where user_id = $id";
 $result_company_id = mysqli_query($connection, $company_id);
@@ -186,7 +186,7 @@ echo  "</pre>";
                                 <div class="choice d-flex justify-content-center flex-column align-items-end">
                                     <div class="form-check d-flex flex-row-reverse mt-3">
                                         <div>
-                                            <input class="form-check-input" type="radio"  name="company_type"    id="exampleRadios1" value="LimitedLiabilityCompany" onclick="checkboxSelection()"  required></div>
+                                            <input class="form-check-input" type="radio"  name="company_type"    id="exampleRadios1" value="LimitedLiabilityCompany" onclick="checkboxSelection()"<?php echo ($row_company["company_type"]== "LimitedLiabilityCompany" ? 'checked' : ''); ?>  required></div>
                                         <div class="mr-3">
                                             <label class="form-check-label" for="exampleRadios1">
                                                 <h2>شركة ذات مسئولية محدودة</h2>
@@ -199,7 +199,7 @@ echo  "</pre>";
                                         <div class="mr-8"><button class="btn down" id="down-1" type="button" onclick="download('Incorporation of a Limited Liability Company - Legal Clinic');" style="display: none;">تنزيل ملف الشروط</button></div> 
                                     </div>
                                       <div class="form-check d-flex flex-row-reverse mt-3">
-                                        <div><input class="form-check-input" type="radio"  name="company_type" id="exampleRadios2" value="JointStockIncorporation" onclick="checkboxSelection()" required></div>
+                                        <div><input class="form-check-input" type="radio"  name="company_type" id="exampleRadios2" value="JointStockIncorporation" onclick="checkboxSelection()" <?php echo ($row_company["company_type"]== "JointStockIncorporation" ? 'checked' : ''); ?> required></div>
                                         <div class="mr-3">
                                             <label class="form-check-label" for="exampleRadios1">
                                                 <h2>شركة مساهمة مصري</h2>
@@ -212,7 +212,7 @@ echo  "</pre>";
                                         <div class="mr-8"><button class="btn down"  id="down-2" style="display: none;" onclick="download('Joint Stock Incorporation');"  type="button">تنزيل ملف الشروط</button></div>
                                     </div>
                                       <div class="form-check d-flex flex-row-reverse mt-3">
-                                        <div><input class="form-check-input" type="radio"  name="company_type" id="exampleRadios3" value="OPCrequirements" onclick="checkboxSelection()" required></div>
+                                        <div><input class="form-check-input" type="radio"  name="company_type" id="exampleRadios3" value="OPCrequirements" onclick="checkboxSelection()"  <?php echo ($row_company["company_type"]=="OPCrequirements" ? 'checked' : ''); ?> required></div>
                                         <div class="mr-3">
                                             <label class="form-check-label" for="exampleRadios1">
                                                 <h2>شركة شخص واحد ذات مسئولية محدودة</h2>
@@ -235,7 +235,7 @@ echo  "</pre>";
                                     </div>
                                     <div class="choice d-flex justify-content-center flex-column align-items-end">
                                         <div class="form-check d-flex flex-row-reverse mt-3">
-                                            <div><input class="form-check-input" type="radio" name="company_type" id="exampleRadios4" value="SoleEntity" onclick="checkboxSelection()"  required></div>
+                                            <div><input class="form-check-input" type="radio" name="company_type" id="exampleRadios4" value="SoleEntity" onclick="checkboxSelection()"  <?php echo ($row_company["company_type"]=="SoleEntity" ? 'checked' : ''); ?>  required></div>
                                             <div class="mr-3">
                                                 <label class="form-check-label" for="exampleRadios4">
                                                     <h2>المنشاة الفردية</h2>
@@ -245,7 +245,7 @@ echo  "</pre>";
                                             <div class="mr-8"><button class="btn down" id="down-4" type="button" onclick="download('Sole Entity');" style="display: none;">تنزيل ملف الشروط</button></div> 
                                         </div>
                                           <div class="form-check d-flex flex-row-reverse mt-3">
-                                            <div><input class="form-check-input" type="radio"  name="company_type" id="exampleRadios5" value="Generalpartnership" onclick="checkboxSelection()" required></div>
+                                            <div><input class="form-check-input" type="radio"  name="company_type" id="exampleRadios5" value="Generalpartnership" onclick="checkboxSelection()"  <?php echo ($row_company["company_type"]=="Generalpartnership" ? 'checked' : ''); ?> required></div>
                                             <div class="mr-3">
                                                 <label class="form-check-label" for="exampleRadios1">
                                                     <h2>شركة التضامن</h2>
@@ -255,7 +255,7 @@ echo  "</pre>";
                                             <div class="mr-8"><button class="btn down"  id="down-5" style="display: none;" onclick="download('General partnership');"  type="button">تنزيل ملف الشروط</button></div>
                                         </div>
                                           <div class="form-check d-flex flex-row-reverse mt-3">
-                                            <div><input class="form-check-input" type="radio"  name="company_type" id="exampleRadios6" value="LimitedPartnership" onclick="checkboxSelection()" required></div>
+                                            <div><input class="form-check-input" type="radio"  name="company_type" id="exampleRadios6" value="LimitedPartnership" onclick="checkboxSelection()"  <?php echo ($row_company["company_type"]=="LimitedPartnership" ? 'checked' : ''); ?> required></div>
                                             <div class="mr-3">
                                                 <label class="form-check-label" for="exampleRadios1">
                                                     <h2>شركة التوصية البسيطة</h2>
@@ -355,8 +355,12 @@ echo  "</pre>";
                         <div class="mang-names pt-4"></div>
                             <div class="mang-details pt-4 pb-4" dir="rtl" >
                                 <div class="container">
+                                <?php
+                                        for($i = 0; $i<count($managers_array);$i++){
+                                      ?>  
                                     <div class="row" id="card-newAdd">
                                         <div class="col-xl-4 col-md-6 pt-3">
+
                                             <div class="card">
                                                 <div class="card-header">
                                                     <div class="close">
@@ -366,55 +370,61 @@ echo  "</pre>";
                                                         <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
                                                         <select class="form-select selectMangerSpec" name = "manager_type[]" id="specificSizeSelect2">
                                                             <option selected disabled>برجاء تحديد التصنيف</option>
-                                                            <option value = "ceo" class="ceo">رئيس مجلس الاداره</option>
-                                                            <option value = "director_member" class="director_member">عضو مجلس اداره</option> 
-                                                            <option value = "director_manager">عضو منتدب</option> 
+                                                            <option value = "ceo" <?php echo ($managers_array[$i]["manager_type"]=="ceo" ? 'selected' : ''); ?> class="ceo">رئيس مجلس الاداره</option>
+                                                            <option value = "director_member" <?php echo ($managers_array[$i]["manager_type"]=="director_member" ? 'selected' : ''); ?>?>  class="director_member">عضو مجلس اداره</option> 
+                                                            <option value = "director_manager" <?php echo ($managers_array[$i]["manager_type"]== "director_manager" ? 'selected' : ''); ?>>عضو منتدب</option> 
                                                         </select>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-6">
                                                             <div class=" g-3 justify-content-around" dir="rtl">
                                                                 <div class="">
-                                                                    <label for="inputtext1" class="form-label mang">${lname}</label>
-                                                                    <input type="text" class="form-control" id="inputtext1" value="${e.name}" name = "manager_name[]" readonly>
+                                                                    <label for="inputtext1" class="form-label mang">اسم المدير</label>
+                                                                    <input type="text" class="form-control" id="inputtext1" value="<?php echo $managers_array[$i]["manager_name"]; ?>" name = "manager_name[]" readonly>
                                                                 </div>
                                                                 <div class="">
-                                                                    <label for="inputtext2" class="form-label mang">${lnation}</label>
-                                                                    <input type="text" class="form-control" id="inputtext2" value="${e.nationality}" name = "manager_nationality[]" readonly>
+                                                                    <label for="inputtext2" class="form-label mang">جنسية المدير
+                                                                    </label>
+                                                                    <input type="text" class="form-control" id="inputtext2" value="<?php echo $managers_array[$i]["manager_nationality"]; ?>" name = "manager_nationality[]" readonly>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="col-6 align-self-center" style="padding-top: 33px;">
-                                                            <div class="id"><img src="${e.prev}" alt="" width="100%" id="imagePrev_${i}" class="imgId">
+                                                            <div class="id"><img src="<?php echo "uploads/".$managers_array[$i]["manager_personal_id"]; ?>" alt="" width="100%" id="imagePrev_${i}" class="imgId">
                                                             <input type="hidden" name="hidden_personal_id1" />
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
+
+                                               
                                                 <div class="card-body" id='card_${x}'>
                                                     <h6 class="h6part">صلاحيات المدير</h6>
                                                          <div class="form-check">
                                                             <label class="form-check-label" for="flexCheckDefault1">
                                                             صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
                                                             </label>
-                                                            <input class="form-check-input allow" type="checkbox" value="1" name = "perm1[]">
+                                                            <input class="form-check-input allow" type="checkbox" value="1" name = "perm1[]"  <?php echo ($managers_array[$i]["perm1"]==1 ? 'checked' : ''); ?>>
                                                         </div>
                                                         <div class="form-check">
                                                             <label class="form-check-label" for="flexCheckChecked2">
                                                             صلاحية توقيع العقود بالنيابه عن الشركة
                                                             </label>
-                                                            <input class="form-check-input allow" type="checkbox" value="1" name = "perm2[]">
+                                                            <input class="form-check-input allow" type="checkbox" value="1" name = "perm2[]"  <?php echo ($managers_array[$i]["perm2"]==1 ? 'checked' : ''); ?>>
                                                         </div>
                                                         <div class="form-check">
                                                             <label class="form-check-label" for="flexCheckChecked3">
                                                             صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
                                                             </label>
-                                                            <input class="form-check-input allow" type="checkbox" value="1" name = "perm3[]">
+                                                            <input class="form-check-input allow" type="checkbox" value="1" name = "perm3[]"  <?php echo ($managers_array[$i]["perm3"]==1 ? 'checked' : ''); ?>>
                                                         </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <?php
+                                        }
+                                    ?>
                                 </div>
                             </div>
                         </div>
