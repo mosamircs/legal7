@@ -470,29 +470,29 @@
     });
 </script>
 <script>
-function Load()
-{
-    var xmlhttp;
-    var url;
+// function Load()
+// {
+//     var xmlhttp;
+//     var url;
 
-    if (window.XMLHttpRequest)
-    {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
-    }
+//     if (window.XMLHttpRequest)
+//     {// code for IE7+, Firefox, Chrome, Opera, Safari
+//         xmlhttp=new XMLHttpRequest();
+//     }
 
-    xmlhttp.onreadystatechange=function()
-    {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200)
-        {           
-            //(optional)do something with response: xmlhttp.responseText
-            document.getElementById("area").innerHTML=xmlhttp.responseText;
-            document.getElementById("loadingimage").src = "loading.gif";
-        }
-    }
+//     xmlhttp.onreadystatechange=function()
+//     {
+//         if (xmlhttp.readyState==4 && xmlhttp.status==200)
+//         {           
+//             //(optional)do something with response: xmlhttp.responseText
+//             document.getElementById("area").innerHTML=xmlhttp.responseText;
+//             document.getElementById("loadingimage").src = "loading.gif";
+//         }
+//     }
 
-    xmlhttp.open("POST","thanks.php",true);
-    xmlhttp.send();
-}
+//     xmlhttp.open("POST","thanks.php",true);
+//     xmlhttp.send();
+// }
 </script>
 </body>
 </html>
