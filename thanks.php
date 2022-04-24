@@ -66,12 +66,12 @@ $connection = $database_instance->getConnection();
 if (isset($_POST['userid'])) {
     $formdata["userid"] = $_POST['userid'];
 }
-if (isset($_POST["signdate"])){
+if (isset($_POST["signdate"])&& !empty($_POST["signdate"])){
     $formdata["signdate"] = $_POST["signdate"];
     $update_date = "UPDATE `users` SET `signdate`='".$formdata["signdate"]."'WHERE `id`='".$formdata["userid"]."'";
     $result_date = $connection->query($update_date);
 }
-if (isset($_POST['company_type'])) {
+if (isset($_POST['company_type'])&& !empty($_POST['company_type'])) {
 $company_radio = $_POST['company_type'];
 if ($company_radio == 'LimitedLiabilityCompany') {
     $formdata["company_type"] = "LimitedLiabilityCompany";
@@ -87,36 +87,36 @@ if ($company_radio == 'LimitedLiabilityCompany') {
     $formdata["company_type"]  = "LimitedPartnership";
 }
 }
-if (isset($_POST["company_name"])) {
+if (isset($_POST["company_name"])&& !empty($_POST["company_name"])) {
     $formdata["company_name"] = json_encode($_POST["company_name"]);
 }
-if (isset($_POST["company_activity"])) {
+if (isset($_POST["company_activity"])&&!empty($_POST["company_activity"])) {
     $formdata["company_activity"] = $_POST["company_activity"];
 }
-if (isset($_POST["company_address"])) {
+if (isset($_POST["company_address"])&&!empty($_POST["company_address"])) {
     $formdata["company_address"] = $_POST["company_address"];
 }
-if (isset($_POST["capital_value"])) {
+if (isset($_POST["capital_value"])&&!empty($_POST["capital_value"])) {
     $formdata["capital_value"] = $_POST["capital_value"];
 }
-if (isset($_POST["capital_share"])) {
+if (isset($_POST["capital_share"])&&!empty($_POST["capital_share"])) {
     $formdata["capital_share"] = $_POST["capital_share"];
 }
 
 
 /////////////////////////////// shareholders layer ///////////////////////////////
-if (isset($_POST["shareholder_name"])) {
+if (isset($_POST["shareholder_name"])&&!empty($_POST["shareholder_name"])) {
     for ($i=0; $i < count($_POST["shareholder_name"]); $i++) {
         $shareholders[$i]["shareholder_name"] = $_POST["shareholder_name"][$i];
     }
 }
-if (isset($_POST["shareholder_nationality"])) {
+if (isset($_POST["shareholder_nationality"])&&!empty($_POST["shareholder_nationality"])) {
     for ($i=0; $i < count($_POST["shareholder_nationality"]); $i++) {
         $shareholders[$i]["shareholder_nationality"] = $_POST["shareholder_nationality"][$i];
     }
 }
 
-if (isset($_POST["shareholder_percentage"])) {
+if (isset($_POST["shareholder_percentage"])&&!empty($_POST["shareholder_percentage"])) {
     for ($i=0; $i < count($_POST["shareholder_percentage"]); $i++) {
         $shareholders[$i]["shareholder_percentage"] = $_POST["shareholder_percentage"][$i];
     }
@@ -153,65 +153,65 @@ if (isset($_FILES["personal_id"]["name"])) {
 
 
 /////////////////////////////// Managers layer ///////////////////////////////
-if (isset($_POST["manager_name"])) {
+if (isset($_POST["manager_name"])&&!empty($_POST["manager_name"])) {
     for ($i=0; $i < count($_POST["manager_name"]); $i++) {
         $managers[$i]["manager_name"] = $_POST["manager_name"][$i];
     }
 }
-if (isset($_POST["manager_nationality"])){
+if (isset($_POST["manager_nationality"])&&!empty($_POST["manager_nationality"])){
     for ($i=0; $i < count($_POST["manager_nationality"]); $i++) {
         $managers[$i]["manager_nationality"] = $_POST["manager_nationality"][$i];
     }
 }
-if (isset($_POST["manager_type"])){
+if (isset($_POST["manager_type"])&&!empty($_POST["manager_type"])){
     for ($i=0; $i < count($_POST["manager_type"]); $i++) {
         $managers[$i]["manager_type"] = $_POST["manager_type"][$i];
     }
 }
 //permessions
-if (isset($_POST["perm1"])){
+if (isset($_POST["perm1"])&&!empty($_POST["perm1"])){
     for ($i=0; $i < count($_POST["perm1"]); $i++) {
         $permessions[$i]["perm1"] = $_POST["perm1"][$i];
     }
 }
-if (isset($_POST["perm2"])){
+if (isset($_POST["perm2"])&&!empty($_POST["perm2"])){
     for ($i=0; $i < count($_POST["perm2"]); $i++) {
         $permessions[$i]["perm2"] = $_POST["perm2"][$i];
     }
 }
-if (isset($_POST["perm3"])){
+if (isset($_POST["perm3"])&&!empty($_POST["perm3"])){
     for ($i=0; $i < count($_POST["perm3"]); $i++) {
         $permessions[$i]["perm3"] = $_POST["perm3"][$i];
     }
 }
 ///////////////////////////////////////maanegr upload/////////////////////////////////
-if (isset($_POST["manager_name_upload"])) {
+if (isset($_POST["manager_name_upload"])&& !empty($_POST["manager_name_upload"])) {
     for ($i=0; $i < count($_POST["manager_name_upload"]); $i++) {
         $managers[$i]["manager_name_upload"] = $_POST["manager_name_upload"][$i];
     }
 }
-if (isset($_POST["manager_nationality_upload"])){
+if (isset($_POST["manager_nationality_upload"])&& !empty($_POST["manager_nationality_upload"])){
     for ($i=0; $i < count($_POST["manager_nationality_upload"]); $i++) {
         $managers[$i]["manager_nationality_upload"] = $_POST["manager_nationality_upload"][$i];
     }
 }
-if (isset($_POST["manager_type_upload"])){
+if (isset($_POST["manager_type_upload"])&&!empty($_POST["manager_type_upload"])){
     for ($i=0; $i < count($_POST["manager_type_upload"]); $i++) {
         $managers[$i]["manager_type_upload"] = $_POST["manager_type_upload"][$i];
     }
 }
 //permessions
-if (isset($_POST["perm1_upload"])){
+if (isset($_POST["perm1_upload"])&&!empty($_POST["perm1_upload"])){
     for ($i=0; $i < count($_POST["perm1_upload"]); $i++) {
         $permessions[$i]["perm1_upload"] = $_POST["perm1_upload"][$i];
     }
 }
-if (isset($_POST["perm2_upload"])){
+if (isset($_POST["perm2_upload"])&&!empty($_POST["perm2_upload"])){
     for ($i=0; $i < count($_POST["perm2_upload"]); $i++) {
         $permessions[$i]["perm2_upload"] = $_POST["perm2_upload"][$i];
     }
 }
-if (isset($_POST["perm3_upload"])){
+if (isset($_POST["perm3_upload"])&&!empty($_POST["perm3_upload"])){
     for ($i=0; $i < count($_POST["perm3_upload"]); $i++) {
         $permessions[$i]["perm3_upload"] = $_POST["perm3_upload"][$i];
     }
@@ -267,8 +267,8 @@ for ($i=0; $i < count($shareholders); $i++) {
     $result1 = $connection->query($insert_manager);
 }
 
-if(isset($managers[0]["upload_manager"])){
-    for ($i=0; $i < count($managers); $i++) {
+if(isset($_POST["manager_name_upload"][0])&& !empty($_POST["manager_name_upload"][0])){
+    for ($i=0; $i < count($_POST["manager_name_upload"]); $i++) {
         $insert_manager = "INSERT INTO `managers`(`manager_name`,`manager_nationality` , `manager_personal_id`,
                     `perm1`,`perm2`,`perm3`,`manager_type`,`company_id`) 
                     VALUES ('".$managers[$i]["manager_name_upload"]."','".$managers[$i]["manager_nationality_upload"]."',

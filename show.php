@@ -1,6 +1,6 @@
 <?php
-error_reporting(0);
-@ini_set('display_errors', 0);
+// error_reporting(0);
+// @ini_set('display_errors', 0);
 require_once("header.php");
 require_once ("database.php");
 $database_instance = Database::getInstance();
@@ -168,7 +168,7 @@ echo  "</pre>";
             </div>
         </div>
         <section >
-         <form action="" id="form" method="" class="needs-validation" enctype = "multipart/form-data" novalidate>
+         <form action="thanks2.php" id="form" method="post" class="needs-validation" enctype = "multipart/form-data" novalidate>
          <input type="hidden" name="userid" id="userid" value="">
                 <div class="main-content" id="main" >
                     <div class="container">
@@ -422,6 +422,78 @@ echo  "</pre>";
                                             </div>
                                         </div>
                                     </div>
+                                    <?php
+                                      if (isset($managers_array[0]["manager_name_upload"])){
+                                        for($j= 0; $j<count($managers_array[$j]["manager_name_upload"]);$j++){
+                                      ?>  
+                                    <div class="row" id="card-newAdd" <?php if (!isset($managers_array[$i]["manager_name_upload"])){ echo 'style="display:none;"'; } ?>>
+                                        <div class="col-xl-4 col-md-6 pt-3">
+
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <div class="close">
+                                                        <img src="images/svgexport-6 (16) 1.svg" alt="" onclick="this.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode.parentNode);onRest();">
+                                                     </div>
+                                                    <div class="mt-3 mb-3 " dir="rtl"> 
+                                                        <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
+                                                        <select class="form-select selectMangerSpec" name = "manager_type[]" id="specificSizeSelect2">
+                                                            <option selected disabled>برجاء تحديد التصنيف</option>
+                                                            <option value = "ceo" <?php echo ($managers_array[$i]["manager_type_upload"]=="ceo" ? 'selected' : ''); ?> class="ceo">رئيس مجلس الاداره</option>
+                                                            <option value = "director_member" <?php echo ($managers_array[$i]["manager_type_upload"]=="director_member" ? 'selected' : ''); ?>?>  class="director_member">عضو مجلس اداره</option> 
+                                                            <option value = "director_manager" <?php echo ($managers_array[$i]["manager_type_upload"]== "director_manager" ? 'selected' : ''); ?>>عضو منتدب</option> 
+                                                        </select>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <div class=" g-3 justify-content-around" dir="rtl">
+                                                                <div class="">
+                                                                    <label for="inputtext1" class="form-label mang">اسم المدير</label>
+                                                                    <input type="text" class="form-control" id="inputtext1" value="<?php echo $managers_array[$i]["manager_name_upload"]; ?>" name = "manager_name[]" readonly>
+                                                                </div>
+                                                                <div class="">
+                                                                    <label for="inputtext2" class="form-label mang">جنسية المدير
+                                                                    </label>
+                                                                    <input type="text" class="form-control" id="inputtext2" value="<?php echo $managers_array[$i]["manager_nationality_upload"]; ?>" name = "manager_nationality[]" readonly>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 align-self-center" style="padding-top: 33px;">
+                                                            <div class="id"><img src="<?php echo "uploads/".$managers_array[$i]["upload_manager"]; ?>" alt="" width="100%" id="imagePrev_${i}" class="imgId">
+                                                            <input type="hidden" name="hidden_personal_id1" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                               
+                                                <div class="card-body" id='card_${x}'>
+                                                    <h6 class="h6part">صلاحيات المدير</h6>
+                                                         <div class="form-check">
+                                                            <label class="form-check-label" for="flexCheckDefault1">
+                                                            صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
+                                                            </label>
+                                                            <input class="form-check-input allow" type="checkbox" value="1" name = "perm1_upload[]"  <?php echo ($managers_array[$i]["perm1_upload"]==1 ? 'checked' : ''); ?>>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <label class="form-check-label" for="flexCheckChecked2">
+                                                            صلاحية توقيع العقود بالنيابه عن الشركة
+                                                            </label>
+                                                            <input class="form-check-input allow" type="checkbox" value="1" name = "perm2_upload[]"  <?php echo ($managers_array[$i]["perm2_upload"]==1 ? 'checked' : ''); ?>>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <label class="form-check-label" for="flexCheckChecked3">
+                                                            صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
+                                                            </label>
+                                                            <input class="form-check-input allow" type="checkbox" value="1" name = "perm3_upload[]"  <?php echo ($managers_array[$i]["perm3_upload"]==1 ? 'checked' : ''); ?>>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php
+                                        }
+                                    }
+                                    ?>
                                     <?php
                                         }
                                     ?>
