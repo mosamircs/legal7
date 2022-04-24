@@ -988,7 +988,7 @@ btnAddMang.addEventListener('click',(e)=>{
                   <div class="mt-3 mb-3 " dir="rtl" style="display:${displayٍSelect};"> 
                       <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
                       <select class="form-select selectMangerSpec" name = "manager_type[]" id="specificSizeSelect2">
-                          <option selected disabled>برجاء تحديد التصنيف</option>
+                          <option selected readonly>برجاء تحديد التصنيف</option>
                           <option value = "ceo" class="ceo">رئيس مجلس الاداره</option>
                           <option value = "director_member" class="director_member">عضو مجلس اداره</option> 
                           <option value = "director_manager">عضو منتدب</option> 
@@ -1009,7 +1009,7 @@ btnAddMang.addEventListener('click',(e)=>{
                       </div>
                       <div class="col-6 align-self-center" style="padding-top: 33px;">
                           <div class="id"><img src="${e.prev}" alt="" width="100%" id="imagePrev_${i}" class="imgId">
-                          <input type="hidden" name="hidden_personal_id1" />
+                         <!-- <input type="hidden" name="hidden_personal_id1" /> -->
                           </div>
                       </div>
                   </div>
@@ -1059,7 +1059,7 @@ btnAddMang.addEventListener('click',(e)=>{
         <div class="mt-3 mb-3" dir="rtl"  style="display:${displayٍSelect};"> 
             <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
             <select class="form-select selectMangerSpec" name = "manager_type_upload[]" id="specificSizeSelect2">
-                <option selected disabled>برجاء تحديد التصنيف</option>
+                <option selected readonly>برجاء تحديد التصنيف</option>
                 <option value = "ceo" class="ceo">رئيس مجلس الاداره</option>
                 <option value = "director_member" class="director_member">عضو مجلس اداره</option> 
                 <option value = "director_manager">عضو منتدب</option> 
@@ -1142,7 +1142,7 @@ btnAddMang.addEventListener('click',(e)=>{
         <div class="mt-3 mb-3" dir="rtl" style="display:${displayٍSelect};"> 
             <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
             <select class="form-select selectMangerSpec" name = "manager_type_upload[]" id="specificSizeSelect2">
-                <option selected disabled>برجاء تحديد التصنيف</option>
+                <option selected readonly>برجاء تحديد التصنيف</option>
                 <option value = "ceo" class="ceo">رئيس مجلس الاداره</option>
                 <option value = "director_member" class="director_member">عضو مجلس اداره</option> 
                 <option value = "director_manager">عضو منتدب</option> 
@@ -1235,7 +1235,7 @@ btnAddMang.addEventListener('click',(e)=>{
                   <div class="mt-3 mb-3" dir="rtl" style="display:${displayٍSelect};"> 
                       <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
                       <select class="form-select selectMangerSpec" name = "manager_type[]" id="specificSizeSelect2">
-                          <option selected disabled>برجاء تحديد التصنيف</option>
+                          <option selected readonly>برجاء تحديد التصنيف</option>
                           <option value = "ceo" class="ceo">رئيس مجلس الاداره</option>
                           <option value = "director_member" class="director_member">عضو مجلس اداره</option> 
                           <option value = "director_manager">عضو منتدب</option> 
@@ -1306,7 +1306,7 @@ btnAddMang.addEventListener('click',(e)=>{
         <div class="mt-3 mb-3 " dir="rtl" style="display:${displayٍSelect};"> 
             <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
             <select class="form-select selectMangerSpec" name = "manager_type[]" id="specificSizeSelect2">
-                <option selected disabled>برجاء تحديد التصنيف</option>
+                <option selected readonly>برجاء تحديد التصنيف</option>
                 <option value = "ceo" class="ceo">رئيس مجلس الاداره</option>
                 <option value = "director_member" class="director_member">عضو مجلس اداره</option> 
                 <option value = "director_manager">عضو منتدب</option> 
@@ -1391,7 +1391,7 @@ btnAddMang.addEventListener('click',(e)=>{
         <div class="mt-3 mb-3" dir="rtl" style="display:${displayٍSelect};"> 
             <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
             <select class="form-select selectMangerSpec" name = "manager_type[]" id="specificSizeSelect2">
-                <option selected disabled>برجاء تحديد التصنيف</option>
+                <option selected readonly>برجاء تحديد التصنيف</option>
                 <option value = "ceo" class="ceo">رئيس مجلس الاداره</option>
                 <option value = "director_member" class="director_member">عضو مجلس اداره</option> 
                 <option value = "director_manager">عضو منتدب</option> 
@@ -1481,14 +1481,14 @@ btnAddMang.addEventListener('click',(e)=>{
         if(chooseCeo){
             [...ceo].forEach((v)=>{
                 // console.log(v);
-                v.setAttribute('disabled',StatusAttr);
+                v.setAttribute('readonly',StatusAttr);
                 // v.style.display = 'none';
 
             })
         }else{
             [...ceo].forEach((v)=>{
                 // console.log('disceo');
-                v.removeAttribute('disabled');
+                v.removeAttribute('readonly');
                 // v.style.display = 'block';
             })
         }
@@ -1500,12 +1500,12 @@ btnAddMang.addEventListener('click',(e)=>{
         if(choosedirMember){
             [...directorMember].forEach((v)=>{
                 // console.log(v);
-                v.setAttribute('disabled',StatusAttr);
+                v.setAttribute('readonly',StatusAttr);
             })
         }else{
             [...directorMember].forEach((v)=>{
                 // console.log(v); 
-                v.removeAttribute('disabled');
+                v.removeAttribute('readonly');
             })
         }
     })

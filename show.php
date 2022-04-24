@@ -1,6 +1,6 @@
 <?php
-// error_reporting(0);
-// @ini_set('display_errors', 0);
+error_reporting(0);
+@ini_set('display_errors', 0);
 require_once("header.php");
 require_once ("database.php");
 $database_instance = Database::getInstance();
@@ -357,6 +357,7 @@ echo  "</pre>";
                                 <div class="container">
                                 <?php
                                         for($i = 0; $i<count($managers_array);$i++){
+                                            var_dump($managers_array[$i]["manager_type"]);
                                       ?>  
                                     <div class="row" id="card-newAdd">
                                         <div class="col-xl-4 col-md-6 pt-3">
@@ -369,7 +370,7 @@ echo  "</pre>";
                                                     <div class="mt-3 mb-3 " dir="rtl"> 
                                                         <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
                                                         <select class="form-select selectMangerSpec" name = "manager_type[]" id="specificSizeSelect2">
-                                                            <option  disabled>برجاء تحديد التصنيف</option>
+                                                            <option  readonly>برجاء تحديد التصنيف</option>
                                                             <option value = "ceo" <?php echo ($managers_array[$i]["manager_type"]=="ceo" ? 'selected' : ''); ?> class="ceo">رئيس مجلس الاداره</option>
                                                             <option value = "director_member" <?php echo ($managers_array[$i]["manager_type"]=="director_member" ? 'selected' : ''); ?> class="director_member">عضو مجلس اداره</option> 
                                                             <option value = "director_manager" <?php echo ($managers_array[$i]["manager_type"]== "director_manager" ? 'selected' : ''); ?>>عضو منتدب</option> 
@@ -391,7 +392,7 @@ echo  "</pre>";
                                                         </div>
                                                         <div class="col-6 align-self-center" style="padding-top: 33px;">
                                                             <div class="id"><img src="<?php echo "uploads/".$managers_array[$i]["manager_personal_id"]; ?>" alt="" width="100%" id="imagePrev_${i}" class="imgId">
-                                                            <input type="hidden" name="hidden_personal_id1" />
+                                                            <!-- <input type="hidden" name="hidden_personal_id1" /> -->
                                                             </div>
                                                         </div>
                                                     </div>
@@ -437,7 +438,7 @@ echo  "</pre>";
                                                     <div class="mt-3 mb-3 " dir="rtl"> 
                                                         <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
                                                         <select class="form-select selectMangerSpec" name = "manager_type[]" id="specificSizeSelect2">
-                                                            <option  disabled>برجاء تحديد التصنيف</option>
+                                                            <option  readonly>برجاء تحديد التصنيف</option>
                                                             <option value = "ceo" <?php echo ($managers_array[$i]["manager_type_upload"]=="ceo" ? 'selected' : ''); ?> class="ceo">رئيس مجلس الاداره</option>
                                                             <option value = "director_member" <?php echo ($managers_array[$i]["manager_type_upload"]=="director_member" ? 'selected' : ''); ?> class="director_member">عضو مجلس اداره</option> 
                                                             <option value = "director_manager" <?php echo ($managers_array[$i]["manager_type_upload"]== "director_manager" ? 'selected' : ''); ?>>عضو منتدب</option> 
@@ -459,7 +460,7 @@ echo  "</pre>";
                                                         </div>
                                                         <div class="col-6 align-self-center" style="padding-top: 33px;">
                                                             <div class="id"><img src="<?php echo "uploads/".$managers_array[$i]["upload_manager"]; ?>" alt="" width="100%" id="imagePrev_${i}" class="imgId">
-                                                            <input type="hidden" name="hidden_personal_id1" />
+                                                            <!-- <input type="hidden" name="hidden_personal_id1" /> -->
                                                             </div>
                                                         </div>
                                                     </div>
