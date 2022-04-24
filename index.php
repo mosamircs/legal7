@@ -407,7 +407,8 @@
                 </div>
             </form>
         </section>
-     
+    <img id="loadingimage" src="images/loading.gif" style ="display:none;"/>
+    <div id="area"style ="display:none;" ></div>
     <script src="js/jquery.min.js" ></script>
     <script src="js/popper.min.js" ></script>
     <script src="js/bootstrap.min.js" ></script>
@@ -467,6 +468,31 @@
             }
         });
     });
+</script>
+<script>
+function Load()
+{
+    var xmlhttp;
+    var url;
+
+    if (window.XMLHttpRequest)
+    {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+    }
+
+    xmlhttp.onreadystatechange=function()
+    {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+        {           
+            //(optional)do something with response: xmlhttp.responseText
+            document.getElementById("area").innerHTML=xmlhttp.responseText;
+            document.getElementById("loadingimage").src = "loading.gif";
+        }
+    }
+
+    xmlhttp.open("POST","thanks.php",true);
+    xmlhttp.send();
+}
 </script>
 </body>
 </html>
