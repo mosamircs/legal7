@@ -369,9 +369,9 @@ echo  "</pre>";
                                                     <div class="mt-3 mb-3 " dir="rtl"> 
                                                         <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
                                                         <select class="form-select selectMangerSpec" name = "manager_type[]" id="specificSizeSelect2">
-                                                            <option selected disabled>برجاء تحديد التصنيف</option>
+                                                            <option  disabled>برجاء تحديد التصنيف</option>
                                                             <option value = "ceo" <?php echo ($managers_array[$i]["manager_type"]=="ceo" ? 'selected' : ''); ?> class="ceo">رئيس مجلس الاداره</option>
-                                                            <option value = "director_member" <?php echo ($managers_array[$i]["manager_type"]=="director_member" ? 'selected' : ''); ?>?>  class="director_member">عضو مجلس اداره</option> 
+                                                            <option value = "director_member" <?php echo ($managers_array[$i]["manager_type"]=="director_member" ? 'selected' : ''); ?> class="director_member">عضو مجلس اداره</option> 
                                                             <option value = "director_manager" <?php echo ($managers_array[$i]["manager_type"]== "director_manager" ? 'selected' : ''); ?>>عضو منتدب</option> 
                                                         </select>
                                                     </div>
@@ -437,9 +437,9 @@ echo  "</pre>";
                                                     <div class="mt-3 mb-3 " dir="rtl"> 
                                                         <label class="visually-hidden" for="specificSizeSelect2">Preference</label>
                                                         <select class="form-select selectMangerSpec" name = "manager_type[]" id="specificSizeSelect2">
-                                                            <option selected disabled>برجاء تحديد التصنيف</option>
+                                                            <option  disabled>برجاء تحديد التصنيف</option>
                                                             <option value = "ceo" <?php echo ($managers_array[$i]["manager_type_upload"]=="ceo" ? 'selected' : ''); ?> class="ceo">رئيس مجلس الاداره</option>
-                                                            <option value = "director_member" <?php echo ($managers_array[$i]["manager_type_upload"]=="director_member" ? 'selected' : ''); ?>?>  class="director_member">عضو مجلس اداره</option> 
+                                                            <option value = "director_member" <?php echo ($managers_array[$i]["manager_type_upload"]=="director_member" ? 'selected' : ''); ?> class="director_member">عضو مجلس اداره</option> 
                                                             <option value = "director_manager" <?php echo ($managers_array[$i]["manager_type_upload"]== "director_manager" ? 'selected' : ''); ?>>عضو منتدب</option> 
                                                         </select>
                                                     </div>
