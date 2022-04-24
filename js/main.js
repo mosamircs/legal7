@@ -133,7 +133,7 @@ if((curr == 3 && checkbox3.checked) || (curr == 3 && checkbox4.checked)){
 function changeLayer(curr){
     // console.log(curr);
     //hold for validation
-    if (curr == 1 && !validateForm()) return false;
+    // if (curr == 1 && !validateForm()) return false;
     layer[currLayer].style.display = "none";
     currLayer = currLayer + curr;
     // console.log(currLayer);
@@ -1481,15 +1481,17 @@ btnAddMang.addEventListener('click',(e)=>{
         if(chooseCeo){
             [...ceo].forEach((v)=>{
                 // console.log(v);
-                v.setAttribute('readonly',StatusAttr);
+                // v.setAttribute('readonly',StatusAttr);
                 // v.style.display = 'none';
+                v.hidden = true;
 
             })
         }else{
             [...ceo].forEach((v)=>{
                 // console.log('disceo');
-                v.removeAttribute('readonly');
+                // v.removeAttribute('readonly');
                 // v.style.display = 'block';
+                v.hidden = false;
             })
         }
         if(val.value == 'director_member'){
@@ -1500,12 +1502,14 @@ btnAddMang.addEventListener('click',(e)=>{
         if(choosedirMember){
             [...directorMember].forEach((v)=>{
                 // console.log(v);
-                v.setAttribute('readonly',StatusAttr);
+                // v.setAttribute('readonly',StatusAttr);
+                v.hidden = true;
             })
         }else{
             [...directorMember].forEach((v)=>{
                 // console.log(v); 
-                v.removeAttribute('readonly');
+                // v.removeAttribute('readonly');
+                v.hidden = false;
             })
         }
     })
