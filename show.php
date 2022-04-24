@@ -357,7 +357,7 @@ echo  "</pre>";
                                 <div class="container">
                                 <?php
                                         for($i = 0; $i<count($managers_array);$i++){
-                                            var_dump($managers_array[$i]["manager_type"]);
+                                            // var_dump($managers_array[$i]["manager_type"]);
                                       ?>  
                                     <div class="row" id="card-newAdd">
                                         <div class="col-xl-4 col-md-6 pt-3">
