@@ -52,7 +52,7 @@ while($row_managers  = mysqli_fetch_assoc($result_managers)){
 </head>
 <body  dir ="rtl">
 <center><h1>المستخدمين</h1></center>
-<table class = "table table-striped">
+<table class = "table table-striped" id = "tbl_exporttable_to_xls">
 <thead>
     <tr>
         <th>الاسم</th>
@@ -72,7 +72,7 @@ while($row_managers  = mysqli_fetch_assoc($result_managers)){
     <tr>
         <td><?php echo $row_user["name"]; ?></td>
         <td><?php echo $row_user["email"]; ?></td>
-        <td><?php echo $row_user["phone"]; ?></td>
+        <td dir = "ltr"><?php echo $row_user["phone"]; ?></td>
         <td><?php echo $row_user["date"]; ?></td>
         <td><?php echo $row_user["signdate"]; ?></td>
         
@@ -150,7 +150,7 @@ while($row_managers  = mysqli_fetch_assoc($result_managers)){
 </tbody>
 </table>
 <center><h1>المساهمين</h1></center>
-<table class = "table table-striped" dir ="rtl">
+<table class = "table table-striped" dir ="rtl" id = "tbl2_exporttable_to_xls">
 <thead>
     <tr>
         <th>اسم المساهم</th>
@@ -176,7 +176,7 @@ while($row_managers  = mysqli_fetch_assoc($result_managers)){
 </table>
 <center><h1>المديرين</h1></center>
  </table>
- <table class = "table table-striped" dir ="rtl">
+ <table class = "table table-striped" dir ="rtl" id = "tbl3_exporttable_to_xls">
 <thead>
     <tr>
         <th>تصنيف المدير</th>
@@ -214,44 +214,35 @@ while($row_managers  = mysqli_fetch_assoc($result_managers)){
     ?>
 </tbody>
  </table>
- <button type="button" class="btn btn-primary" id = "excel">
+ <!-- use the latest version -->
+<script lang="javascript" src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+ <button type="button" class="btn btn-primary"  onclick="ExportToExcel('xlsx');" id = "excel">
      حفظ كملف Excel
 </button>
+<script>
+function ExportToExcel(type, fn, dl) {
+    let tbl1 = document.getElementById("tbl_exporttable_to_xls")
+    let tbl2 = document.getElementById("tbl2_exporttable_to_xls")
+    let tbl3 = document.getElementById("tbl3_exporttable_to_xls")
+        
+    let worksheet_tmp1 = XLSX.utils.table_to_sheet(tbl1);
+    let worksheet_tmp2 = XLSX.utils.table_to_sheet(tbl2);
+    let worksheet_tmp3 = XLSX.utils.table_to_sheet(tbl3);
+
+        
+    let a = XLSX.utils.sheet_to_json(worksheet_tmp1, { header: 1 })
+    let b = XLSX.utils.sheet_to_json(worksheet_tmp2, { header: 1 })
+    let c = XLSX.utils.sheet_to_json(worksheet_tmp3, { header: 1 })
+        
+    a = a.concat(['']).concat(b)
+    a = a.concat(['']).concat(c)
+
+        
+    let worksheet = XLSX.utils.json_to_sheet(a, { skipHeader: false })
+
+    const new_workbook = XLSX.utils.book_new()
+    XLSX.utils.book_append_sheet(new_workbook, worksheet, "worksheet")
+    XLSX.writeFile(new_workbook, 'sheet.xls')
+}
+</script>
 </body>
-<?php
-// include 'excelwriter.inc.php';
-   
-//     $excel=new ExcelWriter("user.xls");
-   
-//     if($excel==false)
-//         echo $excel->error;
-       
-//     // $myArr=array("الاسم","الايميل","التليفون","تاريخ التسجيل","تاريخ توقيع العقد","نوع الشركة","اقتراحات اسماء الشركات","نشاط الشركة","عنوان الشركة","قيمة رأس المال","قيمة الحصة");
-//     // $excel->writeLine($myArr);
-
-//     // $myArr=array($row_user["name"],$row_user["email"],$row_user["phone"],$row_user["date"],$row_user["signdate"],$row_company["company_type"],"company names",$row_company["company_activity"],$row_company["company_address"],$row_company["capital_value"],$row_company["capital_share"]);
-//     // $excel->writeLine($myArr);
-   
-//     $excel->writeRow();
-//     $excel->writeCol("Manoj");
-//     $excel->writeCol("Tiwari");
-//     $excel->writeCol("80 Preet Vihar");
-//     $excel->writeCol(24);
-   
-//     $excel->writeRow();
-//     $excel->writeCol("Harish");
-//     $excel->writeCol("Chauhan");
-//     $excel->writeCol("115 Shyam Park Main");
-//     $excel->writeCol(22);
-
-//     // $myArr=array("Tapan","Chauhan","1st Floor Vasundhra",25);
-//     // $excel->writeLine($myArr);
-         
-//     // $mytable2 = array("اسم المساهم","جنسية المساهم","نسبة المساهم");
-//     // $excel->writeLine($mytable2);
-//     // for ($i=0; $i <count($shareholders_array) ; $i++) { 
-//     //      $mytable2 = array($shareholders_array[$i]["shareholder_name"],$row_shareholders[$i]["shareholder_nationality"],$row_shareholders[$i]["shareholder_percenatage"]);
-//     //     $excel->writeLine($mytable2);
-//     // }
-//     $excel->close();
-//     echo "data is write into myXls.xls Successfully.";
