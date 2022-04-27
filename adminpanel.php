@@ -44,4 +44,3 @@ while($row = mysqli_fetch_row($query)){
 ?>
 </tbody>
 </table>
-?>
