@@ -167,7 +167,7 @@ while($row_managers  = mysqli_fetch_assoc($result_managers)){
         <td><?php echo $shareholders_array[$i]["shareholder_name"];  ?></td>
         <td><?php echo $shareholders_array[$i]["shareholder_nationality"];  ?></td>
         <td><?php echo $shareholders_array[$i]["shareholder_percenatage"];  ?></td>
-        <td> <img src="<?php echo "uploads/".$shareholders_array[$i]['shareholder_personal_id'];?>"width="100"height="100"></td>
+        <td> <img src="<?php echo "uploads/".$shareholders_array[$i]['shareholder_personal_id'];?>"width="100"height="100"><p hidden><?php echo "http://localhost/"."uploads/".$shareholders_array[$i]['shareholder_personal_id']; ?></p></td>
     </tr>
     <?php
           }
@@ -204,7 +204,7 @@ while($row_managers  = mysqli_fetch_assoc($result_managers)){
         ?>
         <td><?php echo  $managers_array[$i]["manager_name"];  ?></td>
         <td><?php echo $managers_array[$i]["manager_nationality"];  ?></td>
-        <td> <img src="<?php echo "uploads/".$managers_array[$i]["manager_personal_id"];?>"width="100"height="100"></td>
+        <td> <img src="<?php echo "uploads/".$managers_array[$i]["manager_personal_id"];?>"width="100"height="100"><p hidden><?php echo "http://localhost/"."uploads/".$managers_array[$i]["manager_personal_id"]; ?></p></td>
         <td><?php echo ($managers_array[$i]["perm1"]==1 ? 'صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة' : ''); ?> <td>
         <td> <?php echo ($managers_array[$i]["perm2"]==1 ? 'صلاحية توقيع العقود بالنيابه عن الشركة' : ''); ?> <td>
         <td><?php echo ($managers_array[$i]["perm3"]==1 ? 'صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة' : ''); ?> <td>
