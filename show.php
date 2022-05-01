@@ -234,15 +234,26 @@ function ExportToExcel(type, fn, dl) {
     let b = XLSX.utils.sheet_to_json(worksheet_tmp2, { header: 1 })
     let c = XLSX.utils.sheet_to_json(worksheet_tmp3, { header: 1 })
         
-    a = a.concat(['']).concat(b)
-    a = a.concat(['']).concat(c)
+    // a = a.concat(['']).concat(b)
+    // a = a.concat(['']).concat(c)
 
         
-    let worksheet = XLSX.utils.json_to_sheet(a, { skipHeader: false })
+    let worksheet1 = XLSX.utils.json_to_sheet(a, { skipHeader: true })
+    let worksheet2 = XLSX.utils.json_to_sheet(b, { skipHeader: true })
+    let worksheet3 = XLSX.utils.json_to_sheet(c, { skipHeader: true })
 
-    const new_workbook = XLSX.utils.book_new()
-    XLSX.utils.book_append_sheet(new_workbook, worksheet, "worksheet")
-    XLSX.writeFile(new_workbook, 'sheet.xls')
+
+    const new_workbook1 = XLSX.utils.book_new()
+    // const new_workbook2 = XLSX.utils.book_new()
+    // const new_workbook3 = XLSX.utils.book_new()
+
+    XLSX.utils.book_append_sheet(new_workbook1, worksheet1, "user")
+    XLSX.utils.book_append_sheet(new_workbook1, worksheet2, "shareholders")
+    XLSX.utils.book_append_sheet(new_workbook1, worksheet3, "managers")
+    XLSX.writeFile(new_workbook1, 'sheet.xls')
+    // XLSX.writeFile(new_workbook1, 'sheet2.xls')
+    // XLSX.writeFile(new_workbook1, 'sheet3.xls')
+
 }
 </script>
 </body>
